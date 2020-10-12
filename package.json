@@ -9,7 +9,8 @@
 		"build:dev": "webpack --mode development",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"posttest": "npm run format",
-		"format": "prettier --loglevel warn --write \"**/*.{js,css,md}\""
+		"format": "prettier --loglevel warn --write \"**/*.{js,css,md}\"",
+		"deploy": "firebase deploy"
 	},
 	"keywords": [],
 	"author": "",
