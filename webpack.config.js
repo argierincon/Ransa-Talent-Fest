@@ -38,13 +38,15 @@ module.exports = {
       ],
     },
     {
-      test: /\.(png|jpg|jpeg|gif|svg|)/,
-      use: {
-        loader: 'file-loader',
-        options: {
-          name: 'assets/[hash].[ext]',
+      test: /\.(png|jpg|jpeg|gif|svg)/,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            name: 'assets/[hash].[ext]',
+          },
         },
-      },
+      ],
     },
     ],
   },
@@ -54,7 +56,7 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       template: './public/index.html',
-      filename: 'index.html',
+      filename: './index.html',
     }),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
