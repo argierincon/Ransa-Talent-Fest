@@ -1,4 +1,5 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import Login from './Views/login/Login';
 
-ReactDom.render(<h1>Hola Ransa</h1>, document.getElementById('app'));
+ReactDom.render(<Login />, document.getElementById('app'));
