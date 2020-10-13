@@ -1,14 +1,9 @@
 import React from 'react';
-import Home from '../../components/titleLoginRegister/TitleLoginRegister';
-import TitleLoginRegister from '../../components/titleLoginRegister/TitleLoginRegister';
 
-const Login = () => {
-return (
+const Home = () => (
   <div>
-    <TitleLoginRegister title="prueba Home" />
     prueba Home
   </div>
 );
-};
 
-export default Login;
+export default Home;
