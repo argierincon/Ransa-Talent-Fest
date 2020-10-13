@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import Login from './Views/login/Login';
-import './assets/styles/global.scss';
+import Router from './router/Router';
 
-ReactDom.render(<Login />, document.getElementById('app'));
+ReactDom.render(<Router />, document.getElementById('app'));
