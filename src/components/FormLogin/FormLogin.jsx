@@ -5,20 +5,18 @@ import BtnPrimary from '../btnPrimary/BtnPrimary';
 import passwordIcon from '../../assets/icons/password.svg';
 
 const FormLogin = () => (
-  <div className="container-form">
-    <form className="form-login">
-      <h3>Iniciar Sesión</h3>
-      <div className="comun">
-        <img src={emailIcon} className="icon-input" alt="email" />
-        <input type="email" placeholder="Correo electrónico" />
-      </div>
-      <div className="comun">
-        <img src={passwordIcon} className="icon-input" alt="password" />
-        <input type="password" placeholder="Contraseña" />
-      </div>
-      <BtnPrimary texto="Iniciar Sesión" />
-    </form>
-  </div>
+  <form className="form-login">
+    <h1>Iniciar Sesión</h1>
+    <div className="comun">
+      <img src={emailIcon} className="icon-input" alt="email" />
+      <input type="email" placeholder="Correo electrónico" />
+    </div>
+    <div className="comun">
+      <img src={passwordIcon} className="icon-input" alt="password" />
+      <input type="password" placeholder="Contraseña" />
+    </div>
+    <BtnPrimary texto="Iniciar Sesión" />
+  </form>
 );
 
 export default FormLogin;
