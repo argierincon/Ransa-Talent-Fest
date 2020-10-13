@@ -5,13 +5,14 @@ import Home from '../Views/home/Home';
 import Login from '../Views/login/Login';
 
 const Router = () => (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/Home" component={Home} />{' '}
-        <Route exact path="/Login" component={Login} />{' '}
-        </Switch>
-        </BrowserRouter>
-      );
-      
-      export default Router;
-            
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={Login} />
+      {' '}
+      <Route exact path="/Home" component={Home} />
+      {' '}
+    </Switch>
+  </BrowserRouter>
+);
+
+export default Router;
