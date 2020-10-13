@@ -1,11 +1,10 @@
 import React from 'react';
-import TitleLoginRegister from '../../components/titleLoginRegister/TitleLoginRegister';
+import FormLogin from '../../components/FormLogin/FormLogin';
 
 const Login = () => {
   return (
   <div>
-    <TitleLoginRegister title="Iniciar Sesión" />
-    Iniciar Sesión
+    <FormLogin />
   </div>
   );
 }; 

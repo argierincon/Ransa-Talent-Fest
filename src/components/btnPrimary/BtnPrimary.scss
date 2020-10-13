@@ -1,0 +1,10 @@
+@import '../../assets/styles/_variables.scss';
+
+.btn-primario {
+	background-color: $btn-primary;
+	border: 0;
+	border-radius: 2rem;
+	height: 2.5rem;
+	outline: 0;
+	width: 8rem;
+}
