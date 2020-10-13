@@ -23,4 +23,10 @@ $text-low-enphasis: #979797;
 	text-size-adjust: none;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
+	font-family: 'univia-pro';
+}
+
+@font-face {
+	font-family: 'univia-pro';
+	src: url(../fonts/UniviaPro-Regular.woff);
 }
