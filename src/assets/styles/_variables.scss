@@ -1,0 +1,26 @@
+$bg-inputs: #efeff4;
+$btn-primary: #00a43f;
+$text-dark: #555555;
+$text-low-enphasis: #979797;
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: inherit;
+	line-height: inherit;
+	font-family: inherit;
+	font-weight: inherit;
+	font-style: inherit;
+	vertical-align: baseline;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	text-size-adjust: none;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
