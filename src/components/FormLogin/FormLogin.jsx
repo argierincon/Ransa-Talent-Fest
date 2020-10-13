@@ -1,6 +1,5 @@
 import React from 'react';
 import './FormLogin.scss';
-
 import emailIcon from '../../assets/icons/email.svg';
 import passwordIcon from '../../assets/icons/password.svg';
 
