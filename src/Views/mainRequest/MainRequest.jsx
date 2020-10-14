@@ -2,13 +2,14 @@
 import React from 'react';
 import FormSolicitud from '../../components/formSolicitud/FormSolicitud';
 import Header from '../../components/header/Header';
+import TitleView from '../../components/titleView/TitleView';
 import './MainRequest.scss';
 
 const MainRequest = () => (
   <>
     <Header />
     <section className="main-container-solicitud">
-      <h2>Solicitud de Requerimientos - Almacenes</h2>
+      <TitleView texto="Solicitud de Requerimientos - Almacenes" />
       <div>
         <p>Generar Pedido</p>
         <select name="select">
