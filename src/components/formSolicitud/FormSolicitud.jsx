@@ -1,7 +1,8 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import Header from '../header/Header';
+import BtnPrimary from '../btnPrimary/BtnPrimary';
 
 const FormSolicitud = () => {
   const db = firebase.firestore();
@@ -29,18 +30,46 @@ const FormSolicitud = () => {
   };
 
   return (
-    <div>
-      <Header />
-      <form onSubmit={handleSubmit}>
-        <input type="date" name="fechaCarga" onChange={handleInputChange} />
-        <input type="time" name="horaCarga" onChange={handleInputChange} />
-        <input type="text" name="detalleMercaderia" placeholder="detalle" onChange={handleInputChange} />
-        <input type="text" name="nota" placeholder="adicional" onChange={handleInputChange} />
-        <input type="text" name="lugarCarga" placeholder="lugar de carga" onChange={handleInputChange} />
-        <input type="text" name="lugarDescarga" placeholder="lugar de descarga" onChange={handleInputChange} />
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div className="flex">
+        <div className="firs-colum">
+          <div className="flex">
+            <label htmlFor="name">Fecha de carga</label>
+            <input type="date" name="fechaCarga" onChange={handleInputChange} />
+          </div>
+          <div className="flex">
+            <label htmlFor="name">Hora de carga</label>
+            <input type="time" name="horaCarga" onChange={handleInputChange} />
+          </div>
+          <div className="flex">
+            <label htmlFor="name">Lugar de descarga</label>
+            <input type="text" name="lugarCarga" onChange={handleInputChange} />
+          </div>
+          <div className="flex">
+            <label htmlFor="name">Lugar de carga</label>
+            <input ttype="text" name="lugarDescarga" onChange={handleInputChange} />
+          </div>
+        </div>
+        <div className="second-colum">
+          <div className="flex">
+            <label htmlFor="name">Detallemercaderia</label>
+            <textarea
+              className="prueba"
+              name="detalleMercaderia"
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="flex">
+            <label htmlFor="name">Dato adicional</label>
+            <textarea
+              name="datoAdicional"
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+      </div>
+      <BtnPrimary texto="Solicitar" />
+    </form>
   );
 };
 
