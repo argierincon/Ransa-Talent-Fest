@@ -1,0 +1,64 @@
+@import '../../assets/styles/_variables.scss';
+
+.seccion-estados-solicitud {
+  width: 90%;
+  margin: auto;
+}
+
+.seccion-estados-solicitud h3 {
+  color: $btn-primary;
+  font-size: 1.88rem;
+  margin: 1.5rem 0;
+}
+
+.filtros-solicitud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.5rem auto;
+}
+
+.filtros-solicitud > p {
+  color: $btn-primary;
+  font-size: 1.5rem;
+}
+
+.filtros-solicitud select {
+  color: $text-select;
+  font-size: 1rem;
+}
+
+.filtros-solicitud option {
+  color: #666666;
+}
+
+#empresa {
+  margin: 0 1.5rem;
+}
+
+.grid-tabla-solicitud {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  margin: auto;
+  text-align: center;
+}
+
+.titulos-tabla {
+  margin-bottom: 0.8rem;
+}
+
+.titulos-tabla p {
+  font-size: 0.88rem;
+  font-family: 'univia-pro-medium';
+  color: #666666;
+}
+
+.linea-bg {
+  color: #666666;
+  background-color: #eeeeef;
+}
+
+.height-padding {
+  height: 4rem;
+  padding: 1rem;
+}
