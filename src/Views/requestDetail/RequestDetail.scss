@@ -13,7 +13,7 @@
 
 .item-solic-detalle {
   align-items: center;
-  height: 5rem;
+  height: 4rem;
 }
 
 .grid-tabla-solicitud-detail {
@@ -64,4 +64,8 @@
 
 .ver-mas > p {
   transform: translate(0rem, -0.31rem);
+}
+
+.width-5rem {
+  width: 5rem;
 }
