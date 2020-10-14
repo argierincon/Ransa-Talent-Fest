@@ -44,8 +44,8 @@ const DriveEnablement = () => (
           <p>Ransa Comercial S.A</p>
           <p>Vigente</p>
           <p>Vigente</p>
-          <TrafficLightRequest clase="solicitud-asignada" estado="Asignado" />
-          <div className="status-ver-mas">
+          <TrafficLightRequest clase="solicitud-asignada margin-left-2rem" estado="Asignado" />
+          <div className="status-ver-mas margin-left-2rem">
             <img className="descargar" src={descargar} alt="Descargar" />
             <div className="ver-mas">
               <p>+</p>
@@ -59,10 +59,10 @@ const DriveEnablement = () => (
           <p>No Vigente</p>
           <p>Vigente</p>
           <TrafficLightRequest
-            clase="solicitud-fallida"
+            clase="solicitud-fallida margin-left-2rem"
             estado="No Habilitado"
           />
-          <div className="status-ver-mas">
+          <div className="status-ver-mas margin-left-2rem">
             <img className="descargar" src={descargar} alt="Descargar" />
             <div className="ver-mas">
               <p>+</p>
@@ -75,8 +75,8 @@ const DriveEnablement = () => (
           <p>Ransa Comercial S.A</p>
           <p>Vigente</p>
           <p>Vigente</p>
-          <TrafficLightRequest clase="solicitud-asignada" estado="Asignado" />
-          <div className="status-ver-mas">
+          <TrafficLightRequest clase="solicitud-asignada margin-left-2rem" estado="Asignado" />
+          <div className="status-ver-mas margin-left-2rem">
             <img className="descargar" src={descargar} alt="Descargar" />
             <div className="ver-mas">
               <p>+</p>
@@ -90,10 +90,10 @@ const DriveEnablement = () => (
           <p>Vigente</p>
           <p>No Vigente</p>
           <TrafficLightRequest
-            clase="solicitud-fallida"
+            clase="solicitud-fallida margin-left-2rem"
             estado="No Habilitado"
           />
-          <div className="status-ver-mas">
+          <div className="status-ver-mas margin-left-2rem">
             <img className="descargar" src={descargar} alt="Descargar" />
             <div className="ver-mas">
               <p>+</p>
