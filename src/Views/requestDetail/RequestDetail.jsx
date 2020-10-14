@@ -3,7 +3,7 @@ import Header from '../../components/header/Header';
 import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLightRequest';
 import './RequestDetail.scss';
 
-const RequestStatus = () => (
+const RequestDetail = () => (
   <>
     <Header />
     <div className="seccion-estados-solicitud">
@@ -120,4 +120,4 @@ const RequestStatus = () => (
   </>
 );
 
-export default RequestStatus;
+export default RequestDetail;
