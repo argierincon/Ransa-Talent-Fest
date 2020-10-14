@@ -1,13 +1,9 @@
 @import '../../assets/styles/variables';
 .main-container-solicitud {
-  padding: 0px 40px;
-  width: 100%;
+  margin: auto;
+  width: 90%;
   color: $gris-dark;
-  h2 {
-    color: $btn-primary;
-    font-weight: normal;
-    // font-size: 30px;
-  }
+
   .form-manual {
     color: $btn-primary;
   }
