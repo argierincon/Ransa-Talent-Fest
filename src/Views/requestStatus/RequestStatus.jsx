@@ -11,7 +11,7 @@ const RequestStatus = () => (
       <div className="filtros-solicitud">
         <p>Estatus</p>
         <div>
-          <input className="width-height" type="date" />
+          <input className="width-height inpunt-date" type="date" />
           <select className="width-height" name="empresa" id="empresa">
             <option value="pacasmayo">Cementos Pacasmayo S.A.A</option>
             <option value="marcobre">Marcobre S.A.C</option>
@@ -23,7 +23,8 @@ const RequestStatus = () => (
           <select className="width-height" name="estado" id="estado">
             <option value="pendiente">Pendiente</option>
             <option value="enProceso">En proceso</option>
-            <option value="asignado">asignado</option>
+            <option value="asignado">Asignado</option>
+            <option value="fallido">Fallido</option>
           </select>
         </div>
       </div>
@@ -48,7 +49,7 @@ const RequestStatus = () => (
           <p>Diversos</p>
           <p>06/10/2020</p>
           <p>Antamina</p>
-          <TrafficLightRequest clase="solicitud-pendiente" estado="pendiente" />
+          <TrafficLightRequest clase="solicitud-pendiente" estado="Pendiente" />
         </div>
         <div className="linea-simple grid-tabla-solicitud height-padding ">
           <p>06/10/2020</p>
@@ -59,7 +60,7 @@ const RequestStatus = () => (
           <p>Diversos</p>
           <p>06/10/2020</p>
           <p>Antamina</p>
-          <TrafficLightRequest clase="solicitud-pendiente" estado="pendiente" />
+          <TrafficLightRequest clase="solicitud-pendiente" estado="Pendiente" />
         </div>
         <div className="linea-bg grid-tabla-solicitud height-padding ">
           <p>06/10/2020</p>
