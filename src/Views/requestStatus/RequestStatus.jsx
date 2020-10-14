@@ -22,9 +22,8 @@ const RequestStatus = () => (
           </select>
           <select className="width-height" name="estado" id="estado">
             <option value="pendiente">Pendiente</option>
-            <option value="enProceso">En proceso</option>
             <option value="asignado">Asignado</option>
-            <option value="fallido">Fallido</option>
+            <option value="cancelado">Cancelado</option>
           </select>
         </div>
       </div>
@@ -72,8 +71,8 @@ const RequestStatus = () => (
           <p>06/10/2020</p>
           <p>Antamina</p>
           <TrafficLightRequest
-            clase="solicitud-en-proceso"
-            estado="En proceso"
+            clase="solicitud-fallida"
+            estado="Cancelada"
           />
         </div>
         <div className="linea-simple grid-tabla-solicitud height-padding ">
