@@ -8,7 +8,7 @@ import Solicitud from '../Views/mainRequest/MainRequest';
 import SolicitudOrdenServicio from '../Views/ordenServicioRequest/solicitudOrdenServicio';
 import RequestDetail from '../Views/requestDetail/RequestDetail';
 import RequestStatus from '../Views/requestStatus/RequestStatus';
-import UnitsEnablement from '../Views/driveEnablement/UnitsEnablement';
+import UnitsEnablement from '../Views/UnitsEnablement/UnitsEnablement';
 import UnitsAvailability from '../Views/unitsAvailability/UnitsAvailability';
 
 const Router = () => (
