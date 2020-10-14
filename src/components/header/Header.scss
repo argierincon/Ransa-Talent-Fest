@@ -1,0 +1,27 @@
+@import '../../assets/styles/variables';
+header {
+  width: 100%;
+  display: flex;
+  flex-flow: wrap row-reverse;
+
+  .container-header {
+    display: inline-flex;
+    margin: 30px 40px 10px auto;
+
+    .nombre-cargo {
+      align-self: center;
+      justify-self: center;
+      font-size: 14px;
+      color: $gris;
+    }
+    .cargo {
+      font-weight: bold;
+    }
+    img {
+      border-radius: 50px;
+      width: 36px;
+      height: 36px;
+      margin: 10px;
+    }
+  }
+}

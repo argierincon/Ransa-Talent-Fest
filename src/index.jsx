@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import firebase from 'firebase';
-
 import Router from './router/Router';
 import './assets/styles/global.scss';
 
