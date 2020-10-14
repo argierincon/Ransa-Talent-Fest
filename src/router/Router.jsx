@@ -7,6 +7,7 @@ import FormPrueba from '../components/formPrueba/FormPrueba';
 import RequestDetail from '../Views/requestDetail/RequestDetail';
 import FormSolicitud from '../components/formSolicitud/FormSolicitud';
 import RequestStatus from '../Views/requestStatus/RequestStatus';
+import DriveEnablement from '../Views/driveEnablement/DriveEnablement';
 
 const Router = () => (
   <BrowserRouter>
@@ -17,6 +18,7 @@ const Router = () => (
       <Route exact path="/solicitudes" component={FormSolicitud} />
       <Route exact path="/estatus-solicitud" component={RequestStatus} />
       <Route exact path="/detalle-solicitud" component={RequestDetail} />
+      <Route exact path="/habilitacion-unidades" component={DriveEnablement} />
     </Switch>
   </BrowserRouter>
 );
