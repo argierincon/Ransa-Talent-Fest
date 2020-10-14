@@ -4,9 +4,9 @@ import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLig
 
 import descargar from '../../assets/img/descargar.png';
 
-import './DriveEnablement.scss';
+import './UnitsEnablement.scss';
 
-const DriveEnablement = () => (
+const UnitsEnablement = () => (
   <>
     <Header />
     <div className="seccion-estados-solicitud">
@@ -33,8 +33,8 @@ const DriveEnablement = () => (
           <p>Placa</p>
           <p>Tipo</p>
           <p>Razón social</p>
-          <p>IQBF</p>
-          <p>Certificado</p>
+          <p>Revisión Técnica</p>
+          <p>SOAT</p>
           <p>Habilitación</p>
           <p> </p>
         </div>
@@ -44,7 +44,10 @@ const DriveEnablement = () => (
           <p>Ransa Comercial S.A</p>
           <p>Vigente</p>
           <p>Vigente</p>
-          <TrafficLightRequest clase="solicitud-asignada margin-left-2rem" estado="Asignado" />
+          <TrafficLightRequest
+            clase="solicitud-asignada margin-left-2rem"
+            estado="Asignado"
+          />
           <div className="status-ver-mas margin-left-2rem">
             <img className="descargar" src={descargar} alt="Descargar" />
             <div className="ver-mas">
@@ -75,7 +78,10 @@ const DriveEnablement = () => (
           <p>Ransa Comercial S.A</p>
           <p>Vigente</p>
           <p>Vigente</p>
-          <TrafficLightRequest clase="solicitud-asignada margin-left-2rem" estado="Asignado" />
+          <TrafficLightRequest
+            clase="solicitud-asignada margin-left-2rem"
+            estado="Asignado"
+          />
           <div className="status-ver-mas margin-left-2rem">
             <img className="descargar" src={descargar} alt="Descargar" />
             <div className="ver-mas">
@@ -105,4 +111,4 @@ const DriveEnablement = () => (
   </>
 );
 
-export default DriveEnablement;
+export default UnitsEnablement;
