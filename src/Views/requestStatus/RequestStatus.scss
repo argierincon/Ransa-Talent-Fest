@@ -66,8 +66,16 @@
   background-color: #eeeeef;
 }
 
+.linea-bg p, .linea-simple p {
+font-size: 0.88rem;
+}
+
 .height-padding {
   height: 4rem;
   align-items: center;
   color: #666666;
+}
+
+.ver-mas > p {
+  font-size: 1.75rem;
 }
