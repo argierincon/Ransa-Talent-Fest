@@ -2,8 +2,6 @@ import React from 'react';
 import Header from '../../components/header/Header';
 import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLightRequest';
 
-import descargar from '../../assets/img/descargar.png';
-
 import './UnitsAvailability.scss';
 
 const UnitsAvailability = () => (

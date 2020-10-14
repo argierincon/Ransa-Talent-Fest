@@ -53,7 +53,7 @@ const RequestDetail = () => (
           <p>Antamina</p>
           <div className="status-ver-mas">
             <TrafficLightRequest clase="solicitud-asignada" estado="Asignado" />
-            <div className="ver-mas">
+            <div className="ver-mas margin-06rem">
               <p>+</p>
             </div>
           </div>
@@ -73,7 +73,7 @@ const RequestDetail = () => (
               clase="solicitud-pendiente"
               estado="Pendiente"
             />
-            <div className="ver-mas">
+            <div className="ver-mas margin-06rem">
               <p>+</p>
             </div>
           </div>
@@ -93,7 +93,7 @@ const RequestDetail = () => (
               clase="solicitud-en-proceso"
               estado="En proceso"
             />
-            <div className="ver-mas">
+            <div className="ver-mas margin-06rem">
               <p>+</p>
             </div>
           </div>
@@ -110,7 +110,7 @@ const RequestDetail = () => (
           <p>Antamina</p>
           <div className="status-ver-mas">
             <TrafficLightRequest clase="solicitud-fallida" estado="Fallido" />
-            <div className="ver-mas">
+            <div className="ver-mas margin-06rem">
               <p>+</p>
             </div>
           </div>
