@@ -21,14 +21,9 @@
   margin: 2rem 0;
 }
 
-.item-solic-detalle {
-  align-items: center;
-  height: 5rem;
-}
-
 .grid-tabla-disp-unidades {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   margin: auto;
   text-align: center;
 }

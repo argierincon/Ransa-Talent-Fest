@@ -33,8 +33,6 @@ const UnitsAvailability = () => (
           <p>Placa</p>
           <p>Tipo</p>
           <p>Razón social</p>
-          <p>Revisión Técnica</p>
-          <p>SOAT</p>
           <p>Disponibilidad</p>
           <p> </p>
         </div>
@@ -42,8 +40,6 @@ const UnitsAvailability = () => (
           <p>DSP884</p>
           <p>Tracto</p>
           <p>Ransa Comercial S.A</p>
-          <p>Vigente</p>
-          <p>Vigente</p>
           <div className="status-ver-mas margin-left-2rem space-evenly">
             <TrafficLightRequest
               clase="solicitud-asignada"
@@ -58,8 +54,6 @@ const UnitsAvailability = () => (
           <p>F0M713</p>
           <p>Plataforma</p>
           <p>Ransa Comercial S.A</p>
-          <p>No Vigente</p>
-          <p>Vigente</p>
           <div className="status-ver-mas margin-left-2rem space-evenly">
             <TrafficLightRequest
               clase="solicitud-asignada"
@@ -74,8 +68,6 @@ const UnitsAvailability = () => (
           <p>D7L984</p>
           <p>Tracto</p>
           <p>Ransa Comercial S.A</p>
-          <p>Vigente</p>
-          <p>Vigente</p>
           <div className="status-ver-mas margin-left-2rem space-evenly">
             <TrafficLightRequest
               clase="solicitud-asignada"
@@ -90,8 +82,6 @@ const UnitsAvailability = () => (
           <p>D7L984</p>
           <p>Plataforma</p>
           <p>Ransa Comercial S.A</p>
-          <p>Vigente</p>
-          <p>No Vigente</p>
           <div className="status-ver-mas margin-left-2rem space-evenly">
             <TrafficLightRequest
               clase="solicitud-fallida"
