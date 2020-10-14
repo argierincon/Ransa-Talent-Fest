@@ -8,14 +8,14 @@
 .seccion-estados-solicitud h3 {
   color: $btn-primary;
   font-size: 1.88rem;
-  margin: 1.5rem 0;
+  margin: 2rem 0;
 }
 
 .filtros-solicitud {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 1.5rem auto;
+  margin: 2rem auto;
 }
 
 .filtros-solicitud > p {
@@ -32,13 +32,18 @@
   color: #666666;
 }
 
+.width-height {
+  width: 10.9rem;
+  height: 1.75rem;
+}
+
 #empresa {
   margin: 0 1.5rem;
 }
 
 .grid-tabla-solicitud {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(9, 1fr);
   margin: auto;
   text-align: center;
 }
@@ -54,11 +59,11 @@
 }
 
 .linea-bg {
-  color: #666666;
   background-color: #eeeeef;
 }
 
 .height-padding {
   height: 4rem;
   padding: 1rem;
+  color: #666666;
 }
