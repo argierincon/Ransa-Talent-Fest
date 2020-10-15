@@ -2,10 +2,12 @@
 import React from 'react';
 import Header from '../../components/header/Header';
 import '../mainRequest/MainRequest.scss';
+import BarOp from '../../components/sideBarOp/BarOp';
 
 const MainRequest = () => (
   <>
     <Header />
+    <BarOp/>
     <section className="main-container-solicitud">
       <h2>Solicitudes de Orden de Servicio</h2>
 

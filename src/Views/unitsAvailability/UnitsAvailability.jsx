@@ -1,12 +1,13 @@
 import React from 'react';
 import Header from '../../components/header/Header';
 import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLightRequest';
-
 import './UnitsAvailability.scss';
+import BarOp from '../../components/sideBarOp/BarOp';
 
 const UnitsAvailability = () => (
   <>
     <Header />
+    <BarOp/>
     <div className="seccion-estados-solicitud">
       <h3>Lista de Vehículos para verificar disponibilidad</h3>
       <div className="filtros-hab-unidades">

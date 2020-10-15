@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import 'firebase/firestore';
-
 import Header from '../../components/header/Header';
 import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLightRequest';
-
 import descargar from '../../assets/img/descargar.png';
-
 import './DriversEnablement.scss';
+import BarOp from '../../components/sideBarOp/BarOp';
 
 const UnitsEnablement = () => {
   const db = firebase.firestore();
@@ -58,6 +56,7 @@ const UnitsEnablement = () => {
   return (
     <>
       <Header />
+      <BarOp/>
       <div className="seccion-estados-solicitud">
         <h3>Lista de Vehículos para verificar habilitación</h3>
         <div className="filtros-hab-conductores">

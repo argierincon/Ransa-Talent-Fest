@@ -1,4 +1,9 @@
 @import '../../assets/styles/variables';
+
+section {
+  margin-left: 26% !important;
+}
+
 .main-container-solicitud {
   margin: auto;
   width: 90%;
@@ -21,6 +26,7 @@
   label {
     font-size: 14px;
     align-self: center;
+    width: 150px;
   }
   .datos-autocompleted {
     margin-bottom: 30px;
@@ -42,7 +48,8 @@
   }
   .flex {
     display: flex;
-    justify-content: space-between;
+   
+    //justify-content: space-between;
   }
   input {
     width: 240px;

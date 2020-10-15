@@ -2,12 +2,18 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
+import file from '../../assets/img/files.png';
+import truck1 from '../../assets/img/truck1.png';
+import truck2 from '../../assets/img/truck2.png';
+import hc from '../../assets/img/hc.png';
+import dc from '../../assets/img/dc.png';
+import dc1 from '../../assets/img/files1.png';
 
-export const SideBarData = [
+export const BarOpData = [
   {
     titulo: 'Solicitudes',
-    ruta: '/crear-solicitud',
-    icono: < FaIcons.FaFileAlt />,
+    ruta: '/asignar-solicitudes',
+    icono: <img src={file} />,
     clase: 'nav-text',
   },
   {
@@ -17,26 +23,26 @@ export const SideBarData = [
   },
   {
     titulo: 'Habilitación de unidades',
-    ruta: '/habilitarunidades',
-    icono: < FaIcons.FaTruckMoving />,
+    ruta: '/habilitacion-unidades-int',
+    icono: <img src={truck1} />,
     clase: 'nav-text',
   },
   {
     titulo: 'Disponibilidad de Unidades',
-    ruta: '/disponibilidadunidades',
-    icono: < FaIcons.FaTruckMoving/>,
+    ruta: '/disponibilidad-unidades-int',
+    icono: <img src={truck2} />,
     clase: 'nav-text',
   },
   {
     titulo: 'Habilitación de conductores',
-    ruta: '/habilitarconductores',
-    icono: < FaIcons.FaRegListAlt />,
+    ruta: '/habilitacion-conductores-int',
+    icono: <img src={hc}/>,
     clase: 'nav-text',
   },
   {
     titulo: 'Disponibilidad de conductores',
-    ruta: '/disponibilidadconductores',
-    icono: < IoIcons.IoMdPeople />,
+    ruta: '/disponibilidad-conductores-int',
+    icono: <img src={dc}  />,
     clase: 'nav-text',
   },
   {
@@ -46,26 +52,26 @@ export const SideBarData = [
   },
   {
     titulo: 'Habilitación de unidades',
-    ruta: '/habilitarunidades',
-    icono: < FaIcons.FaTruckMoving />,
+    ruta: '/habilitacion-unidades-ext',
+    icono: <img src={truck1} />,
     clase: 'nav-text',
   },
   {
     titulo: 'Disponibilidad de Unidades',
-    ruta: '/disponibilidadunidades',
-    icono: < FaIcons.FaTruckMoving />,
+    ruta: '/disponibilidad-unidades-ext',
+    icono: <img src={truck2} />,
     clase: 'nav-text',
   },
   {
     titulo: 'Habilitación de conductores',
-    ruta: '/habilitarconductores',
-    icono: < FaIcons.FaRegListAlt />,
+    ruta: '/disponibilidad-conductores-ext',
+    icono: <img src={hc} />,
     clase: 'nav-text',
   },
   {
     titulo: 'Disponibilidad de conductores',
-    ruta: '/disponibilidadconductores',
-    icono: < IoIcons.IoMdPeople />,
+    ruta: '/disponibilidad-conductores-ext',
+    icono: <img src={dc} />,
     clase: 'nav-text',
   },
   {

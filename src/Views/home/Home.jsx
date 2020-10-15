@@ -1,10 +1,10 @@
 import React from 'react';
-import SideBar from '../../components/sideBar/SideBar';
+import BarOp from '../../components/sideBarOp/BarOp';
 
 const Home = () => {
   return (
     <>
-      <SideBar></SideBar>
+      <BarOp></BarOp>
     </>
   );
 };

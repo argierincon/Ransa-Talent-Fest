@@ -4,10 +4,12 @@ import FormSolicitud from '../../components/formSolicitud/FormSolicitud';
 import Header from '../../components/header/Header';
 import TitleView from '../../components/titleView/TitleView';
 import './MainRequest.scss';
+import BarOrder from '../../components/sideBarOrder/BarOrder';
 
 const MainRequest = () => (
   <>
     <Header />
+    <BarOrder/>
     <section className="main-container-solicitud">
       <TitleView texto="Solicitud de Requerimientos - Almacenes" />
       <div>

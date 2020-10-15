@@ -2,10 +2,12 @@ import React from 'react';
 import Header from '../../components/header/Header';
 import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLightRequest';
 import './RequestStatus.scss';
+import BarOrder from '../../components/sideBarOrder/BarOrder';
 
 const RequestStatus = () => (
   <>
     <Header />
+    <BarOrder/>
     <div className="seccion-estados-solicitud">
       <h3>Solicitudes de Orden de Servicio</h3>
       <div className="filtros-solicitud">
