@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import 'firebase/firestore';
 
@@ -93,15 +94,15 @@ const RequestDetail = () => {
         </div>
         <div className="tabla-estatus-solicitud-detail">
           <div className="titulos-tabla grid-tabla-solicitud-detail">
-            <p>Fecha de solicitud</p>
-            <p>Fecha de carga</p>
-            <p>Hora de carga</p>
+            <p>Fecha solicitud</p>
+            <p>Fecha carga</p>
+            <p>Horacarga</p>
             <p>Cliente</p>
             <p>N° de Orden</p>
             <p>Unidad</p>
             <p>Mercadería</p>
-            <p>Fecha de entrega</p>
-            <p>Lugar de descarga</p>
+            <p>Fecha entrega</p>
+            <p>Lugar descarga</p>
             <p> </p>
           </div>
           {solicitudes.map((solicitud) => (
@@ -109,23 +110,25 @@ const RequestDetail = () => {
               key={solicitud.id}
               className="fila grid-tabla-solicitud-detail item-solic-detalle "
             >
-              <p>fecha de solicitud</p>
+              <p>{solicitud.date}</p>
               <p>{solicitud.fechaCarga}</p>
               <p>{solicitud.horaCarga}</p>
-              <p>Cliente</p>
-              <p>nro de orden</p>
-              <p>unidad</p>
-              <p>mercaderia</p>
-              <p>fecha de entrega</p>
+              <p>{solicitud.cliente}</p>
+              <p>{solicitud.ordenServicio}</p>
+              <p>{solicitud.tipoDeUnidad}</p>
+              <p>{solicitud.tipoDeMercaderia}</p>
+              <p>{solicitud.fechaCarga}</p>
               <p>{solicitud.lugarDescarga}</p>
               <div className="status-ver-mas">
                 <TrafficLightRequest
                   clase="solicitud-asignada width-5rem"
                   estado="Asignado"
                 />
-                <div className="ver-mas margin-06rem">
-                  <p>+</p>
-                </div>
+                <Link to={`/detalle-solicitudes/${solicitud.id}`}>
+                  <div className="ver-mas margin-06rem">
+                    <p>+</p>
+                  </div>
+                </Link>
               </div>
             </div>
           ))}
