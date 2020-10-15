@@ -8,13 +8,25 @@ import Solicitud from '../Views/mainRequest/MainRequest';
 import SolicitudOrdenServicio from '../Views/ordenServicioRequest/solicitudOrdenServicio';
 import RequestDetail from '../Views/requestDetail/RequestDetail';
 import RequestStatus from '../Views/requestStatus/RequestStatus';
-import UnitsEnablement from '../Views/UnitsEnablement/UnitsEnablement';
+import UnitsEnablement from '../Views/unitsEnablement/UnitsEnablement';
 import UnitsAvailability from '../Views/unitsAvailability/UnitsAvailability';
+import DriversEnablement from '../Views/driversEnablement/DriversEnablement';
 
 const Router = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Login} />
+      {' '}
+      <Route exact path="/revisarsolicitudes" component={Home} />
+      {' '}
+      <Route exact path="/habilitarunidades" component={Home} />
+      {' '}
+      <Route exact path="/disponibilidadunidades" component={Home} />
+      {' '}
+      <Route exact path="/habilitarconductores" component={Home} />
+      {' '}
+      <Route exact path="/disponibilidadconductores" component={Home} />
+      {' '}
       <Route exact path="/home" component={Home} />
       <Route exact path="/prueba" component={FormPrueba} />
       <Route exact path="/crear-solicitud" component={Solicitud} />
@@ -22,7 +34,16 @@ const Router = () => (
       <Route exact path="/estatus-solicitudes" component={RequestStatus} />
       <Route exact path="/detalle-solicitudes" component={RequestDetail} />
       <Route exact path="/habilitacion-unidades" component={UnitsEnablement} />
-      <Route exact path="/disponibilidad-unidades" component={UnitsAvailability} />
+      <Route
+        exact
+        path="/disponibilidad-unidades"
+        component={UnitsAvailability}
+      />
+      <Route
+        exact
+        path="/habilitacion-conductores"
+        component={DriversEnablement}
+      />
     </Switch>
   </BrowserRouter>
 );
