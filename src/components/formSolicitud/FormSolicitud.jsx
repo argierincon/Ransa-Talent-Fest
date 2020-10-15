@@ -32,7 +32,7 @@ const FormSolicitud = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="flex">
-        <div className="firs-colum">
+        <div className="first-colum">
           <div className="flex">
             <label htmlFor="name">Fecha de carga</label>
             <input type="date" name="fechaCarga" onChange={handleInputChange} />
