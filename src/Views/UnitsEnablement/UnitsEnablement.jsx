@@ -90,7 +90,12 @@ const UnitsEnablement = () => {
         <h3>Lista de Vehículos para verificar habilitación</h3>
         <div className="filtros-hab-unidades">
           <div>
-            <select className="width-height" name="tipo" id="tipo" onChange={handleChangeTipo}>
+            <select
+              className="width-height"
+              name="tipo"
+              id="tipo"
+              onChange={handleChangeTipo}
+            >
               <option value="tipo" selected>
                 Tipo
               </option>
@@ -122,32 +127,38 @@ const UnitsEnablement = () => {
             <p>Habilitación</p>
             <p> </p>
           </div>
-          {habilitarVehiculos.length > 0 ? habilitarVehiculos.map((vehiculo) => (
-            <div
-              key={vehiculo.id}
-              className="fila grid-tabla-hab-unidades item-solic-detalle "
-            >
-              <p>{vehiculo.placa}</p>
-              <p>{vehiculo.tipo}</p>
-              <p>{vehiculo.razonSocial}</p>
-              <p>{vehiculo.revisionTecnica}</p>
-              <p>{vehiculo.soat}</p>
-              <TrafficLightRequest
-                clase={`solicitud-asignada margin-left-2rem width7rem ${
-                  vehiculo.estatus === 'HABILITADO'
-                    ? 'solicitud-asignada'
-                    : 'solicitud-fallida'
-                }`}
-                estado={vehiculo.estatus}
-              />
-              <div className="status-ver-mas margin-left-2rem">
-                <img className="descargar" src={descargar} alt="Descargar" />
-                <div className="ver-mas">
-                  <p>+</p>
+          {habilitarVehiculos.length > 0 ? (
+            habilitarVehiculos.map((vehiculo) => (
+              <div
+                key={vehiculo.id}
+                className="fila grid-tabla-hab-unidades item-solic-detalle "
+              >
+                <p>{vehiculo.placa}</p>
+                <p>{vehiculo.tipo}</p>
+                <p>{vehiculo.razonSocial}</p>
+                <p>{vehiculo.revisionTecnica}</p>
+                <p>{vehiculo.soat}</p>
+                <TrafficLightRequest
+                  clase={`solicitud-asignada margin-left-2rem width7rem ${
+                    vehiculo.estatus === 'HABILITADO'
+                      ? 'solicitud-asignada'
+                      : 'solicitud-fallida'
+                  }`}
+                  estado={vehiculo.estatus}
+                />
+                <div className="status-ver-mas margin-left-2rem">
+                  <img className="descargar" src={descargar} alt="Descargar" />
+                  <div className="ver-mas">
+                    <p>+</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          )) : <h4 className="fila item-solic-detalle failed-load-data">No se encontraron registros</h4> }
+            ))
+          ) : (
+            <h4 className="fila item-solic-detalle failed-load-data">
+              No se encontraron registros
+            </h4>
+          )}
         </div>
       </div>
     </>
