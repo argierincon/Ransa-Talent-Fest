@@ -2,38 +2,39 @@
 import React from 'react';
 import Header from '../../components/header/Header';
 import '../mainRequest/MainRequest.scss';
+import './solicitudOrdenServicio.scss';
+import TitleView from '../../components/titleView/TitleView';
 
 const MainRequest = () => (
   <>
     <Header />
     <section className="main-container-solicitud">
-      <h2>Solicitudes de Orden de Servicio</h2>
-
-      <p>Cliente -Antamina - 12345678</p>
+      <TitleView texto="Requermiento" />
+      <p>Solicitud - Antamina - 12345678</p>
       <div className="flex datos-autocompleted">
-        <div className="firs-colum">
+        <div className="first-colum">
           <div className="flex">
             <label htmlFor="name">N° Orden de Servicio</label>
-            <input type="text" name="fechaCarga" />
+            <input type="text" />
           </div>
           <div className="flex">
             <label htmlFor="name">Cliente</label>
-            <input type="text" name="fechaCarga" />
+            <input type="text" />
           </div>
           <div className="flex">
             <label htmlFor="name">Solicitante</label>
-            <input type="text" name="fechaCarga" />
+            <input type="text" />
           </div>
           <div className="flex">
             <label htmlFor="name">Tipo de unidad</label>
-            <input type="text" name="fechaCarga" />
+            <input type="text" />
           </div>
           <div className="flex">
             <label htmlFor="name">Tipo de mercaderia</label>
-            <input type="text" name="fechaCarga" />
+            <input type="text" />
           </div>
           <div className="flex">
-            <label htmlFor="name">Detalle de mercaderia</label>
+            <label htmlFor="name">Detalle mercaderia</label>
             <textarea
               name="datoAdicional"
             />
@@ -64,7 +65,7 @@ const MainRequest = () => (
             />
           </div>
           <div className="flex">
-            <label htmlFor="name">Lugar de carga</label>
+            <label htmlFor="name">Fecha de Entrega</label>
             <input
               readOnly="readonly"
               type="text"
@@ -72,7 +73,7 @@ const MainRequest = () => (
             />
           </div>
           <div className="flex">
-            <label htmlFor="name">Destino</label>
+            <label htmlFor="name">Lugar descarga</label>
             <input
               readOnly="readonly"
               type="text"
@@ -89,6 +90,21 @@ const MainRequest = () => (
         </div>
       </div>
       <hr />
+      <div>
+        <p className="form-manual">Selecciona una opcion para poder asignar el pedido</p>
+        <div className="container-select">
+          <select name="cliente">
+            <option>Conductor</option>
+          </select>
+          <select name="cliente">
+            <option>Tracto</option>
+          </select>
+          <select name="cliente">
+            <option>Acoplado</option>
+          </select>
+        </div>
+
+      </div>
     </section>
   </>
 );

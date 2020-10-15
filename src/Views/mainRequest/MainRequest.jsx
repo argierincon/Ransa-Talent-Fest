@@ -18,17 +18,15 @@ const MainRequest = () => {
   const [datosSolicitud, setDatosSolicitud] = useState({
     cliente,
     ordenServicio: selectService,
-    tipoUnidad: null,
-    tipoMercaderia: null,
-    origen: null,
-    destino: null,
     fechaCarga: null,
     horaCarga: null,
     detalleMercaderia: null,
     lugarCarga: null,
     datoAdicional: null,
     lugarDescarga: null,
+    date: new Date().toUTCString(),
   });
+
   useEffect(() => {
     const obtenerClientes = async () => {
       try {
@@ -64,8 +62,18 @@ const MainRequest = () => {
     const arreglo = arr.filter((item) => item.id === id);
     return arreglo[0];
   };
+
   const handleServicios = (e) => {
-    setSelectService(filterservicio(servicios, e.target.value));
+    const rpta = filterservicio(servicios, e.target.value);
+    setSelectService(rpta);
+    setDatosSolicitud({ ...rpta, ...datosSolicitud, [e.target.name]: e.target.value });
+  };
+  const handleCliente = (e) => {
+    setCliente(e.target.value);
+    setDatosSolicitud({
+      ...datosSolicitud,
+      [e.target.name]: clientes[Number(e.target.value)].razonSocial,
+    });
   };
 
   const handleInputChange = (e) => {
@@ -78,7 +86,6 @@ const MainRequest = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     db.collection('solicitudes').add(datosSolicitud);
-    console.log('datos guardados');
   };
 
   return (
@@ -90,8 +97,8 @@ const MainRequest = () => {
           <div>
             <p>Generar Pedido</p>
             <div className="select">
-              <select name="cliente" onChange={(e) => setCliente(e.target.value)}>
-                <option value={-1}>Seleccione cliente</option>
+              <select name="cliente" onChange={handleCliente}>
+                <option value={-1} disabled selected>Seleccione cliente</option>
                 {clientes.map((client, index) => (
                   <option
                     key={client.id}
@@ -106,7 +113,7 @@ const MainRequest = () => {
           <div>
             <label className="ordenServicio" htmlFor="name">N° Orden de Servicio</label>
             <select name="ordenServicio" onChange={handleServicios}>
-              <option value={-1}>Seleccione</option>
+              <option disabled selected>Seleccione</option>
               {
                   Number(cliente) > -1
                     && (clientes[Number(cliente)].servicios.map((element) => (
