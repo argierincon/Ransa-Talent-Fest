@@ -26,7 +26,7 @@ const UnitsAvailability = () => {
 
   return (
     <>
-      <Header />
+      <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
       <div className="seccion-estados-solicitud">
         <h3>Lista de Vehículos para verificar disponibilidad</h3>
         <div className="filtros-hab-unidades">
@@ -66,7 +66,7 @@ const UnitsAvailability = () => {
               <p>{vehiculo.razonSocial}</p>
               <div className="status-ver-mas margin-left-2rem space-evenly">
                 <TrafficLightRequest
-                  clase={`solicitud-asignada ${
+                  clase={`solicitud-asignada width7rem ${
                     vehiculo.estatus === 'HABILITADO'
                       ? 'solicitud-asignada'
                       : 'solicitud-fallida'
@@ -77,10 +77,8 @@ const UnitsAvailability = () => {
                       : 'NO DISPONIBLE'
                   }
                 />
-                <div className="ver-mas">
-                  <p>+</p>
-                </div>
               </div>
+              {' '}
             </div>
           ))}
         </div>

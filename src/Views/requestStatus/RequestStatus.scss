@@ -14,8 +14,8 @@
 .filtros-solicitud {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin: 2rem auto 3.6rem auto;
+  justify-content: flex-end;
 }
 
 .filtros-solicitud > p {
@@ -66,8 +66,9 @@
   background-color: #eeeeef;
 }
 
-.linea-bg p, .linea-simple p {
-font-size: 0.88rem;
+.linea-bg p,
+.linea-simple p {
+  font-size: 0.88rem;
 }
 
 .height-padding {
@@ -78,4 +79,8 @@ font-size: 0.88rem;
 
 .ver-mas > p {
   font-size: 1.75rem;
+}
+
+.margin1rem {
+  margin-left: 1rem;
 }
