@@ -25,35 +25,6 @@ const RequestDetail = () => {
         setSolicitudes([...solicitudes]);
       });
   }, []);
-
-  const handleChange = (e) => {
-    const conductoresTemp = [];
-    if (e.target.value === 'todos') {
-      db.collection('conductores')
-        .get()
-        .then((querySnapShot) => {
-          querySnapShot.forEach((doc) => {
-            const dataConductores = doc.data();
-            dataConductores.id = doc.id;
-            conductoresTemp.push(dataConductores);
-          });
-          setConductores([...conductoresTemp]);
-        });
-    } else {
-      db.collection('conductores')
-        .where('habilitado', '==', e.target.value)
-        .get()
-        .then((querySnapShot) => {
-          querySnapShot.forEach((doc) => {
-            const dataConductores = doc.data();
-            dataConductores.id = doc.id;
-            conductoresTemp.push(dataConductores);
-          });
-          setConductores([...conductoresTemp]);
-        });
-    }
-  };
-
   return (
     <>
       <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
@@ -80,12 +51,10 @@ const RequestDetail = () => {
               <option value="yanacocha">Compañia Minera Ares S.A.C</option>
             </select>
             <select className="width-height" name="estado" id="estado">
-              <option disabled>Estatus</option>
-              <option value="todos" selected>
-                Todos
-              </option>
-              <option value="true">ASIGBNADO</option>
-              <option value="false">NO ASIGNADO</option>
+              <option value="pendiente">Pendiente</option>
+              <option value="enProceso">En proceso</option>
+              <option value="asignado">asignado</option>
+              <option value="fallido">Fallido</option>
             </select>
           </div>
         </div>
