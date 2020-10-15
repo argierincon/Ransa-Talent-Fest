@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import moment from 'moment';
+import 'moment/locale/es';
 import Header from '../../components/header/Header';
 import TitleView from '../../components/titleView/TitleView';
 import BtnPrimary from '../../components/btnPrimary/BtnPrimary';
@@ -24,7 +26,7 @@ const MainRequest = () => {
     lugarCarga: null,
     datoAdicional: null,
     lugarDescarga: null,
-    date: new Date().toUTCString(),
+    date: moment(Date.now()).format('L'),
   });
 
   useEffect(() => {
@@ -90,7 +92,7 @@ const MainRequest = () => {
 
   return (
     <>
-      <Header />
+      <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
       <section className="main-container-solicitud">
         <TitleView texto="Solicitud de Requerimientos - Almacenes" />
         <form onSubmit={handleSubmit}>
@@ -189,11 +191,11 @@ const MainRequest = () => {
               </div>
               <div className="flex">
                 <label htmlFor="name">Lugar de carga</label>
-                <input ttype="text" name="lugarDescarga" onChange={handleInputChange} />
+                <input ttype="text" name="lugarCarga" onChange={handleInputChange} />
               </div>
               <div className="flex">
                 <label htmlFor="name">Lugar de descarga</label>
-                <input type="text" name="lugarCarga" onChange={handleInputChange} />
+                <input type="text" name="lugarDescarga" onChange={handleInputChange} />
               </div>
             </div>
             <div className="second-colum">
