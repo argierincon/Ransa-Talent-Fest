@@ -37,6 +37,7 @@ const RequestDetail = () => {
             conductoresTemp.push(dataConductores);
           });
           setConductores([...conductoresTemp]);
+          console.log('probando');
         });
     } else {
       db.collection('conductores')
@@ -49,6 +50,7 @@ const RequestDetail = () => {
             conductoresTemp.push(dataConductores);
           });
           setConductores([...conductoresTemp]);
+          console.log('probando');
         });
     }
   };
@@ -84,6 +86,7 @@ const RequestDetail = () => {
                 Todos
               </option>
               <option value="true">ASIGBNADO</option>
+              <option value="false">NO ASIGNADO</option>
               <option value="false">NO ASIGNADO</option>
             </select>
           </div>
