@@ -6,7 +6,7 @@ import * as IoIcons from 'react-icons/io';
 export const SideBarData = [
   {
     titulo: 'Solicitudes',
-    ruta: '/revisarsolicitudes',
+    ruta: '/crear-solicitud',
     icono: < FaIcons.FaFileAlt />,
     clase: 'nav-text',
   },
