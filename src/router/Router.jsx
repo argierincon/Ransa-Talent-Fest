@@ -19,8 +19,6 @@ const Router = () => (
       {' '}
       <Route exact path="/revisarsolicitudes" component={Home} />
       {' '}
-      <Route exact path="/verflotapropia" component={Home} />
-      {' '}
       <Route exact path="/habilitarunidades" component={Home} />
       {' '}
       <Route exact path="/disponibilidadunidades" component={Home} />
