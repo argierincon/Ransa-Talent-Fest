@@ -29,11 +29,16 @@ const RequestStatus = () => {
     <>
       <Header />
       <div className="seccion-estados-solicitud">
-        <h3>Solicitudes de Orden de Servicio</h3>
+        <h3>Estatus de Solicitudes</h3>
         <div className="filtros-solicitud">
-          <p>Estatus</p>
           <div>
-            <input className="width-height inpunt-date" type="date" />
+            <select
+              className="width-height"
+              name="fechaSolicitud"
+              id="fechaSolicitud"
+            >
+              <option value="fechaSolicitud">Fecha de Solicitud</option>
+            </select>
             <select className="width-height" name="empresa" id="empresa">
               <option value="pacasmayo">Cementos Pacasmayo S.A.A</option>
               <option value="marcobre">Marcobre S.A.C</option>
@@ -64,7 +69,7 @@ const RequestStatus = () => {
           {solicitudes.map((solicitud) => (
             <div
               key={solicitud.id}
-              className="fila grid-tabla-solicitud height-padding "
+              className="fila grid-tabla-solicitud height-padding"
             >
               <p>{solicitud.fechaCarga}</p>
               <p>{solicitud.horaCarga}</p>
@@ -74,10 +79,16 @@ const RequestStatus = () => {
               <p>MERCADERIA</p>
               <p>FECHA DE ENTREGA</p>
               <p>{solicitud.lugarDescarga}</p>
-              <TrafficLightRequest
-                clase="solicitud-pendiente"
-                estado="Pendiente"
-              />
+
+              <div className="status-ver-mas">
+                <TrafficLightRequest
+                  clase="solicitud-asignada margin1rem"
+                  estado="Asignado"
+                />
+                <div className="ver-mas margin-06rem">
+                  <p>+</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

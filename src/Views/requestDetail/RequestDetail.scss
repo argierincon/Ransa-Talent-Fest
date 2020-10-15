@@ -62,3 +62,13 @@
 .width-5rem {
   width: 5rem;
 }
+
+.titulo-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titulo-btn > button {
+  margin: 0;
+}

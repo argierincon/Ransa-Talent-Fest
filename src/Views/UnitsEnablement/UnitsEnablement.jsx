@@ -27,12 +27,14 @@ const UnitsEnablement = () => {
   }, []);
   return (
     <>
-      <Header />
+      <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
       <div className="seccion-estados-solicitud">
         <h3>Lista de Vehículos para verificar habilitación</h3>
         <div className="filtros-hab-unidades">
           <div>
             <select className="width-height" name="tipo" id="tipo">
+              <option disabled>Tipo</option>
+              <option value="todos" selected>Todos</option>
               <option value="tracto">Tracto</option>
               <option value="plataforma">Plataforma</option>
               <option value="camaBaja">Cama baja</option>
@@ -42,6 +44,8 @@ const UnitsEnablement = () => {
               name="habilitacion"
               id="habilitacion"
             >
+              <option disabled>Estado</option>
+              <option value="todos" selected>Todos</option>
               <option value="habilitado">Habilitado</option>
               <option value="noHabilitado">No habilitado</option>
             </select>
@@ -68,7 +72,7 @@ const UnitsEnablement = () => {
               <p>{vehiculo.revisionTecnica}</p>
               <p>{vehiculo.soat}</p>
               <TrafficLightRequest
-                clase={`solicitud-asignada margin-left-2rem ${
+                clase={`solicitud-asignada margin-left-2rem width7rem ${
                   vehiculo.estatus === 'HABILITADO'
                     ? 'solicitud-asignada'
                     : 'solicitud-fallida'

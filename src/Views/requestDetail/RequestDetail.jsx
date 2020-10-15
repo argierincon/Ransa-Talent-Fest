@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import 'firebase/firestore';
 
+import BtnPrimary from '../../components/btnPrimary/BtnPrimary';
 import Header from '../../components/header/Header';
 import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLightRequest';
 import './RequestDetail.scss';
@@ -25,13 +26,21 @@ const RequestDetail = () => {
   }, []);
   return (
     <>
-      <Header />
+      <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
       <div className="seccion-estados-solicitud">
-        <h3>Solicitudes de Orden de Servicio</h3>
+        <div className="titulo-btn">
+          <h3>Solicitudes de Requerimientos</h3>
+          <BtnPrimary texto="Ver asignaciones" />
+        </div>
         <div className="filtros-solicitud">
-          <p>Requerimientos</p>
           <div>
-            <input className="width-height inpunt-date" type="date" />
+            <select
+              className="width-height"
+              name="fechaSolicitud"
+              id="fechaSolicitud"
+            >
+              <option value="fechaSolicitud">Fecha de Solicitud</option>
+            </select>
             <select className="width-height" name="empresa" id="empresa">
               <option value="pacasmayo">Cementos Pacasmayo S.A.A</option>
               <option value="marcobre">Marcobre S.A.C</option>
@@ -71,7 +80,7 @@ const RequestDetail = () => {
               <p>{solicitud.horaCarga}</p>
               <p>Cliente</p>
               <p>nro de orden</p>
-              <p>unida </p>
+              <p>unidad</p>
               <p>mercaderia</p>
               <p>fecha de entrega</p>
               <p>{solicitud.lugarDescarga}</p>

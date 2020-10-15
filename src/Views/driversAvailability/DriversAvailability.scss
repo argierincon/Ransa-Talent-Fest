@@ -1,13 +1,19 @@
 @import '../../assets/styles/_variables.scss';
 
-.filtros-hab-unidades {
+.filtros-hab-conductores {
   margin: 2rem auto 3.6rem auto;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.filtros-hab-unidades select {
+.filtros-hab-conductores select {
   margin-left: 1.5rem;
+}
+
+.filtros-hab-conductores p {
+  color: #1aaf42;
+  font-size: 1.5rem;
 }
 
 .tabla-estatus-solicitud-detail {
@@ -21,9 +27,9 @@
   margin: 2rem 0;
 }
 
-.grid-tabla-hab-unidades {
+.grid-tabla-disp-conductores {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin: auto;
   text-align: center;
 }
@@ -69,6 +75,14 @@
   margin-left: 2rem;
 }
 
-.width7rem {
-  width: 7.5rem;
+.fila {
+  font-size: 0.88rem;
+}
+
+.fila:nth-child(even) {
+  background-color: #eeeeef;
+}
+
+.margin-auto {
+  margin: auto;
 }
