@@ -85,10 +85,25 @@ const MainRequest = () => {
     });
   };
 
+  const resetForm = () => {
+    document.querySelectorAll('input').forEach((inpt) => {
+      // eslint-disable-next-line no-param-reassign
+      inpt.value = '';
+    });
+    document.querySelectorAll('textarea').forEach((inpt) => {
+      // eslint-disable-next-line no-param-reassign
+      inpt.value = '';
+    });
+    document.querySelectorAll('select').forEach((inpt) => {
+      // eslint-disable-next-line no-param-reassign
+      inpt.value = '';
+    });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    db.collection('solicitudes').add(datosSolicitud);
+    db.collection('solicitudes').add(datosSolicitud).then(() => { resetForm(); });
   };
+
 
   return (
     <>
