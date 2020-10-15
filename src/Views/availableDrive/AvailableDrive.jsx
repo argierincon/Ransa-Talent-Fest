@@ -23,6 +23,29 @@ const AvailableDrive = () => {
       });
   }, []);
 
+  const handleChange = (e) => {
+    console.log(e.target.dataset.id);
+    console.log(e.target.value);
+    db.collection('vehiculos')
+      .doc(e.target.dataset.id)
+      .update({
+        disponible: e.target.value,
+      })
+      .then(() => {
+        db.collection('vehiculos')
+          .get()
+          .then((querySnapShot) => {
+            const dispTemp = [];
+            querySnapShot.forEach((doc) => {
+              const dataVehiculos = doc.data();
+              dataVehiculos.id = doc.id;
+              dispTemp.push(dataVehiculos);
+            });
+            setHabilitarVehiculos([...dispTemp]);
+          });
+      });
+  };
+
   return (
     <>
       <Header nombre="Andy Chuco" cargo="Mantenimiento" />
@@ -63,9 +86,16 @@ const AvailableDrive = () => {
               <p>{vehiculo.placa}</p>
               <p>{vehiculo.tipo}</p>
               <p>{vehiculo.razonSocial}</p>
-              <select className="select-disp-unidades width-height" name="disponibilidad" id="disponibilidad">
-                <option value="disponible">Disponible</option>
-                <option value="noDisponible">No disponible</option>
+              <select
+                value={vehiculo.disponible}
+                onChange={handleChange}
+                data-id={vehiculo.id}
+                className="select-disp-unidades width-height"
+                name="disponibilidad"
+                id="disponibilidad"
+              >
+                <option value="true">Disponible</option>
+                <option value="false">No disponible</option>
               </select>
             </div>
           ))}

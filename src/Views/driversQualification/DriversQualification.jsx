@@ -7,9 +7,9 @@ import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLig
 
 import descargar from '../../assets/img/descargar.png';
 
-import './DriversEnablement.scss';
+import './DriversQualification.scss';
 
-const DriversEnablement = () => {
+const DriversQualification = () => {
   const db = firebase.firestore();
   const [conductores, setConductores] = useState([]);
 
@@ -122,4 +122,4 @@ const DriversEnablement = () => {
   );
 };
 
-export default DriversEnablement;
+export default DriversQualification;
