@@ -90,8 +90,8 @@ const RequestDetail = () => (
           <p>Antamina</p>
           <div className="status-ver-mas">
             <TrafficLightRequest
-              clase="solicitud-en-proceso width-5rem"
-              estado="En proceso"
+              clase="solicitud-pendiente width-5rem"
+              estado="Pendiente"
             />
             <div className="ver-mas margin-06rem">
               <p>+</p>
@@ -109,7 +109,7 @@ const RequestDetail = () => (
           <p>06/10/2020</p>
           <p>Antamina</p>
           <div className="status-ver-mas">
-            <TrafficLightRequest clase="solicitud-fallida width-5rem" estado="Fallido" />
+            <TrafficLightRequest clase="solicitud-fallida width-5rem" estado="Cancelada" />
             <div className="ver-mas margin-06rem">
               <p>+</p>
             </div>

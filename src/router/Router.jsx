@@ -8,8 +8,9 @@ import Solicitud from '../Views/mainRequest/MainRequest';
 import SolicitudOrdenServicio from '../Views/ordenServicioRequest/solicitudOrdenServicio';
 import RequestDetail from '../Views/requestDetail/RequestDetail';
 import RequestStatus from '../Views/requestStatus/RequestStatus';
-import UnitsEnablement from '../Views/UnitsEnablement/UnitsEnablement';
+import UnitsEnablement from '../Views/unitsEnablement/UnitsEnablement';
 import UnitsAvailability from '../Views/unitsAvailability/UnitsAvailability';
+import DriversEnablement from '../Views/driversEnablement/DriversEnablement';
 
 const Router = () => (
   <BrowserRouter>
@@ -34,6 +35,7 @@ const Router = () => (
       <Route exact path="/detalle-solicitudes" component={RequestDetail} />
       <Route exact path="/habilitacion-unidades" component={UnitsEnablement} />
       <Route exact path="/disponibilidad-unidades" component={UnitsAvailability} />
+      <Route exact path="/habilitacion-conductores" component={DriversEnablement} />
     </Switch>
   </BrowserRouter>
 );
