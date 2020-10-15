@@ -7,6 +7,7 @@ import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLig
 
 import descargar from '../../assets/img/descargar.png';
 
+// eslint-disable-next-line import/no-unresolved
 import './UnitsEnablement.scss';
 
 const UnitsEnablement = () => {
@@ -28,7 +29,7 @@ const UnitsEnablement = () => {
 
   const handleChange = (e) => {
     const vehiculosTemp = [];
-    if (e.target.value === 'todos') {
+    if (e.target.value === 'estado') {
       db.collection('vehiculos')
         .get()
         .then((querySnapShot) => {
@@ -41,7 +42,35 @@ const UnitsEnablement = () => {
         });
     } else {
       db.collection('vehiculos')
-        .where('habilitado', '==', e.target.value)
+        .where('estatus', '==', e.target.value)
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    }
+  };
+
+  const handleChangeTipo = (e) => {
+    const vehiculosTemp = [];
+    if (e.target.value === 'tipo') {
+      db.collection('vehiculos')
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    } else {
+      db.collection('vehiculos')
+        .where('tipo', '==', e.target.value)
         .get()
         .then((querySnapShot) => {
           querySnapShot.forEach((doc) => {
@@ -61,14 +90,13 @@ const UnitsEnablement = () => {
         <h3>Lista de Vehículos para verificar habilitación</h3>
         <div className="filtros-hab-unidades">
           <div>
-            <select className="width-height" name="tipo" id="tipo">
-              <option disabled>Tipo</option>
-              <option value="todos" selected>
-                Todos
+            <select className="width-height" name="tipo" id="tipo" onChange={handleChangeTipo}>
+              <option value="tipo" selected>
+                Tipo
               </option>
-              <option value="tracto">Tracto</option>
-              <option value="plataforma">Plataforma</option>
-              <option value="camaBaja">Cama baja</option>
+              <option value="TRACTO">Tracto</option>
+              <option value="PLATAFORMA">Plataforma</option>
+              <option value="CAMA BAJA">Cama baja</option>
             </select>
             <select
               onChange={handleChange}
@@ -76,12 +104,11 @@ const UnitsEnablement = () => {
               name="habilitacion"
               id="habilitacion"
             >
-              <option disabled>Estado</option>
-              <option value="todos" selected>
-                Todos
+              <option value="estado" selected>
+                Estado
               </option>
               <option value="HABILITADO">Habilitado</option>
-              <option value="noHabilitado">No habilitado</option>
+              <option value="NO HABILITADO">No habilitado</option>
             </select>
           </div>
         </div>
@@ -95,7 +122,7 @@ const UnitsEnablement = () => {
             <p>Habilitación</p>
             <p> </p>
           </div>
-          {habilitarVehiculos.map((vehiculo) => (
+          {habilitarVehiculos.length > 0 ? habilitarVehiculos.map((vehiculo) => (
             <div
               key={vehiculo.id}
               className="fila grid-tabla-hab-unidades item-solic-detalle "
@@ -120,7 +147,7 @@ const UnitsEnablement = () => {
                 </div>
               </div>
             </div>
-          ))}
+          )) : <h4 className="fila item-solic-detalle failed-load-data">No se encontraron registros</h4> }
         </div>
       </div>
     </>
