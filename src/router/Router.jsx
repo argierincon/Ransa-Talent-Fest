@@ -31,10 +31,11 @@ const Router = () => (
       {/* <Route exact path="/home" component={Home} /> */}
       <Route exact path="/prueba" component={FormPrueba} />
       <Route exact path="/crear-solicitud" component={Solicitud} />
-      <Route exact path="/detalle-requerimiento" component={SolicitudOrdenServicio} />
+      {/* <Route exact path="/detalle-requerimiento" component={SolicitudOrdenServicio} /> */}
       <Route exact path="/orden-servicio" component={SolicitudOrdenServicio} />
       <Route exact path="/estatus-solicitudes" component={RequestStatus} />
       <Route exact path="/detalle-solicitudes" component={RequestDetail} />
+      <Route exact path="/detalle-solicitudes/:id" component={SolicitudOrdenServicio} />
       <Route exact path="/habilitacion-unidades" component={UnitsEnablement} />
       <Route exact path="/prueba" component={FormPrueba} />
       <Route exact path="/agregar-conductores" component={AddDrivers} />
