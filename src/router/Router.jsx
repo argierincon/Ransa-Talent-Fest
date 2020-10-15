@@ -16,6 +16,19 @@ const Router = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Login} />
+      {' '}
+      <Route exact path="/revisarsolicitudes" component={Home} />
+      {' '}
+      <Route exact path="/verflotapropia" component={Home} />
+      {' '}
+      <Route exact path="/habilitarunidades" component={Home} />
+      {' '}
+      <Route exact path="/disponibilidadunidades" component={Home} />
+      {' '}
+      <Route exact path="/habilitarconductores" component={Home} />
+      {' '}
+      <Route exact path="/disponibilidadconductores" component={Home} />
+      {' '}
       <Route exact path="/home" component={Home} />
       <Route exact path="/prueba" component={FormPrueba} />
       <Route exact path="/crear-solicitud" component={Solicitud} />
