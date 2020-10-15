@@ -1,0 +1,54 @@
+.contenedor-modal {
+  margin: auto;
+  width: 60rem;
+  height: 35rem;
+  background: aqua;
+  border-radius: 5rem;
+}
+
+.contenedor-modal h4 {
+  padding-top: 2.5rem;
+  padding-left: 2.5rem;
+}
+
+.contenedor-items-modal > div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 20rem;
+  margin: 1rem;
+}
+
+.contenedor-items-modal {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.contenedor-items-modal > div > div {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  
+  width: 26rem;
+
+}
+
+.contenedor-items-modal > div > div > div {
+  width: 15rem;
+  height: 2.5rem;
+  background: #efeff4;
+  border-radius: 0.7rem;
+  padding: 0.6rem 0;
+  padding-left: 2rem;
+}
+
+.columna-modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.columna-modal> div > p {
+  margin-right: 1rem;
+}
+

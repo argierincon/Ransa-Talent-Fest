@@ -85,9 +85,9 @@ const RequestStatus = () => {
                   clase="solicitud-asignada margin1rem"
                   estado="Asignado"
                 />
-                <div className="ver-mas margin-06rem">
-                  <p>+</p>
-                </div>
+                <button type="button" className="ver-mas margin-06rem">
+                  +
+                </button>
               </div>
             </div>
           ))}

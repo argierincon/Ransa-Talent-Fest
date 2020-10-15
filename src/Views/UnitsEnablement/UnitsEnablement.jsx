@@ -25,6 +25,35 @@ const UnitsEnablement = () => {
         setHabilitarVehiculos([...habilitarVehiculos]);
       });
   }, []);
+
+  const handleChange = (e) => {
+    const vehiculosTemp = [];
+    if (e.target.value === 'todos') {
+      db.collection('vehiculos')
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    } else {
+      db.collection('vehiculos')
+        .where('habilitado', '==', e.target.value)
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    }
+  };
+
   return (
     <>
       <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
@@ -34,19 +63,24 @@ const UnitsEnablement = () => {
           <div>
             <select className="width-height" name="tipo" id="tipo">
               <option disabled>Tipo</option>
-              <option value="todos" selected>Todos</option>
+              <option value="todos" selected>
+                Todos
+              </option>
               <option value="tracto">Tracto</option>
               <option value="plataforma">Plataforma</option>
               <option value="camaBaja">Cama baja</option>
             </select>
             <select
+              onChange={handleChange}
               className="width-height"
               name="habilitacion"
               id="habilitacion"
             >
               <option disabled>Estado</option>
-              <option value="todos" selected>Todos</option>
-              <option value="habilitado">Habilitado</option>
+              <option value="todos" selected>
+                Todos
+              </option>
+              <option value="HABILITADO">Habilitado</option>
               <option value="noHabilitado">No habilitado</option>
             </select>
           </div>

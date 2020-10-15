@@ -12,6 +12,8 @@ import UnitsAvailability from '../Views/unitsAvailability/UnitsAvailability';
 import DriversEnablement from '../Views/driversEnablement/DriversEnablement';
 import AddDrivers from '../components/formPrueba/AddDrivers';
 import DriversAvailability from '../Views/driversAvailability/DriversAvailability';
+import ModalVehicleInformation from '../components/modalVehicleInformation/ModalVehicleInformation';
+import AvailableDrive from '../Views/availableDrive/AvailableDrive';
 
 const Router = () => (
   <BrowserRouter>
@@ -49,6 +51,12 @@ const Router = () => (
         path="/disponibilidad-conductores"
         component={DriversAvailability}
       />
+      <Route
+        exact
+        path="/verificar-disponibilidad-unidades"
+        component={AvailableDrive}
+      />
+      <Route exact path="/modal" component={ModalVehicleInformation} />
     </Switch>
   </BrowserRouter>
 );
