@@ -14,26 +14,25 @@ import AddDrivers from '../components/formPrueba/AddDrivers';
 import DriversAvailability from '../Views/driversAvailability/DriversAvailability';
 import ModalVehicleInformation from '../components/modalVehicleInformation/ModalVehicleInformation';
 import AvailableDrive from '../Views/availableDrive/AvailableDrive';
+import EnableDrive from '../Views/enableDrive/EnableDrive';
 
 const Router = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={Login} />
-      {' '}
-      <Route exact path="/revisarsolicitudes" component={FormPrueba} />
-      {' '}
-      <Route exact path="/habilitarunidades" component={FormPrueba} />
-      {' '}
-      <Route exact path="/disponibilidadunidades" component={FormPrueba} />
-      {' '}
-      <Route exact path="/habilitarconductores" component={FormPrueba} />
-      {' '}
-      <Route exact path="/disponibilidadconductores" component={FormPrueba} />
-      {' '}
+      <Route exact path="/" component={Login} />{' '}
+      <Route exact path="/revisarsolicitudes" component={FormPrueba} />{' '}
+      <Route exact path="/habilitarunidades" component={FormPrueba} />{' '}
+      <Route exact path="/disponibilidadunidades" component={FormPrueba} />{' '}
+      <Route exact path="/habilitarconductores" component={FormPrueba} />{' '}
+      <Route exact path="/disponibilidadconductores" component={FormPrueba} />{' '}
       {/* <Route exact path="/home" component={Home} /> */}
       <Route exact path="/prueba" component={FormPrueba} />
       <Route exact path="/crear-solicitud" component={Solicitud} />
-      <Route exact path="/detalle-requerimiento" component={SolicitudOrdenServicio} />
+      <Route
+        exact
+        path="/detalle-requerimiento"
+        component={SolicitudOrdenServicio}
+      />
       <Route exact path="/orden-servicio" component={SolicitudOrdenServicio} />
       <Route exact path="/estatus-solicitudes" component={RequestStatus} />
       <Route exact path="/detalle-solicitudes" component={RequestDetail} />
@@ -59,6 +58,11 @@ const Router = () => (
         exact
         path="/verificar-disponibilidad-unidades"
         component={AvailableDrive}
+      />
+      <Route
+        exact
+        path="/verificar-habilitacion-unidades"
+        component={EnableDrive}
       />
       <Route exact path="/modal" component={ModalVehicleInformation} />
     </Switch>
