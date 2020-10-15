@@ -1,101 +1,214 @@
+/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import FormSolicitud from '../../components/formSolicitud/FormSolicitud';
 import Header from '../../components/header/Header';
 import TitleView from '../../components/titleView/TitleView';
+import BtnPrimary from '../../components/btnPrimary/BtnPrimary';
 import './MainRequest.scss';
 
 const MainRequest = () => {
+  const [clientes, setClientes] = useState([]);
+  const [cliente, setCliente] = useState(-1);
+  const [servicios, setServicios] = useState([]);
+  const [selectService, setSelectService] = useState('');
   const db = firebase.firestore();
-  // const [cliente, setCliente] = useState([]);
-  const obteniendoClientes = () => {
-    db.collection('clientes').get()
-      .then((data) => (console.log(data.docs.map((doc) => ({ id: doc.id, ...doc.data() })))));
-  };
+
+  const [datosSolicitud, setDatosSolicitud] = useState({
+    cliente,
+    ordenServicio: selectService,
+    tipoUnidad: null,
+    tipoMercaderia: null,
+    origen: null,
+    destino: null,
+    fechaCarga: null,
+    horaCarga: null,
+    detalleMercaderia: null,
+    lugarCarga: null,
+    datoAdicional: null,
+    lugarDescarga: null,
+  });
   useEffect(() => {
-    obteniendoClientes();
+    const obtenerClientes = async () => {
+      try {
+        const data = await db.collection('clientes').get();
+        const arrayData = data.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setClientes(arrayData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    obtenerClientes();
   }, []);
+  useEffect(() => {
+    const obtenerServicios = async () => {
+      try {
+        const data = await db.collection('servicios').get();
+        const arrayData = data.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setServicios(arrayData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    obtenerServicios();
+  }, []);
+
+  const filterservicio = (arr, id) => {
+    const arreglo = arr.filter((item) => item.id === id);
+    return arreglo[0];
+  };
+  const handleServicios = (e) => {
+    setSelectService(filterservicio(servicios, e.target.value));
+  };
+
+  const handleInputChange = (e) => {
+    setDatosSolicitud({
+      ...datosSolicitud,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    db.collection('solicitudes').add(datosSolicitud);
+    console.log('datos guardados');
+  };
 
   return (
     <>
       <Header />
       <section className="main-container-solicitud">
         <TitleView texto="Solicitud de Requerimientos - Almacenes" />
-        <div>
-          <p>Generar Pedido</p>
-          <div className="select">
-            <select name="format" id="format">
-              <option selected disabled>Seleccione cliente</option>
-              <option value="pdf">PDF</option>
-              <option value="txt">txt</option>
-              <option value="epub">ePub</option>
-              <option value="fb2">fb2</option>
-              <option value="mobi">mobi</option>
-            </select>
-          </div>
-        </div>
-
-        <p>Cliente -Antamina</p>
-        <div className="flex datos-autocompleted">
-          <div className="firs-colum">
-            <div className="flex">
-              <label htmlFor="name">N° Orden de Servicio</label>
-              <select name="select">
-                <option value="value1">Value 1</option>
-                <option value="value2">Value 2</option>
-                <option value="value3">Value 3</option>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <p>Generar Pedido</p>
+            <div className="select">
+              <select name="cliente" onChange={(e) => setCliente(e.target.value)}>
+                <option value={-1}>Seleccione cliente</option>
+                {clientes.map((client, index) => (
+                  <option
+                    key={client.id}
+                    value={index}
+                  >
+                    {client.razonSocial}
+                  </option>
+                ))}
               </select>
             </div>
-            <div className="flex">
-              <label htmlFor="name">Tipo de unidad</label>
-              <input
-                type="text"
-                id="name"
-                readOnly="readonly"
-              />
+          </div>
+          <div>
+            <label className="ordenServicio" htmlFor="name">N° Orden de Servicio</label>
+            <select name="ordenServicio" onChange={handleServicios}>
+              <option value={-1}>Seleccione</option>
+              {
+                  Number(cliente) > -1
+                    && (clientes[Number(cliente)].servicios.map((element) => (
+                      <option
+                        key={element}
+                        value={element}
+                      >
+                        {element}
+                      </option>
+                    )))
+                }
+            </select>
+          </div>
+
+          <div className="flex datos-autocompleted">
+            <div className="first-colum">
+              <div className="flex">
+                <label htmlFor="name">Tipo de unidad</label>
+                <input
+                  type="text"
+                  readOnly="readonly"
+                  name="tipoUnidad"
+                  value={selectService.tipoDeUnidad}
+                />
+              </div>
+              <div className="flex">
+                <label htmlFor="name">Tipo de mercaderia</label>
+                <input
+                  type="text"
+                  readOnly="readonly"
+                  name="tipoMercaderia"
+                  value={selectService.tipoDeMercaderia}
+                  onChange={handleInputChange}
+                />
+              </div>
             </div>
-            <div className="flex">
-              <label htmlFor="name">Tipo de mercaderia</label>
-              <input
-                type="text"
-                id="name"
-                readOnly="readonly"
-              />
+            <div className="second-colum">
+              <div className="flex">
+                <label htmlFor="name">Origen</label>
+                <input
+                  readOnly="readonly"
+                  type="text"
+                  name="origen"
+                  value={selectService.origen}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="flex">
+                <label htmlFor="name">Destino</label>
+                <input
+                  readOnly="readonly"
+                  type="text"
+                  name="destino"
+                  value={selectService.destino}
+                  onChange={handleInputChange}
+                />
+              </div>
             </div>
           </div>
-          <div className="second-colum">
-            <div className="flex">
-              <label htmlFor="name">Cliente</label>
-              <input
-                readOnly="readonly"
-                type="text"
-                id="name"
-              />
+          <hr />
+
+          <p className="form-manual">Completa los datos del formulario para poder crear la solicitud</p>
+
+          <div className="flex">
+            <div className="first-colum">
+              <div className="flex">
+                <label htmlFor="name">Fecha de carga</label>
+                <input type="date" name="fechaCarga" onChange={handleInputChange} />
+              </div>
+              <div className="flex">
+                <label htmlFor="name">Hora de carga</label>
+                <input type="time" name="horaCarga" onChange={handleInputChange} />
+              </div>
+              <div className="flex">
+                <label htmlFor="name">Lugar de carga</label>
+                <input ttype="text" name="lugarDescarga" onChange={handleInputChange} />
+              </div>
+              <div className="flex">
+                <label htmlFor="name">Lugar de descarga</label>
+                <input type="text" name="lugarCarga" onChange={handleInputChange} />
+              </div>
             </div>
-            <div className="flex">
-              <label htmlFor="name">Origen</label>
-              <input
-                readOnly="readonly"
-                type="text"
-                id="name"
-              />
-            </div>
-            <div className="flex">
-              <label htmlFor="name">Destino</label>
-              <input
-                readOnly="readonly"
-                type="text"
-                id="name"
-                value="Arequipa"
-              />
+            <div className="second-colum">
+              <div className="flex">
+                <label htmlFor="name">Detalle mercaderia</label>
+                <textarea
+                  className="prueba"
+                  name="detalleMercaderia"
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="flex">
+                <label htmlFor="name">Dato adicional</label>
+                <textarea
+                  name="datoAdicional"
+                  onChange={handleInputChange}
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <hr />
-        <p className="form-manual">Completa los datos del formulario para poder crear la solicitud</p>
-        {/* <FormSolicitud /> */}
+          <BtnPrimary texto="Solicitar" />
+        </form>
       </section>
     </>
   );
