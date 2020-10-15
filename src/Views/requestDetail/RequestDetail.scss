@@ -1,0 +1,64 @@
+@import '../../assets/styles/_variables.scss';
+
+.tabla-estatus-solicitud-detail {
+  margin: auto;
+}
+
+.tabla-estatus-solicitud-detail h3 {
+  color: $btn-primary;
+  font-size: 1.88rem;
+  margin: 2rem 0;
+}
+
+.item-solic-detalle {
+  align-items: center;
+  height: 4rem;
+}
+
+.grid-tabla-solicitud-detail {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  margin: auto;
+  text-align: center;
+}
+
+.titulos-tabla {
+  margin-bottom: 0.8rem;
+}
+
+.titulos-tabla p {
+  font-size: 0.88rem;
+  font-family: 'univia-pro-medium';
+  color: #666666;
+}
+
+.status-ver-mas {
+  display: flex;
+  align-items: center;
+}
+
+.ver-mas {
+  background-color: #fe9600;
+  width: 1.88rem;
+  height: 1.88rem;
+  border-radius: 2rem;
+  color: $white;
+  font-size: 1.8rem;
+}
+
+.ver-mas {
+  cursor: pointer;
+}
+
+.margin-06rem {
+  color: red;
+  margin: 0 0.6rem 0 0.6rem;
+}
+
+.ver-mas > p {
+  transform: translate(0rem, -0.31rem);
+}
+
+.width-5rem {
+  width: 5rem;
+}

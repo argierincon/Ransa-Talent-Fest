@@ -1,0 +1,25 @@
+@import '../../assets/styles/_variables.scss';
+
+.estado-estandar {
+  color: $white;
+  height: 1.5rem;
+  width: 6.1rem;
+  font-size: 0.88rem;
+  padding: 0.2rem;
+}
+
+.solicitud-pendiente {
+  background-color: #666666;
+}
+
+.solicitud-en-proceso {
+  background-color: #fe9600;
+}
+
+.solicitud-asignada {
+  background-color: #00a62c;
+}
+
+.solicitud-fallida {
+  background-color: #e31518;
+}
