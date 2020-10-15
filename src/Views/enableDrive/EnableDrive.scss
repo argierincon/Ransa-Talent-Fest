@@ -21,7 +21,7 @@
   margin: 2rem 0;
 }
 
-.grid-tabla-hab-unidades {
+.grid-tabla-verif-disp-unidades {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   margin: auto;
@@ -65,15 +65,6 @@
   margin-right: 1rem;
 }
 
-.margin-left-2rem {
-  margin-left: 2rem;
-}
-
-.width7rem {
-  width: 7.5rem;
-}
-
-.failed-load-data {
-  padding: 1.5rem;
-  text-align: center;
+.space-evenly {
+  justify-content: space-evenly;
 }

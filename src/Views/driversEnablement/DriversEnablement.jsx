@@ -29,7 +29,7 @@ const UnitsEnablement = () => {
 
   const handleChange = (e) => {
     const conductoresTemp = [];
-    if (e.target.value === 'todos') {
+    if (e.target.value === 'estatus') {
       db.collection('conductores')
         .get()
         .then((querySnapShot) => {
@@ -62,22 +62,13 @@ const UnitsEnablement = () => {
         <h3>Lista de Vehículos para verificar habilitación</h3>
         <div className="filtros-hab-unidades">
           <div>
-            <select className="width-height" name="tipo" id="tipo">
-              <option value="tipo">Tipo</option>
-              <option value="tracto">Tracto</option>
-              <option value="plataforma">Plataforma</option>
-              <option value="camaBaja">Cama baja</option>
-            </select>
             <select
               onChange={handleChange}
               className="width-height"
               name="habilitacion"
               id="habilitacion"
             >
-              <option disabled>Estatus</option>
-              <option value="todos" selected>
-                Todos
-              </option>
+              <option value="estatus" selected>Estatus</option>
               <option value="true">Habilitado</option>
               <option value="false">No habilitado</option>
             </select>

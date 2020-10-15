@@ -24,6 +24,62 @@ const UnitsAvailability = () => {
       });
   }, []);
 
+  const handleChange = (e) => {
+    const vehiculosTemp = [];
+    if (e.target.value === 'disponibilidad') {
+      db.collection('vehiculos')
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    } else {
+      db.collection('vehiculos')
+        .where('disponible', '==', e.target.value)
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    }
+  };
+
+  const handleChangeTipo = (e) => {
+    const vehiculosTemp = [];
+    if (e.target.value === 'tipo') {
+      db.collection('vehiculos')
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    } else {
+      db.collection('vehiculos')
+        .where('tipo', '==', e.target.value)
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    }
+  };
+
   return (
     <>
       <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
@@ -31,20 +87,28 @@ const UnitsAvailability = () => {
         <h3>Lista de Vehículos para verificar disponibilidad</h3>
         <div className="filtros-hab-unidades">
           <div>
-            <select className="width-height" name="tipo" id="tipo">
-              <option value="tipo">Tipo</option>
-              <option value="tracto">Tracto</option>
-              <option value="plataforma">Plataforma</option>
-              <option value="camaBaja">Cama baja</option>
+            <select
+              className="width-height"
+              name="tipo"
+              id="tipo"
+              onChange={handleChangeTipo}
+            >
+              <option value="tipo" selected>
+                Tipo
+              </option>
+              <option value="TRACTO">Tracto</option>
+              <option value="PLATAFORMA">Plataforma</option>
+              <option value="CAMA BAJA">Cama baja</option>
             </select>
             <select
+              onChange={handleChange}
               className="width-height"
               name="habilitacion"
               id="habilitacion"
             >
               <option value="disponibilidad">Disponibilidad</option>
-              <option value="habilitado">Habilitado</option>
-              <option value="noHabilitado">No habilitado</option>
+              <option value="true">Disponible</option>
+              <option value="false">No disponible</option>
             </select>
           </div>
         </div>
@@ -56,31 +120,37 @@ const UnitsAvailability = () => {
             <p>Disponibilidad</p>
             <p> </p>
           </div>
-          {disponibilidadVehiculos.map((vehiculo) => (
-            <div
-              key={vehiculo.id}
-              className="fila grid-tabla-disp-unidades item-solic-detalle "
-            >
-              <p>{vehiculo.placa}</p>
-              <p>{vehiculo.tipo}</p>
-              <p>{vehiculo.razonSocial}</p>
-              <div className="status-ver-mas margin-left-2rem space-evenly">
-                <TrafficLightRequest
-                  clase={`solicitud-asignada width7rem ${
-                    vehiculo.estatus === 'HABILITADO'
-                      ? 'solicitud-asignada'
-                      : 'solicitud-fallida'
-                  }`}
-                  estado={
-                    vehiculo.estatus === 'HABILITADO'
-                      ? 'DISPONIBLE'
-                      : 'NO DISPONIBLE'
-                  }
-                />
+          {disponibilidadVehiculos.length > 0 ? (
+            disponibilidadVehiculos.map((vehiculo) => (
+              <div
+                key={vehiculo.id}
+                className="fila grid-tabla-disp-unidades item-solic-detalle "
+              >
+                <p>{vehiculo.placa}</p>
+                <p>{vehiculo.tipo}</p>
+                <p>{vehiculo.razonSocial}</p>
+                <div className="status-ver-mas margin-left-2rem space-evenly">
+                  <TrafficLightRequest
+                    clase={`solicitud-asignada width7rem ${
+                      vehiculo.disponible === 'true'
+                        ? 'solicitud-asignada'
+                        : 'solicitud-fallida'
+                    }`}
+                    estado={
+                      vehiculo.disponible === 'true'
+                        ? 'DISPONIBLE'
+                        : 'NO DISPONIBLE'
+                    }
+                  />
+                </div>
+                {' '}
               </div>
-              {' '}
-            </div>
-          ))}
+            ))
+          ) : (
+            <h4 className="fila item-solic-detalle failed-load-data">
+              No se encontraron registros
+            </h4>
+          )}
         </div>
       </div>
     </>
