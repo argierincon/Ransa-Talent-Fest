@@ -36,8 +36,16 @@ const Router = () => (
       <Route exact path="/estatus-solicitudes" component={RequestStatus} />
       <Route exact path="/detalle-solicitudes" component={RequestDetail} />
       <Route exact path="/habilitacion-unidades" component={UnitsEnablement} />
-      <Route exact path="/disponibilidad-unidades" component={UnitsAvailability} />
-      <Route exact path="/habilitacion-conductores" component={DriversEnablement} />
+      <Route
+        exact
+        path="/disponibilidad-unidades"
+        component={UnitsAvailability}
+      />
+      <Route
+        exact
+        path="/habilitacion-conductores"
+        component={DriversEnablement}
+      />
     </Switch>
   </BrowserRouter>
 );

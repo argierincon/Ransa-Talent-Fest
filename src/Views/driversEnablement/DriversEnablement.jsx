@@ -4,6 +4,7 @@ import 'firebase/firestore';
 
 import Header from '../../components/header/Header';
 import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLightRequest';
+import SideBar from '../../components/sideBar/SideBar';
 
 import descargar from '../../assets/img/descargar.png';
 
@@ -57,6 +58,7 @@ const UnitsEnablement = () => {
 
   return (
     <>
+      <SideBar />
       <Header />
       <div className="seccion-estados-solicitud">
         <h3>Lista de Vehículos para verificar habilitación</h3>
