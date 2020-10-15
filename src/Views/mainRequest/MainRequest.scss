@@ -31,8 +31,11 @@ section {
   .datos-autocompleted {
     margin-bottom: 30px;
   }
+  .ordenServicio {
+    margin-right: 20px;
+  }
 
-  .firs-colum {
+  .first-colum {
     width: 50%;
     max-width: 390px;
     margin-right: 50px;
@@ -67,6 +70,7 @@ section {
     height: 28px;
     margin: 15px 0px;
   }
+
   textarea {
     width: 240px;
     height: 90px;
@@ -75,5 +79,6 @@ section {
     border: 0;
     border-radius: 10px;
     padding: 10px;
+    resize: none;
   }
 }

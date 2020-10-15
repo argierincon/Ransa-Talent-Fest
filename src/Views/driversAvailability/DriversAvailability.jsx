@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import 'firebase/firestore';
+
 import Header from '../../components/header/Header';
 import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLightRequest';
-import descargar from '../../assets/img/descargar.png';
-import './DriversEnablement.scss';
-import BarOp from '../../components/sideBarOp/BarOp';
 
-const DriversEnablement = () => {
+import './DriversAvailability.scss';
+
+const DriversAvailability = () => {
   const db = firebase.firestore();
   const [conductores, setConductores] = useState([]);
 
@@ -20,7 +20,6 @@ const DriversEnablement = () => {
           dataConductores.id = doc.id;
           conductores.push(dataConductores);
         });
-        console.log(conductores);
         setConductores([...conductores]);
       });
   }, []);
@@ -55,8 +54,6 @@ const DriversEnablement = () => {
 
   return (
     <>
-      <Header />
-      <BarOp/>
       <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
       <div className="seccion-estados-solicitud">
         <h3>Lista de Vehículos para verificar habilitación</h3>
@@ -71,49 +68,36 @@ const DriversEnablement = () => {
               <option value="estatus" selected>
                 Estatus
               </option>
-              <option value="true">Habilitado</option>
-              <option value="false">No habilitado</option>
+              <option value="true">Disponible</option>
+              <option value="false">No disponible</option>
             </select>
           </div>
         </div>
         <div className="tabla-estatus-solicitud-detail">
-          <div className="titulos-tabla grid-tabla-hab-unidades">
+          <div className="titulos-tabla grid-tabla-disp-conductores">
+            <p>DNI</p>
             <p>Conductores</p>
-            <p>Requerimiento 1</p>
-            <p>Caducidad</p>
-            <p>Requerimiento 2</p>
-            <p>Caducidad</p>
             <p>Estatus</p>
-            <p> </p>
           </div>
           {conductores.map((conductor) => (
             <div
               key={conductor.id}
-              className="fila grid-tabla-hab-unidades item-solic-detalle"
+              className="fila grid-tabla-disp-conductores item-solic-detalle"
             >
+              <p>{conductor.dni}</p>
               <p>{conductor.nombre}</p>
-              <p>{conductor.req1}</p>
-              <p>{conductor.req1FechaCaducidad}</p>
-              <p>{conductor.req2}</p>
-              <p>{conductor.req2FechaCaducidad}</p>
               <TrafficLightRequest
-                clase={`solicitud-asignada margin-left-2rem width7rem ${
+                clase={`solicitud-asignada margin-auto width7rem ${
                   conductor.habilitado === 'true'
                     ? 'solicitud-asignada'
                     : 'solicitud-fallida'
                 }`}
                 estado={
                   conductor.habilitado === 'true'
-                    ? 'HABILITADO'
-                    : 'NO HABILITADO'
+                    ? 'DISPONIBLE'
+                    : 'NO DISPONIBLE'
                 }
               />
-              <div className="status-ver-mas margin-left-2rem">
-                <img className="descargar" src={descargar} alt="Descargar" />
-                <div className="ver-mas">
-                  <p>+</p>
-                </div>
-              </div>
             </div>
           ))}
         </div>
@@ -122,4 +106,4 @@ const DriversEnablement = () => {
   );
 };
 
-export default DriversEnablement;
+export default DriversAvailability;

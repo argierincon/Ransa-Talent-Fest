@@ -38,3 +38,11 @@
   font-family: 'univia-pro-black';
   src: url(../fonts/UniviaPro-Black.woff);
 }
+
+select:hover {
+cursor: pointer;
+}
+
+option:hover {
+  cursor: pointer;
+}

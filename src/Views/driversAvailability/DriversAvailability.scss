@@ -1,6 +1,23 @@
 @import '../../assets/styles/_variables.scss';
 
+.filtros-hab-conductores {
+  margin: 2rem auto 3.6rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filtros-hab-conductores select {
+  margin-left: 1.5rem;
+}
+
+.filtros-hab-conductores p {
+  color: #1aaf42;
+  font-size: 1.5rem;
+}
+
 .tabla-estatus-solicitud-detail {
+  // width: 90%;
   margin: auto;
 }
 
@@ -10,19 +27,11 @@
   margin: 2rem 0;
 }
 
-.item-solic-detalle {
-  align-items: center;
-  height: 4rem;
-}
-
-.grid-tabla-solicitud-detail {
+.grid-tabla-disp-conductores {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin: auto;
   text-align: center;
-}
-.grid-tabla-solicitud-detail p {
-  font-size: 14px;
 }
 
 .titulos-tabla {
@@ -53,25 +62,27 @@
   cursor: pointer;
 }
 
-.margin-06rem {
-  color: red;
-  margin: 0 0.6rem 0 0.6rem;
-}
-
 .ver-mas > p {
   transform: translate(0rem, -0.31rem);
 }
 
-.width-5rem {
-  width: 5rem;
+.descargar {
+  width: 2.4rem;
+  margin-right: 1rem;
 }
 
-.titulo-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.margin-left-2rem {
+  margin-left: 2rem;
 }
 
-.titulo-btn > button {
-  margin: 0;
+.fila {
+  font-size: 0.88rem;
+}
+
+.fila:nth-child(even) {
+  background-color: #eeeeef;
+}
+
+.margin-auto {
+  margin: auto;
 }

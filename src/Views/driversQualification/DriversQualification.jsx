@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import 'firebase/firestore';
+
 import Header from '../../components/header/Header';
 import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLightRequest';
-import descargar from '../../assets/img/descargar.png';
-import './DriversEnablement.scss';
-import BarOp from '../../components/sideBarOp/BarOp';
 
-const DriversEnablement = () => {
+import descargar from '../../assets/img/descargar.png';
+
+import './DriversQualification.scss';
+
+const DriversQualification = () => {
   const db = firebase.firestore();
   const [conductores, setConductores] = useState([]);
 
@@ -55,8 +57,6 @@ const DriversEnablement = () => {
 
   return (
     <>
-      <Header />
-      <BarOp/>
       <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
       <div className="seccion-estados-solicitud">
         <h3>Lista de Vehículos para verificar habilitación</h3>
@@ -122,4 +122,4 @@ const DriversEnablement = () => {
   );
 };
 
-export default DriversEnablement;
+export default DriversQualification;

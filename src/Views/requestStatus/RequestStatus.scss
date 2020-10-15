@@ -1,7 +1,7 @@
 @import '../../assets/styles/_variables.scss';
 
 .seccion-estados-solicitud {
-  width: 86%;
+  width: 95%;
   margin: auto;
   padding-left:223px;
 }
@@ -15,8 +15,8 @@
 .filtros-solicitud {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin: 2rem auto 3.6rem auto;
+  justify-content: flex-end;
 }
 
 .filtros-solicitud > p {
@@ -63,20 +63,16 @@
   color: #666666;
 }
 
-.linea-bg {
-  background-color: #eeeeef;
-}
-
-.linea-bg p, .linea-simple p {
-font-size: 0.88rem;
-}
-
 .height-padding {
   height: 4rem;
   align-items: center;
   color: #666666;
 }
 
-.ver-mas > p {
-  font-size: 1.75rem;
+.ver-mas {
+  border: none;
+}
+
+.margin1rem {
+  margin-left: 1rem;
 }

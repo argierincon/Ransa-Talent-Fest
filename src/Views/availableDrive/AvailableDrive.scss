@@ -1,6 +1,17 @@
 @import '../../assets/styles/_variables.scss';
 
+.filtros-hab-unidades {
+  margin: 2rem auto 3.6rem auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filtros-hab-unidades select {
+  margin-left: 1.5rem;
+}
+
 .tabla-estatus-solicitud-detail {
+  // width: 90%;
   margin: auto;
 }
 
@@ -10,19 +21,11 @@
   margin: 2rem 0;
 }
 
-.item-solic-detalle {
-  align-items: center;
-  height: 4rem;
-}
-
-.grid-tabla-solicitud-detail {
+.grid-tabla-disp-unidades {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   margin: auto;
   text-align: center;
-}
-.grid-tabla-solicitud-detail p {
-  font-size: 14px;
 }
 
 .titulos-tabla {
@@ -53,25 +56,19 @@
   cursor: pointer;
 }
 
-.margin-06rem {
-  color: red;
-  margin: 0 0.6rem 0 0.6rem;
-}
-
 .ver-mas > p {
   transform: translate(0rem, -0.31rem);
 }
 
-.width-5rem {
-  width: 5rem;
+.descargar {
+  width: 2.4rem;
+  margin-right: 1rem;
 }
 
-.titulo-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.space-evenly {
+  justify-content: space-evenly;
 }
 
-.titulo-btn > button {
-  margin: 0;
+.select-disp-unidades  {
+margin-left: 4rem;
 }
