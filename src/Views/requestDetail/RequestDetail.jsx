@@ -15,8 +15,8 @@ const RequestDetail = () => {
 
   useEffect(() => {
     db.collection('solicitudes')
-      .get()
       .orderBy('date', 'desc')
+      .get()
       .then((querySnapShot) => {
         querySnapShot.forEach((doc) => {
           const dataSolicitudes = doc.data();
