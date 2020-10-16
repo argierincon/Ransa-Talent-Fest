@@ -42,34 +42,6 @@ export default [
     clase: 'nav-text',
   },
   {
-    titulo: 'Flota Tercera',
-    clase: 'li-nav-text',
-  },
-  {
-    titulo: 'Habilitación de unidades',
-    ruta: '/habilitacion-unidades-ext',
-    icono: <img src={truck1} alt="camion" />,
-    clase: 'nav-text',
-  },
-  {
-    titulo: 'Disponibilidad de Unidades',
-    ruta: '/disponibilidad-unidades-ext',
-    icono: <img src={truck2} alt="camion" />,
-    clase: 'nav-text',
-  },
-  {
-    titulo: 'Habilitación de conductores',
-    ruta: '/disponibilidad-conductores-ext',
-    icono: <img src={hc} alt="icon" />,
-    clase: 'nav-text',
-  },
-  {
-    titulo: 'Disponibilidad de conductores',
-    ruta: '/disponibilidad-conductores-ext',
-    icono: <img src={dc} alt="icon" />,
-    clase: 'nav-text',
-  },
-  {
     titulo: 'Cerrar sesión',
     ruta: '/cerrarsesion',
     icono: <FaIcons.FaSignOutAlt />,

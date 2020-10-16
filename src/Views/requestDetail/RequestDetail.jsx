@@ -144,53 +144,33 @@ const RequestDetail = () => {
               </select>
             </div>
           </div>
-          <div className="tabla-estatus-solicitud-detail">
-            <div className="titulos-tabla grid-tabla-solicitud-detail">
-              <p>Fecha solicitud</p>
-              <p>Fecha carga</p>
-              <p>Horacarga</p>
-              <p>Cliente</p>
-              <p>N° de Orden</p>
-              <p>Unidad</p>
-              <p>Mercadería</p>
-              <p>Fecha entrega</p>
-              <p>Lugar descarga</p>
-              <p> </p>
-            </div>
-            {solicitudes.map((solicitud) => (
-              <div
-                key={solicitud.id}
-                className="fila grid-tabla-solicitud-detail item-solic-detalle "
-              >
-                <p>{solicitud.date}</p>
-                <p>{solicitud.fechaCarga}</p>
-                <p>{solicitud.horaCarga}</p>
-                <p>{solicitud.cliente}</p>
-                <p>{solicitud.ordenServicio}</p>
-                <p>{solicitud.tipoDeUnidad}</p>
-                <p>{solicitud.tipoDeMercaderia}</p>
-                <p>{solicitud.fechaCarga}</p>
-                <p>{solicitud.lugarDescarga}</p>
-                <div className="status-ver-mas">
-                  <TrafficLightRequest
-                    clase="solicitud-asignada width-5rem"
-                    estado="Asignado"
-                  />
-                  <Link
-                    class="linkToDetail"
-                    to={`/detalle-solicitudes/${solicitud.id}`}
-                  >
-                    <div className="ver-mas margin-06rem">
-                      <span className="buttonMore">+</span>
-                    </div>
-                  </Link>
-                </div>
+          {solicitudes.map((solicitud) => (
+            <div
+              key={solicitud.id}
+              className="fila grid-tabla-solicitud-detail item-solic-detalle "
+            >
+              <p>{solicitud.date}</p>
+              <p>{solicitud.fechaCarga}</p>
+              <p>{solicitud.horaCarga}</p>
+              <p>{solicitud.cliente}</p>
+              <p>{solicitud.ordenServicio}</p>
+              <p>{solicitud.tipoDeUnidad}</p>
+              <p>{solicitud.tipoDeMercaderia}</p>
+              <p>{solicitud.fechaCarga}</p>
+              <p>{solicitud.lugarDescarga}</p>
+              <div className="status-ver-mas">
+                <TrafficLightRequest
+                  clase="solicitud-asignada width-5rem"
+                  estado="Asignado"
+                />
+                <Link className="linkToDetail" to={`/detalle-solicitudes/${solicitud.id}`}>
+                  <i className="more-detail fas fa-plus-circle" />
+                </Link>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 export default RequestDetail;
