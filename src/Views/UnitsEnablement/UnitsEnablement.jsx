@@ -164,9 +164,7 @@ const UnitsEnablement = () => {
                         alt="Descargar"
                       />
                     </a>
-                    <Link
-                      className="linkToDetail"
-                    >
+                    <Link className="linkToDetail" to={`/habilitacion-unidades/${vehiculo.id}`}>
                       <i className="more-detail fas fa-plus-circle" />
                     </Link>
                   </div>
