@@ -4,7 +4,6 @@
   border: 0;
   border-radius: 10px;
   background-color: #efeff4;
-  margin: 10px 0px;
   padding: 0px 10px;
 }
 
@@ -13,4 +12,41 @@
   width: 700px;
   height: 500px;
   background-color: aquamarine;
+  margin: 8rem auto;
+}
+
+.modal-detalle-asignacion > p {
+  transform: translate(-3rem, 2rem);
+}
+
+.modal-detalle-asignacion > div {
+  padding: 5rem;
+}
+
+.modal-detalle-asignacion h3,
+.modal-detalle-asignacion span {
+  font-size: 24px;
+  color: #009a3f;
+}
+
+.modal-detalle-asignacion h3:nth-child(1) {
+  padding-left: 1rem;
+}
+
+.div-h3 {
+  width: 30rem;
+  margin: 2rem auto;
+}
+
+.items-asignacion {
+  width: 30rem;
+  margin: 4rem auto;
+}
+
+.items-asignacion > div {
+  margin: 1rem 0;
+}
+
+.items-asignacion > div > div {
+  padding: 0.6rem;
 }

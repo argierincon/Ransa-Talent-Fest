@@ -24,6 +24,7 @@ import ModalConductor from '../Views/ModalConductor/ModalConductor';
 import ModalUnidades from '../Views/ModalVehicle/ModalVehicle';
 import ModalHabilitacionConductores from '../Views/ModalHabilitacionConductores/ModalHabilitacionConductores';
 import ModalHabilitacionUnidades from '../Views/ModalHabilitacionUnidades/ModalHabilitacionUnidades';
+import ModalDetalleAsignacion from '../components/formPrueba/ModalDetalleAsignacion';
 const Router = () => (
   <BrowserRouter>
     <Switch>
@@ -96,7 +97,7 @@ const Router = () => (
         component={AvailableDriver}
       />
       <Route exact path="/home" component={Home} />
-      <Route exact path="/prueba" component={FormPrueba} />
+      <Route exact path="/prueba/:id" component={ModalDetalleAsignacion} />
       <Route exact path="/crear-solicitud" component={Solicitud} />
       <Route exact path="/revisarsolicitudes" component={FormPrueba} />
       <Route exact path="/habilitarunidades" component={FormPrueba} />
