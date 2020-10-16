@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import 'firebase/firestore';
 import BarMant from '../../components/sideBarMant/BarMant';
@@ -176,14 +177,10 @@ const EnableDrive = () => {
                     <option value="NO HABILITADO">No Habilitado</option>
                   </select>
                   <div className="status-ver-mas margin-left-2rem">
-                    <img
-                      className="descargar"
-                      src={descargar}
-                      alt="Descargar"
-                    />
-                    <div className="ver-mas">
-                      <p>+</p>
-                    </div>
+                    <a target="_blank" href="https://drive.google.com/drive/folders/1VvSxkYnPWZyZEkaeRwTd-djCCh9GB3_R?usp=sharing"><img className="descargar" src={descargar} alt="Descargar" /></a>
+                    <Link className="linkToDetail" to={`/verificar-habilitacion-unidades/${vehiculo.id}`}>
+                      <i className="more-detail fas fa-plus-circle" />
+                    </Link>
                   </div>
                 </div>
               ))
