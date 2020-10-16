@@ -22,7 +22,7 @@ import EnableDriver from '../Views/enableDriver/EnableDriver';
 // import ModalVehicle from '../Views/ModalVehicleHabilitacion/ModalVehicle';
 import ModalConductor from '../Views/ModalConductor/ModalConductor';
 import ModalUnidades from '../Views/ModalVehicle/ModalVehicle';
-
+import ModalHabilitacionConductores from '../Views/ModalHabilitacionConductores/ModalHabilitacionConductores';
 const Router = () => (
   <BrowserRouter>
     <Switch>
@@ -43,6 +43,11 @@ const Router = () => (
         exact
         path="/habilitacion-conductores"
         component={DriversEnablement}
+      />
+      <Route
+        exact
+        path="/habilitacion-conductores/:id"
+        component={ModalHabilitacionConductores}
       />
       <Route
         exact
