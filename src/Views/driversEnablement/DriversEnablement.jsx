@@ -27,7 +27,7 @@ const DriversEnablement = () => {
 
   const handleChange = (e) => {
     const conductoresTemp = [];
-    if (e.target.value === 'estatus') {
+    if (e.target.value === 'todos') {
       db.collection('conductores')
         .get()
         .then((querySnapShot) => {
@@ -73,11 +73,12 @@ const DriversEnablement = () => {
                 name="habilitacion"
                 id="habilitacion"
               >
-                <option value="estatus" selected>
+                <option disabled selected>
                   Estatus
                 </option>
-                <option value="true">Habilitado</option>
-                <option value="false">No habilitado</option>
+                <option value="todos">Todos</option>
+                <option value="HABILITADO">Habilitado</option>
+                <option value="NO HABILITADO">No habilitado</option>
               </select>
             </div>
           </div>
@@ -104,12 +105,12 @@ const DriversEnablement = () => {
                   <p>{conductor.req2FechaCaducidad}</p>
                   <TrafficLightRequest
                     clase={`solicitud-asignada margin-left-2rem width7rem ${
-                      conductor.habilitado === 'true'
+                      conductor.habilitado === 'HABILITADO'
                         ? 'solicitud-asignada'
                         : 'solicitud-fallida'
                     }`}
                     estado={
-                      conductor.habilitado === 'true'
+                      conductor.habilitado === 'HABILITADO'
                         ? 'HABILITADO'
                         : 'NO HABILITADO'
                     }
