@@ -246,7 +246,7 @@ const MainRequest = () => {
 
                 <div className="select-asign">
                   <p>Acoplado</p>
-                  <select name="tipo" onChange={selectAsignar}>
+                  <select name="placaAcoplado" onChange={selectAsignar}>
                     <option selected disabled>
                       Acoplado
                     </option>

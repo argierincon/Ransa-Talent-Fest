@@ -5,6 +5,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import moment from 'moment';
 import 'moment/locale/es';
+import Swal from 'sweetalert2';
 import Header from '../../components/header/Header';
 import TitleView from '../../components/titleView/TitleView';
 import BtnPrimary from '../../components/btnPrimary/BtnPrimary';
@@ -84,6 +85,15 @@ const MainRequest = () => {
       [e.target.name]: clientes[Number(e.target.value)].razonSocial,
     });
   };
+
+  // const handleFecha = (e) =>{
+  //   const format = moment(e.target.value).format('L');
+  //   setDatosSolicitud({
+  //     fechaCarga: format,
+  //     ...datosSolicitud,
+  //     [e.target.name]: clientes[Number(e.target.value)].razonSocial,
+  //   });
+  // };
 
   const handleInputChange = (e) => {
     setDatosSolicitud({
