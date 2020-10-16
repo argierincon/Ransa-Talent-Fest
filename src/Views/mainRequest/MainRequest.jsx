@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import moment from 'moment';
+import Swal from 'sweetalert2';
 import 'moment/locale/es';
 import Header from '../../components/header/Header';
 import TitleView from '../../components/titleView/TitleView';
@@ -26,6 +27,7 @@ const MainRequest = () => {
     lugarCarga: null,
     datoAdicional: null,
     lugarDescarga: null,
+    solicitante: 'Moises Carrillo',
     date: moment(Date.now()).format('L'),
   });
 
@@ -101,6 +103,19 @@ const MainRequest = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    Swal.fire({
+      text: '¿Estas seguro de enviar la solicitud?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#009A3F',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Solicitar',
+    }).then((result) => {
+      if (result.value) {
+        this.props.submitUser(this.state);
+      }
+    });
     db.collection('solicitudes').add(datosSolicitud).then(() => { resetForm(); });
   };
 
