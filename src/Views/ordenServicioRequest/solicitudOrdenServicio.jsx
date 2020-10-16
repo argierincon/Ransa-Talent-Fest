@@ -10,6 +10,7 @@ import './solicitudOrdenServicio.scss';
 import TitleView from '../../components/titleView/TitleView';
 import BtnPrimary from '../../components/btnPrimary/BtnPrimary';
 import BarOp from '../../components/sideBarOp/BarOp';
+import user1 from '../../assets/img/user.png';
 
 const MainRequest = () => {
   const { id } = useParams();
