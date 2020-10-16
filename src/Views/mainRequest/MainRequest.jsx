@@ -86,6 +86,15 @@ const MainRequest = () => {
     });
   };
 
+  // const handleFecha = (e) =>{
+  //   const format = moment(e.target.value).format('L');
+  //   setDatosSolicitud({
+  //     fechaCarga: format,
+  //     ...datosSolicitud,
+  //     [e.target.name]: clientes[Number(e.target.value)].razonSocial,
+  //   });
+  // };
+
   const handleInputChange = (e) => {
     setDatosSolicitud({
       ...datosSolicitud,
