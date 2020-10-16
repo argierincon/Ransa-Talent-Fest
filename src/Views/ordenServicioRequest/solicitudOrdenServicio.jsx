@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import Swal from 'sweetalert2';
 import { useParams } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import '../mainRequest/MainRequest.scss';
@@ -80,6 +81,12 @@ const MainRequest = () => {
         ...payload,
         status: 'true',
       });
+    Swal.fire({
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/1200px-Yes_Check_Circle.svg.png',
+      imageHeight: 120,
+      confirmButtonColor: '#009A3F',
+      text: 'Asignación exitosa',
+    });
   };
 
   return (
@@ -91,11 +98,17 @@ const MainRequest = () => {
     >
       <BarOp />
       <div>
-        <Header nombre="Moises Carrillo" cargo="supervisor de operaciones" />
+        <Header nombre="Moises Carrillo" cargo="supervisor de operaciones" image={user1} />
         <section className="main-container-solicitud">
-          <TitleView texto="Requermiento" />
+          <TitleView texto="Requerimiento" />
           <p>
-            Solicitud - {detailSolicitud.destino} -{' '}
+            Solicitud -
+            {' '}
+            {detailSolicitud.destino}
+            {' '}
+            -
+            {' '}
+            {' '}
             {detailSolicitud.ordenServicio}
           </p>
           <div className="flex datos-autocompleted">
