@@ -41,7 +41,7 @@ const MainRequest = () => {
         querySnapShot.forEach((doc) => {
           const dataVehiculos = doc.data();
           dataVehiculos.id = doc.id;
-          temp.push(dataVehiculos.tipo);
+          temp.push(dataVehiculos.placaAcoplado);
           temp1.push(dataVehiculos.placa);
         });
         setAcoplado([...new Set(temp)]);
