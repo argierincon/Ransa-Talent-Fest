@@ -27,7 +27,7 @@
   width: 90%;
   border-radius: 0.4em;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.4);
-  max-width: 800px;
+  // max-width: 800px;
 }
 
 .comun-card {
@@ -49,22 +49,58 @@
   border-radius: 50px;
   padding: 1.5em 1em 1em 1em;
   text-align: center;
-  background-color: #fafafa;
 }
 
 .modal-info h3 {
   text-align: left;
 }
 
-.ocultar {
-  display: none;
+// Estilos de contenido
+
+.title-vehicle {
+  font-size: 14px;
+  align-self: center;
+}
+.datos-autocompleted {
+  margin-bottom: 30px;
+}
+.ordenServicio {
+  margin-right: 20px;
 }
 
-.delete-post-alert p {
-  padding: 0 0 0 0.5em;
-  font-size: 16px;
+.first-colum {
+  width: 48%;
+  padding-right: 30px;
+}
+.second-colum {
+  width: 48%;
+  padding-left: 30px;
+}
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 50px;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px auto;
+}
+.info-vehicle {
+  width: 240px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: $bg-inputs;
+  margin: 5px 0px;
+  display: flex;
+  align-items: center;
+}
+.info-vehicle p {
+  font-size: 14px;
+  padding-left: 10px;
 }
 
-.delete:hover {
-  background-color: #a72727;
+.titleVehicle {
+  color: $btn-primary;
+  margin: 30px auto 30px 40px;
 }
