@@ -27,7 +27,7 @@ const AvailableDrive = () => {
 
   const handleDisponiblity = (e) => {
     const conductoresTemp = [];
-    if (e.target.value === 'status') {
+    if (e.target.value === 'todos') {
       db.collection(dbName)
         .get()
         .then((querySnapShot) => {
@@ -94,9 +94,10 @@ const AvailableDrive = () => {
                 name="habilitacion"
                 id="habilitacion"
               >
-                <option value="status" selected>
+                <option disabled selected>
                   Estatus
                 </option>
+                <option value="todos">Todos</option>
                 <option value="true">Disponible</option>
                 <option value="false">No disponible</option>
               </select>
