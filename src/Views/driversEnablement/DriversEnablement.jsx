@@ -54,71 +54,78 @@ const DriversEnablement = () => {
   };
 
   return (
-    <>
-      <Header />
-      <BarOp/>
-      <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
-      <div className="seccion-estados-solicitud">
-        <h3>Lista de Vehículos para verificar habilitación</h3>
-        <div className="filtros-hab-unidades">
-          <div>
-            <select
-              onChange={handleChange}
-              className="width-height"
-              name="habilitacion"
-              id="habilitacion"
-            >
-              <option value="estatus" selected>
-                Estatus
-              </option>
-              <option value="true">Habilitado</option>
-              <option value="false">No habilitado</option>
-            </select>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '330px auto',
+      }}
+    >
+      <BarOp />
+      <div>
+        <Header />
+        <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
+        <div className="seccion-estados-solicitud">
+          <h3>Lista de Vehículos para verificar habilitación</h3>
+          <div className="filtros-hab-unidades">
+            <div>
+              <select
+                onChange={handleChange}
+                className="width-height"
+                name="habilitacion"
+                id="habilitacion"
+              >
+                <option value="estatus" selected>
+                  Estatus
+                </option>
+                <option value="true">Habilitado</option>
+                <option value="false">No habilitado</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div className="tabla-estatus-solicitud-detail">
-          <div className="titulos-tabla grid-tabla-hab-unidades">
-            <p>Conductores</p>
-            <p>Requerimiento 1</p>
-            <p>Caducidad</p>
-            <p>Requerimiento 2</p>
-            <p>Caducidad</p>
-            <p>Estatus</p>
-            <p> </p>
-          </div>
-          {conductores.map((conductor) => (
-            <div
-              key={conductor.id}
-              className="fila grid-tabla-hab-unidades item-solic-detalle"
-            >
-              <p>{conductor.nombre}</p>
-              <p>{conductor.req1}</p>
-              <p>{conductor.req1FechaCaducidad}</p>
-              <p>{conductor.req2}</p>
-              <p>{conductor.req2FechaCaducidad}</p>
-              <TrafficLightRequest
-                clase={`solicitud-asignada margin-left-2rem width7rem ${
-                  conductor.habilitado === 'true'
-                    ? 'solicitud-asignada'
-                    : 'solicitud-fallida'
-                }`}
-                estado={
-                  conductor.habilitado === 'true'
-                    ? 'HABILITADO'
-                    : 'NO HABILITADO'
-                }
-              />
-              <div className="status-ver-mas margin-left-2rem">
-                <img className="descargar" src={descargar} alt="Descargar" />
-                <div className="ver-mas">
-                  <p>+</p>
+          <div className="tabla-estatus-solicitud-detail">
+            <div className="titulos-tabla grid-tabla-hab-unidades">
+              <p>Conductores</p>
+              <p>Requerimiento 1</p>
+              <p>Caducidad</p>
+              <p>Requerimiento 2</p>
+              <p>Caducidad</p>
+              <p>Estatus</p>
+              <p> </p>
+            </div>
+            {conductores.map((conductor) => (
+              <div
+                key={conductor.id}
+                className="fila grid-tabla-hab-unidades item-solic-detalle"
+              >
+                <p>{conductor.nombre}</p>
+                <p>{conductor.req1}</p>
+                <p>{conductor.req1FechaCaducidad}</p>
+                <p>{conductor.req2}</p>
+                <p>{conductor.req2FechaCaducidad}</p>
+                <TrafficLightRequest
+                  clase={`solicitud-asignada margin-left-2rem width7rem ${
+                    conductor.habilitado === 'true'
+                      ? 'solicitud-asignada'
+                      : 'solicitud-fallida'
+                  }`}
+                  estado={
+                    conductor.habilitado === 'true'
+                      ? 'HABILITADO'
+                      : 'NO HABILITADO'
+                  }
+                />
+                <div className="status-ver-mas margin-left-2rem">
+                  <img className="descargar" src={descargar} alt="Descargar" />
+                  <div className="ver-mas">
+                    <p>+</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

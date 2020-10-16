@@ -8,7 +8,6 @@ import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLig
 import './DriversAvailability.scss';
 import BarOp from '../../components/sideBarOp/BarOp';
 
-
 const DriversAvailability = () => {
   const db = firebase.firestore();
   const [conductores, setConductores] = useState([]);
@@ -55,57 +54,64 @@ const DriversAvailability = () => {
   };
 
   return (
-    <>
-      <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
-      <BarOp/>
-      <div className="seccion-estados-solicitud">
-        <h3>Lista de Vehículos para verificar habilitación</h3>
-        <div className="filtros-hab-unidades">
-          <div>
-            <select
-              onChange={handleChange}
-              className="width-height"
-              name="habilitacion"
-              id="habilitacion"
-            >
-              <option value="estatus" selected>
-                Estatus
-              </option>
-              <option value="true">Disponible</option>
-              <option value="false">No disponible</option>
-            </select>
-          </div>
-        </div>
-        <div className="tabla-estatus-solicitud-detail">
-          <div className="titulos-tabla grid-tabla-disp-conductores">
-            <p>DNI</p>
-            <p>Conductores</p>
-            <p>Estatus</p>
-          </div>
-          {conductores.map((conductor) => (
-            <div
-              key={conductor.id}
-              className="fila grid-tabla-disp-conductores item-solic-detalle"
-            >
-              <p>{conductor.dni}</p>
-              <p>{conductor.nombre}</p>
-              <TrafficLightRequest
-                clase={`solicitud-asignada margin-auto width7rem ${
-                  conductor.habilitado === 'true'
-                    ? 'solicitud-asignada'
-                    : 'solicitud-fallida'
-                }`}
-                estado={
-                  conductor.habilitado === 'true'
-                    ? 'DISPONIBLE'
-                    : 'NO DISPONIBLE'
-                }
-              />
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '330px auto',
+      }}
+    >
+      <BarOp />
+      <div>
+        <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
+        <div className="seccion-estados-solicitud">
+          <h3>Lista de Vehículos para verificar habilitación</h3>
+          <div className="filtros-hab-unidades">
+            <div>
+              <select
+                onChange={handleChange}
+                className="width-height"
+                name="habilitacion"
+                id="habilitacion"
+              >
+                <option value="estatus" selected>
+                  Estatus
+                </option>
+                <option value="true">Disponible</option>
+                <option value="false">No disponible</option>
+              </select>
             </div>
-          ))}
+          </div>
+          <div className="tabla-estatus-solicitud-detail">
+            <div className="titulos-tabla grid-tabla-disp-conductores">
+              <p>DNI</p>
+              <p>Conductores</p>
+              <p>Estatus</p>
+            </div>
+            {conductores.map((conductor) => (
+              <div
+                key={conductor.id}
+                className="fila grid-tabla-disp-conductores item-solic-detalle"
+              >
+                <p>{conductor.dni}</p>
+                <p>{conductor.nombre}</p>
+                <TrafficLightRequest
+                  clase={`solicitud-asignada margin-auto width7rem ${
+                    conductor.habilitado === 'true'
+                      ? 'solicitud-asignada'
+                      : 'solicitud-fallida'
+                  }`}
+                  estado={
+                    conductor.habilitado === 'true'
+                      ? 'DISPONIBLE'
+                      : 'NO DISPONIBLE'
+                  }
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

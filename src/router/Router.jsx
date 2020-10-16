@@ -11,7 +11,6 @@ import UnitsEnablement from '../Views/unitsEnablement/UnitsEnablement';
 import UnitsAvailability from '../Views/unitsAvailability/UnitsAvailability';
 import DriversEnablement from '../Views/driversEnablement/DriversEnablement';
 
-import MainRequest from '../Views/mainRequest/MainRequest';
 import AddDrivers from '../components/formPrueba/AddDrivers';
 import DriversAvailability from '../Views/driversAvailability/DriversAvailability';
 import ModalVehicleInformation from '../components/modalVehicleInformation/ModalVehicleInformation';
@@ -43,16 +42,26 @@ const Router = () => (
 
       <Route exact path="/orden-servicio" component={SolicitudOrdenServicio} />
       {' '}
-
       <Route exact path="/habilitacion-unidades" component={UnitsEnablement} />
       {' '}
-      <Route exact path="/disponibilidad-unidades" component={UnitsAvailability} />
+      <Route
+        exact
+        path="/disponibilidad-unidades"
+        component={UnitsAvailability}
+      />
       {' '}
-      <Route exact path="/habilitacion-conductores" component={DriversEnablement} />
+      <Route
+        exact
+        path="/habilitacion-conductores"
+        component={DriversEnablement}
+      />
       {' '}
-      <Route exact path="/disponibilidad-conductores" component={DriversAvailability} />
+      <Route
+        exact
+        path="/disponibilidad-conductores"
+        component={DriversAvailability}
+      />
       {' '}
-
       <Route exact path="/habilitacion-unidades-ext" component={Home} />
       {' '}
       <Route exact path="/disponibilidad-unidades-ext" component={Home} />
@@ -95,8 +104,16 @@ const Router = () => (
       {' '}
       <Route exact path="/prueba" component={FormPrueba} />
       {/* <Route exact path="/detalle-requerimiento" component={SolicitudOrdenServicio} /> */}
-      <Route exact path="/detalle-requerimiento" component={SolicitudOrdenServicio}/>
-      <Route exact path="/detalle-solicitudes/:id" component={SolicitudOrdenServicio} />
+      <Route
+        exact
+        path="/detalle-requerimiento"
+        component={SolicitudOrdenServicio}
+      />
+      <Route
+        exact
+        path="/detalle-solicitudes/:id"
+        component={SolicitudOrdenServicio}
+      />
       <Route exact path="/agregar-conductores" component={AddDrivers} />
       <Route exact path="/modal-vehicle" component={ModalVehicle} />
       <Route exact path="/modal" component={ModalVehicleInformation} />

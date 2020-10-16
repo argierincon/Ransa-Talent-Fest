@@ -30,7 +30,7 @@ const MainRequest = () => {
   return (
     <>
       <Header nombre="Moises Carrillo" cargo="supervisor de operaciones" />
-      <BarOp/>
+      <BarOp />
       <section className="main-container-solicitud">
         <TitleView texto="Requermiento" />
         <p>
@@ -126,20 +126,23 @@ const MainRequest = () => {
         <hr />
         <div>
           <p className="form-manual">Selecciona una opcion para poder asignar el pedido</p>
-          <div className="container-select">
-            <select name="cliente">
-              <option>Conductor</option>
-            </select>
-            <select name="cliente">
-              <option>Tracto</option>
-            </select>
-            <select name="cliente">
-              <option>Acoplado</option>
-            </select>
-          </div>
+          <form>
+            <div className="container-select">
+              <select name="cliente">
+                <option>Conductor</option>
+              </select>
+              <select name="cliente">
+                <option>Tracto</option>
+              </select>
+              <select name="cliente">
+                <option>Acoplado</option>
+              </select>
+            </div>
+            <BtnPrimary texto="Asignar" />
+          </form>
 
         </div>
-        <BtnPrimary texto="Iniciar Sesión" />
+
       </section>
     </>
   );

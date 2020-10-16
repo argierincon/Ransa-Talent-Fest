@@ -1,11 +1,10 @@
 import React from 'react';
 import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
+
 import sr from '../../assets/img/sr.png';
 import es from '../../assets/img/es.png';
 
-export const BarOrderData = [
+export default [
   {
     titulo: 'Requerimientos',
     clase: 'li-nav-text',
@@ -13,19 +12,19 @@ export const BarOrderData = [
   {
     titulo: 'Solicitud de requerimientos',
     ruta: '/solicitud-requerimiento',
-    icono: <img src={sr}/>,
+    icono: <img src={sr} alt="camion" />,
     clase: 'nav-text',
   },
   {
     titulo: 'Estatus de solicitudes',
     ruta: '/estatus-solicitudes',
-    icono: <img src={es}/>,
+    icono: <img src={es} alt="camion" />,
     clase: 'nav-text',
   },
   {
     titulo: 'Cerrar sesión',
     ruta: '/cerrarsesion',
-    icono: < FaIcons.FaSignOutAlt />,
+    icono: <FaIcons.FaSignOutAlt />,
     clase: 'nav-text',
   },
 ];
