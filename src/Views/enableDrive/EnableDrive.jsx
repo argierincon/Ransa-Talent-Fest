@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import 'firebase/firestore';
 import BarMant from '../../components/sideBarMant/BarMant';
-import BarMantC from '../../components/sideBarMantC/BarMantC';
 import Header from '../../components/header/Header';
 import descargar from '../../assets/img/descargar.png';
 import './EnableDrive.scss';
@@ -109,7 +108,6 @@ const EnableDrive = () => {
       }}
     >
       <BarMant />
-      <BarMantC></BarMantC>
       <div>
         <Header nombre="Andy Chuco" cargo="Mantenimiento" />
         <div className="seccion-estados-solicitud">

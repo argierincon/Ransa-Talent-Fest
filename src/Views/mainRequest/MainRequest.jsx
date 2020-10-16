@@ -118,7 +118,7 @@ const MainRequest = () => {
       confirmButtonText: 'Solicitar',
     }).then((result) => {
       if (result.value) {
-        this.props.submitUser(this.state);
+        // this.props.submitUser(this.state);
       }
     });
     db.collection('solicitudes').add(datosSolicitud).then(() => { resetForm(); });

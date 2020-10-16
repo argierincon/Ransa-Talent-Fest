@@ -163,14 +163,18 @@ const RequestDetail = () => {
                   clase="solicitud-asignada width-5rem"
                   estado="Asignado"
                 />
-                <Link className="linkToDetail" to={`/detalle-solicitudes/${solicitud.id}`}>
+                <Link
+                  className="linkToDetail"
+                  to={`/detalle-solicitudes/${solicitud.id}`}
+                >
                   <i className="more-detail fas fa-plus-circle" />
                 </Link>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
+    </div>
   );
 };
 export default RequestDetail;

@@ -75,56 +75,63 @@ const AvailableDrive = () => {
   };
 
   return (
-    <>
-      <Header nombre="Andy Chuco" cargo="Mantenimiento" />
-        <BarMantC/>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '330px auto',
+      }}
+    >
+      <BarMantC />
+      <div>
+        <Header nombre="Andy Chuco" cargo="Mantenimiento" />
         <div className="seccion-estados-solicitud">
-        <h3>Lista de Conductores para verificar disponibilidad</h3>
-        <div className="filtros-hab-unidades">
-          <div>
-            <select
-              onChange={handleDisponiblity}
-              className="width-height"
-              name="habilitacion"
-              id="habilitacion"
-            >
-              <option value="status" selected>
-                Estatus
-              </option>
-              <option value="true">Disponible</option>
-              <option value="false">No disponible</option>
-            </select>
-          </div>
-        </div>
-        <div className="tabla-estatus-solicitud-detail">
-          <div className="titulos-tabla grid-tabla-disp-conductores">
-            <p>DNI</p>
-            <p>Conductores</p>
-            <p>Estatus</p>
-          </div>
-          {disponibilidadConductores.map((conductor) => (
-            <div
-              key={conductor.id}
-              className="fila grid-tabla-disp-conductores item-solic-detalle "
-            >
-              <p>{conductor.dni}</p>
-              <p>{conductor.nombre}</p>
+          <h3>Lista de Conductores para verificar disponibilidad</h3>
+          <div className="filtros-hab-unidades">
+            <div>
               <select
-                value={conductor.disponible}
-                onChange={handleChange}
-                data-id={conductor.id}
-                className="select-disp-conductores width-height"
-                name="disponibilidad"
-                id="disponibilidad"
+                onChange={handleDisponiblity}
+                className="width-height"
+                name="habilitacion"
+                id="habilitacion"
               >
+                <option value="status" selected>
+                  Estatus
+                </option>
                 <option value="true">Disponible</option>
                 <option value="false">No disponible</option>
               </select>
             </div>
-          ))}
+          </div>
+          <div className="tabla-estatus-solicitud-detail">
+            <div className="titulos-tabla grid-tabla-disp-conductores">
+              <p>DNI</p>
+              <p>Conductores</p>
+              <p>Estatus</p>
+            </div>
+            {disponibilidadConductores.map((conductor) => (
+              <div
+                key={conductor.id}
+                className="fila grid-tabla-disp-conductores item-solic-detalle "
+              >
+                <p>{conductor.dni}</p>
+                <p>{conductor.nombre}</p>
+                <select
+                  value={conductor.disponible}
+                  onChange={handleChange}
+                  data-id={conductor.id}
+                  className="select-disp-conductores width-height"
+                  name="disponibilidad"
+                  id="disponibilidad"
+                >
+                  <option value="true">Disponible</option>
+                  <option value="false">No disponible</option>
+                </select>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default AvailableDrive;
