@@ -5,7 +5,21 @@ import BarOpData from './BarOpData';
 import './BarOp.scss';
 import logo from '../../assets/img/LOGO_RANSA.png';
 
-const BarOp = () => (
+const BarOp = () => {
+
+
+  const clickSelecciona = (e) => {
+      console.log("click",e);
+      console.log(e.target);
+      let elm = e.target;
+      console.log(elm);
+      elm.className += " seleccionado";
+
+      
+  }
+    
+
+return (
   <IconContext.Provider value={{ color: '#1AAF42' }}>
     <nav className="nav-menu active">
       <ul className="nav-menu-items">
@@ -17,8 +31,8 @@ const BarOp = () => (
           </div>
         </li>
         {BarOpData.map((item, index) => (
-          <li key={index} className={item.clase}>
-            <Link to={item.ruta}>
+          <li key={index} className={item.clase} onClick= {clickSelecciona}>
+            <Link to={item.ruta} >
               {item.icono}
               <span>{item.titulo}</span>
             </Link>
@@ -28,4 +42,5 @@ const BarOp = () => (
     </nav>
   </IconContext.Provider>
 );
+}
 export default BarOp;
