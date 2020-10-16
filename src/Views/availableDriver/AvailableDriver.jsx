@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import 'firebase/firestore';
+import BarMantC from '../../components/sideBarMantC/BarMantC';
 
 import Header from '../../components/header/Header';
 
@@ -76,7 +77,8 @@ const AvailableDrive = () => {
   return (
     <>
       <Header nombre="Andy Chuco" cargo="Mantenimiento" />
-      <div className="seccion-estados-solicitud">
+        <BarMantC/>
+        <div className="seccion-estados-solicitud">
         <h3>Lista de Conductores para verificar disponibilidad</h3>
         <div className="filtros-hab-unidades">
           <div>

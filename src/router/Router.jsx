@@ -28,6 +28,13 @@ const Router = () => (
     <Switch>
       <Route exact path="/" component={Login} />
       {' '}
+      {/****Rutas de BarOrderData, Moises*****/}
+      <Route exact path="/solicitud-requerimiento" component={MainRequest} />
+      {' '}
+
+      <Route exact path="/estatus-solicitudes" component={RequestStatus} />
+      {' '}
+
        {/****Rutas de BarOpData, Cristian*****/}
        <Route exact path="/orden-servicio" component={RequestDetail} />
        {' '}
@@ -63,13 +70,13 @@ const Router = () => (
      <Route exact path="/verificar-disponibilidad-unidades" component={AvailableDrive} />
      {' '}
 
+      {/****Rutas de BarMantDataC, Gisela*****/}
+      <Route exact path="/verificar-habilitacion-conductores" component={EnableDrive}/>
+      {' '}
+      <Route exact path="/verificar-disponibilidad-conductores" component={AvailableDriver} />
+      {' '}
      
-     {/****Rutas de BarOrderData, Moises*****/}
-     <Route exact path="/solicitud-requerimiento" component={Home} />
-     {' '}
 
-     <Route exact path="/estatus-solicitudes" component={RequestStatus} />
-     {' '}
 
 
 
@@ -92,42 +99,11 @@ const Router = () => (
       <Route exact path="/detalle-solicitudes/:id" component={SolicitudOrdenServicio} />
       <Route exact path="/agregar-conductores" component={AddDrivers} />
       <Route exact path="/modal-vehicle" component={ModalVehicle} />
-      <Route
-        exact
-        path="/disponibilidad-unidades"
-        component={UnitsAvailability}
-      />
-      <Route
-        exact
-        path="/habilitacion-conductores"
-        component={DriversEnablement}
-      />
-      <Route
-        exact
-        path="/disponibilidad-conductores"
-        component={DriversAvailability}
-      />
-      <Route
-        exact
-        path="/verificar-disponibilidad-unidades"
-        component={AvailableDrive}
-      />
-      <Route
-        exact
-        path="/verificar-habilitacion-unidades"
-        component={EnableDrive}
-      />
-      <Route
-        exact
-        path="/verificar-disponibilidad-conductores"
-        component={AvailableDriver}
-      />
-      <Route
-        exact
-        path="/verificar-habilitacion-conductores"
-        component={EnableDriver}
-      />
       <Route exact path="/modal" component={ModalVehicleInformation} />
+
+
+
+
     </Switch>
   </BrowserRouter>
 );
