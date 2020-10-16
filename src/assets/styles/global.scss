@@ -40,9 +40,13 @@
 }
 
 select:hover {
-cursor: pointer;
+  cursor: pointer;
 }
 
 option:hover {
   cursor: pointer;
+}
+
+a:link, a:visited, a:active {
+  text-decoration:none;
 }
