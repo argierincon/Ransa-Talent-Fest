@@ -1,0 +1,69 @@
+@import '../../assets/styles/variables';
+.container-status {
+  display: flex;
+  flex-direction: row;
+}
+
+.estatus {
+  display: flex;
+  flex-direction: row;
+}
+.estatus span {
+  margin-right: 15px;
+}
+.verde {
+  color: green;
+}
+.amarillo {
+  color: yellow;
+}
+.rojo {
+  color: red;
+}
+.container-datos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+.info-vehicle {
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: $bg-inputs;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.info-vehicle p {
+  font-size: 14px;
+  padding-left: 10px;
+}
+.titulo-input {
+  margin-top: 20px;
+}
+
+.container-table {
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+input {
+  width: 130px;
+}
+table,
+tr,
+td {
+  border: 1px solid #333;
+  border-collapse: collapse;
+}
+table {
+  width: 280px;
+}
+td {
+  height: 30px;
+}
