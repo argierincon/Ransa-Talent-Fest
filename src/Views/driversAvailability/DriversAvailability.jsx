@@ -6,6 +6,8 @@ import Header from '../../components/header/Header';
 import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLightRequest';
 
 import './DriversAvailability.scss';
+import BarOp from '../../components/sideBarOp/BarOp';
+
 
 const DriversAvailability = () => {
   const db = firebase.firestore();
@@ -55,6 +57,7 @@ const DriversAvailability = () => {
   return (
     <>
       <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
+      <BarOp/>
       <div className="seccion-estados-solicitud">
         <h3>Lista de Vehículos para verificar habilitación</h3>
         <div className="filtros-hab-unidades">

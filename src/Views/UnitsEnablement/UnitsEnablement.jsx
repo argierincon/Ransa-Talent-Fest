@@ -4,11 +4,11 @@ import 'firebase/firestore';
 
 import Header from '../../components/header/Header';
 import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLightRequest';
-
 import descargar from '../../assets/img/descargar.png';
 
 // eslint-disable-next-line import/no-unresolved
 import './UnitsEnablement.scss';
+import BarOp from '../../components/sideBarOp/BarOp';
 
 const UnitsEnablement = () => {
   const db = firebase.firestore();
@@ -86,6 +86,7 @@ const UnitsEnablement = () => {
   return (
     <>
       <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
+      <BarOp/>
       <div className="seccion-estados-solicitud">
         <h3>Lista de Vehículos para verificar habilitación</h3>
         <div className="filtros-hab-unidades">

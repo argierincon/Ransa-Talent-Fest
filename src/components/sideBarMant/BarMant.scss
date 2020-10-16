@@ -1,4 +1,5 @@
 @import './estilosCompartidos';
+@import '../../assets/styles/variables';
 
 body{
   margin: 0;
@@ -20,7 +21,7 @@ body{
 
 .nav-menu {
   background-color: #fafafa;
-  width: 382px;
+  width: 338px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -31,12 +32,10 @@ body{
 }
 
 .nav-menu.active {
-  left: -34px;
+  left: 7px;
   transition: 350ms;
   z-index: 999;
-  overflow-y: scroll;
   background-color: #FFFFFF;
-  font-family: Poppins;
 }
 
 
@@ -46,19 +45,17 @@ body{
   align-items: center;
   padding: 8px 0px 8px 16px;
   list-style: none;
-  height: 59.5px;
-  font-weight: bold;
+  height: 45px;
 }
 
 .user-text{
-  font-size: 23px;
+  font-size: 15px;
   display: flex;
   justify-content: start;
   align-items: center;
   padding: 8px 0px 8px 16px;
   list-style: none;
   height: 45.5px;
-  font-weight: bold;
 }
 
 
@@ -66,37 +63,52 @@ body{
   margin-left: -15px;
   text-decoration: none;
   color: #666666;
-  font-size: 16px;
+  font-size: 13px;
   width: 95%;
   height: 52px;
   display: flex;
   align-items: center;
   padding: 0 16px;
   border-radius: 4px;
+  margin-top: 26px;
+}
+.nav-text-active a {
+  background-color:#1AAF42;
+  color:white;
 }
 
+// .nav-text-active a:active {
+//   background-color: red;
+// }
 .li-nav-text a {
   text-decoration: none;
   color: #1AAF42;
   margin-left: 18px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16.3px;
   height: 100%;
   display: flex;
   align-items: center;
   padding: 0 16px;
   border-radius: 4px;
+  margin-top: 30px;
 }
 
 .nav-text a:hover {
-  background-color: #1AAF42;
+  background-color:#1AAF42;
   color: white;
   text-decoration: underline;
 }
 
-li:hover svg{
-  color: white !important;
-}
+// .nav-text a:active {
+//   background-color:#1AAF42;
+//   color: white;
+//   text-decoration: underline;
+// }
+
+// li:hover svg{
+//   color: white !important;
+// }
 
 
 
@@ -107,7 +119,7 @@ li:hover svg{
 .navbar-toggle {
   background-color: white;
   width: 100%;
-  height: 80px;
+  height: 105px;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -115,7 +127,7 @@ li:hover svg{
 
 span {
   margin-left: 16px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'univia-pro' !important;
 }
 
 
@@ -152,7 +164,6 @@ span {
   border-radius: 50%;
   zoom: 0.5;
   color: #666666;
-  font-family: poppins;
 }
 
 .logo{

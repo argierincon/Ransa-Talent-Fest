@@ -8,6 +8,7 @@ import '../mainRequest/MainRequest.scss';
 import './solicitudOrdenServicio.scss';
 import TitleView from '../../components/titleView/TitleView';
 import BtnPrimary from '../../components/btnPrimary/BtnPrimary';
+import BarOp from '../../components/sideBarOp/BarOp';
 
 const MainRequest = () => {
   const { id } = useParams();
@@ -29,6 +30,7 @@ const MainRequest = () => {
   return (
     <>
       <Header nombre="Moises Carrillo" cargo="supervisor de operaciones" />
+      <BarOp/>
       <section className="main-container-solicitud">
         <TitleView texto="Requermiento" />
         <p>

@@ -10,6 +10,7 @@ import Header from '../../components/header/Header';
 import TitleView from '../../components/titleView/TitleView';
 import BtnPrimary from '../../components/btnPrimary/BtnPrimary';
 import './MainRequest.scss';
+import BarOrder from '../../components/sideBarOrder/BarOrder';
 
 const MainRequest = () => {
   const [clientes, setClientes] = useState([]);
@@ -121,7 +122,8 @@ const MainRequest = () => {
 
   return (
     <>
-      <Header nombre="Moises Carrillo" cargo="Supervisor de Operaciones" />
+      <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
+      <BarOrder />
       <section className="main-container-solicitud">
         <TitleView texto="Solicitud de Requerimientos - Almacenes" />
         <form onSubmit={handleSubmit}>

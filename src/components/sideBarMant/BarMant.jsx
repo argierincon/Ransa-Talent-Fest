@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { BarMantData} from './BarMantData';
+import './BarMant.scss';
 import { IconContext } from 'react-icons';
-import { SideBarData } from './SideBarData';
-import './Bar.scss';
+
 import logo from '../../assets/img/LOGO_RANSA.png';
 import user from '../../assets/img/Moises.png';
 
-function SideBar() {
+function BarMant() {
   const [LadoBarra, setSidebar] = useState(true);
 
   const ViewSideBar = () => setSidebar(true);
@@ -30,7 +31,7 @@ function SideBar() {
                   <Link to="/" className=""><img className="logo" src={logo} alt="Logo Ransa" /></Link>
                 </div>
               </li>
-              {SideBarData.map((item, index) => (
+              {BarMantData.map((item, index) => (
                 <li key={index} className={item.clase}>
                   <Link to={item.ruta}>
                     {item.icono}
@@ -45,4 +46,4 @@ function SideBar() {
     </>
   );
 }
-export default SideBar;
+export default BarMant;

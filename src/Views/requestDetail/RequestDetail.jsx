@@ -7,6 +7,7 @@ import BtnPrimary from '../../components/btnPrimary/BtnPrimary';
 import Header from '../../components/header/Header';
 import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLightRequest';
 import './RequestDetail.scss';
+import BarOp from '../../components/sideBarOp/BarOp';
 
 const RequestDetail = () => {
   const db = firebase.firestore();
@@ -84,6 +85,7 @@ const RequestDetail = () => {
   return (
     <>
       <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
+      <BarOp/>
       <div className="seccion-estados-solicitud">
         <div className="titulo-btn">
           <h3>Solicitudes de Requerimientos</h3>

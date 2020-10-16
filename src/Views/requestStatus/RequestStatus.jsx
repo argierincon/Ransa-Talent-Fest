@@ -6,6 +6,7 @@ import Header from '../../components/header/Header';
 import TrafficLightRequest from '../../components/trafficLightRequest/TrafficLightRequest';
 
 import './RequestStatus.scss';
+import BarOrder from '../../components/sideBarOrder/BarOrder';
 
 const RequestStatus = () => {
   const db = firebase.firestore();
@@ -28,6 +29,7 @@ const RequestStatus = () => {
   return (
     <>
       <Header />
+      <BarOrder/>
       <div className="seccion-estados-solicitud">
         <h3>Estatus de Solicitudes</h3>
         <div className="filtros-solicitud">
