@@ -81,7 +81,6 @@ const RequestDetail = () => {
         });
     }
   };
-
   return (
     <div
       style={{
@@ -93,6 +92,7 @@ const RequestDetail = () => {
       <div>
         <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
         <div className="seccion-estados-solicitud">
+
           <div className="titulo-btn">
             <h3>Solicitudes de Requerimientos</h3>
             <BtnPrimary texto="Ver asignaciones" />
@@ -158,23 +158,22 @@ const RequestDetail = () => {
               <p>{solicitud.tipoDeMercaderia}</p>
               <p>{solicitud.fechaCarga}</p>
               <p>{solicitud.lugarDescarga}</p>
-              <div className="status-ver-mas">
-                <TrafficLightRequest
-                  clase="solicitud-asignada width-5rem"
-                  estado="Asignado"
-                />
-                <Link
-                  className="linkToDetail"
-                  to={`/detalle-solicitudes/${solicitud.id}`}
-                >
-                  <i className="more-detail fas fa-plus-circle" />
-                </Link>
-              </div>
             </div>
           ))}
+
+          <div className="status-ver-mas">
+            <TrafficLightRequest
+              clase="solicitud-asignada width-5rem"
+              estado="Asignado"
+            />
+            <Link className="linkToDetail" to={`/detalle-solicitudes/${solicitud.id}`}>
+              <i className="more-detail fas fa-plus-circle" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>
+
   );
 };
 export default RequestDetail;

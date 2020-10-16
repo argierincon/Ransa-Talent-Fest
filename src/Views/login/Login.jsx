@@ -1,7 +1,7 @@
 import React from 'react';
 import FormLogin from '../../components/FormLogin/FormLogin';
 import './Login.scss';
-import banner from '../../assets/img/banner.png';
+import banner from '../../assets/img/banner.jpg';
 import logo from '../../assets/img/logoRansa.png';
 
 const Login = () => (
