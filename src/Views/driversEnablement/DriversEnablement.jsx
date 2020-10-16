@@ -62,7 +62,6 @@ const DriversEnablement = () => {
     >
       <BarOp />
       <div>
-        <Header />
         <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
         <div className="seccion-estados-solicitud">
           <h3>Lista de Vehículos para verificar habilitación</h3>
@@ -121,8 +120,17 @@ const DriversEnablement = () => {
                       src={descargar}
                       alt="Descargar"
                     />
-                    <div className="ver-mas">
-                      <p>+</p>
+                    <div className="status-ver-mas margin-left-2rem">
+                      <a href="https://drive.google.com/drive/folders/1VvSxkYnPWZyZEkaeRwTd-djCCh9GB3_R?usp=sharing">
+                        <img
+                          className="descargar"
+                          src={descargar}
+                          alt="Descargar"
+                        />
+                      </a>
+                      <div className="ver-mas">
+                        <p>+</p>
+                      </div>
                     </div>
                   </div>
                 </div>

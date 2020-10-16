@@ -21,6 +21,7 @@ import EnableDrive from '../Views/enableDrive/EnableDrive';
 import AvailableDriver from '../Views/availableDriver/AvailableDriver';
 import EnableDriver from '../Views/enableDriver/EnableDriver';
 import ModalVehicle from '../Views/ModalVehicleHabilitacion/ModalVehicle';
+import ModalConductor from '../Views/ModalConductor/ModalConductor';
 
 const Router = () => (
   <BrowserRouter>
@@ -59,6 +60,7 @@ const Router = () => (
         path="/verificar-habilitacion-unidades"
         component={EnableDrive}
       />
+
       <Route
         exact
         path="/verificar-disponibilidad-unidades"
@@ -69,6 +71,11 @@ const Router = () => (
         exact
         path="/verificar-habilitacion-conductores"
         component={EnableDriver}
+      />
+      <Route
+        exact
+        path="/verificar-habilitacion-conductores/:id"
+        component={ModalConductor}
       />
       <Route
         exact

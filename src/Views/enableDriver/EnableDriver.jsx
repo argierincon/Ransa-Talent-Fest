@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import 'firebase/firestore';
-
+import { Link } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import BarMantC from '../../components/sideBarMantC/BarMantC';
 import descargar from '../../assets/img/descargar.png';
@@ -141,8 +141,23 @@ const EnableDrive = () => {
                       src={descargar}
                       alt="Descargar"
                     />
-                    <div className="ver-mas">
-                      <p>+</p>
+                    <div className="status-ver-mas margin-left-2rem">
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/drive/folders/1VvSxkYnPWZyZEkaeRwTd-djCCh9GB3_R?usp=sharing"
+                      >
+                        <img
+                          className="descargar"
+                          src={descargar}
+                          alt="Descargar"
+                        />
+                      </a>
+                      <Link
+                        className="linkToDetail"
+                        to={`/verificar-habilitacion-conductores/${conductor.id}`}
+                      >
+                        <i className="more-detail fas fa-plus-circle" />
+                      </Link>
                     </div>
                   </div>
                 </div>
