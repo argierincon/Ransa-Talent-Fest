@@ -7,7 +7,7 @@ import logo from '../../assets/img/logoRansa.png';
 const Login = () => (
   <div className="container-login">
     <section>
-      <img src={logo} alt="logo ransa" />
+      <img className="logoRansa" src={logo} alt="logo ransa" />
       <FormLogin />
     </section>
     <section className="baner">

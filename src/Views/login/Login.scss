@@ -1,17 +1,20 @@
 .container-login {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 33% 67%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 33% 67%;
 
-	.baner {
-		display: grid;
-		justify-items: end;
-		height: 100vh;
-		width: 100%;
-		overflow: hidden;
-		margin: 0;
-		img {
-			height: 100vh;
-		}
-	}
+  .baner {
+    display: grid;
+    justify-items: end;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    img {
+      height: 100vh;
+    }
+  }
+  .logoRansa {
+    width: 400px;
+  }
 }
