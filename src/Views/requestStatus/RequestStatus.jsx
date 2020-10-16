@@ -30,6 +30,7 @@ const RequestStatus = () => {
     const solicitudeTemp = [];
     if (e.target.value === 'todos') {
       db.collection('solicitudes')
+        .orderBy('date', 'desc')
         .get()
         .then((querySnapShot) => {
           querySnapShot.forEach((doc) => {

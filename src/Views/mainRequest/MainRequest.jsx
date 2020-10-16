@@ -30,6 +30,7 @@ const MainRequest = () => {
     lugarDescarga: null,
     solicitante: 'Moises Carrillo',
     date: moment(Date.now()).format('L'),
+    status: 'false',
   });
 
   useEffect(() => {

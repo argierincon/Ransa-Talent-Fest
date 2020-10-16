@@ -41,7 +41,7 @@ const MainRequest = () => {
         querySnapShot.forEach((doc) => {
           const dataVehiculos = doc.data();
           dataVehiculos.id = doc.id;
-          temp.push(dataVehiculos.tipo);
+          temp.push(dataVehiculos.placaAcoplado);
           temp1.push(dataVehiculos.placa);
         });
         setAcoplado([...new Set(temp)]);
@@ -95,7 +95,8 @@ const MainRequest = () => {
         <section className="main-container-solicitud">
           <TitleView texto="Requermiento" />
           <p>
-            Solicitud - {detailSolicitud.destino} - {detailSolicitud.ordenServicio}
+            Solicitud - {detailSolicitud.destino} -{' '}
+            {detailSolicitud.ordenServicio}
           </p>
           <div className="flex datos-autocompleted">
             <div className="first-colum">
@@ -207,30 +208,41 @@ const MainRequest = () => {
             </p>
             <form onSubmit={submitAsignar}>
               <div className="container-select">
-                <select name="conductor" onChange={selectAsignar}>
-                  <option selected disabled>
-                    Conductor
-                  </option>
-                  {conductor.map((ele) => (
-                    <option value={ele}>{ele}</option>
-                  ))}
-                </select>
-                <select name="placa" onChange={selectAsignar}>
-                  <option selected disabled>
-                    Tracto
-                  </option>
-                  {tracto.map((ele) => (
-                    <option value={ele}>{ele}</option>
-                  ))}
-                </select>
-                <select name="tipo" onChange={selectAsignar}>
-                  <option selected disabled>
-                    Acoplado
-                  </option>
-                  {acoplado.map((ele) => (
-                    <option value={ele}>{ele}</option>
-                  ))}
-                </select>
+                <div className="select-asign">
+                  <p>Conductor</p>
+                  <select name="conductor" onChange={selectAsignar}>
+                    <option selected disabled>
+                      Conductor
+                    </option>
+                    {conductor.map((ele) => (
+                      <option value={ele}>{ele}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="select-asign">
+                  <p>Tracto</p>
+                  <select name="placa" onChange={selectAsignar}>
+                    <option selected disabled>
+                      Tracto
+                    </option>
+                    {tracto.map((ele) => (
+                      <option value={ele}>{ele}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="select-asign">
+                  <p>Acoplado</p>
+                  <select name="tipo" onChange={selectAsignar}>
+                    <option selected disabled>
+                      Acoplado
+                    </option>
+                    {acoplado.map((ele) => (
+                      <option value={ele}>{ele}</option>
+                    ))}
+                  </select>
+                </div>
               </div>
               <BtnPrimary texto="Asignar" />
             </form>

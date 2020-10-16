@@ -15,6 +15,7 @@ const RequestDetail = () => {
 
   useEffect(() => {
     db.collection('solicitudes')
+      .orderBy('date', 'desc')
       .get()
       .then((querySnapShot) => {
         querySnapShot.forEach((doc) => {
@@ -176,7 +177,7 @@ const RequestDetail = () => {
                 </option>
                 <option value="todos">Todos</option>
                 <option value="true">Asignado</option>
-                <option value="false">No asignado</option>
+                <option value="false">Pendiente</option>
               </select>
             </div>
           </div>
