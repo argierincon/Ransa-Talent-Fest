@@ -11,7 +11,6 @@ import UnitsEnablement from '../Views/unitsEnablement/UnitsEnablement';
 import UnitsAvailability from '../Views/unitsAvailability/UnitsAvailability';
 import DriversEnablement from '../Views/driversEnablement/DriversEnablement';
 
-import MainRequest from '../Views/mainRequest/MainRequest';
 import AddDrivers from '../components/formPrueba/AddDrivers';
 import DriversAvailability from '../Views/driversAvailability/DriversAvailability';
 import ModalVehicleInformation from '../components/modalVehicleInformation/ModalVehicleInformation';
@@ -28,24 +27,33 @@ const Router = () => (
     <Switch>
       <Route exact path="/" component={Login} />
       {' '}
-       {/****Rutas de BarOpData, Cristian*****/}
-       <Route exact path="/orden-servicio" component={RequestDetail} />
-       {' '}
-       <Route exact path="/solicitud-requerimiento" component={MainRequest} />
-       {' '}
-
+      {/** **Rutas de BarOpData, Cristian**** */}
+      <Route exact path="/orden-servicio" component={RequestDetail} />
+      {' '}
+      <Route exact path="/solicitud-requerimiento" component={Solicitud} />
+      {' '}
       <Route exact path="/orden-servicio" component={SolicitudOrdenServicio} />
       {' '}
-
       <Route exact path="/habilitacion-unidades" component={UnitsEnablement} />
       {' '}
-      <Route exact path="/disponibilidad-unidades" component={UnitsAvailability} />
+      <Route
+        exact
+        path="/disponibilidad-unidades"
+        component={UnitsAvailability}
+      />
       {' '}
-      <Route exact path="/habilitacion-conductores" component={DriversEnablement} />
+      <Route
+        exact
+        path="/habilitacion-conductores"
+        component={DriversEnablement}
+      />
       {' '}
-      <Route exact path="/disponibilidad-conductores" component={DriversAvailability} />
+      <Route
+        exact
+        path="/disponibilidad-conductores"
+        component={DriversAvailability}
+      />
       {' '}
-
       <Route exact path="/habilitacion-unidades-ext" component={Home} />
       {' '}
       <Route exact path="/disponibilidad-unidades-ext" component={Home} />
@@ -56,23 +64,24 @@ const Router = () => (
       {' '}
       <Route exact path="/cerrarsesion" component={Login} />
       {' '}
-
-     {/****Rutas de BarMantData, Andy Chuco*****/}
-     <Route exact path="/verificar-habilitacion-unidades" component={EnableDrive}/>
-     {' '}
-     <Route exact path="/verificar-disponibilidad-unidades" component={AvailableDrive} />
-     {' '}
-
-     
-     {/****Rutas de BarOrderData, Moises*****/}
-     <Route exact path="/solicitud-requerimiento" component={Home} />
-     {' '}
-
-     <Route exact path="/estatus-solicitudes" component={RequestStatus} />
-     {' '}
-
-
-
+      {/** **Rutas de BarMantData, Andy Chuco**** */}
+      <Route
+        exact
+        path="/verificar-habilitacion-unidades"
+        component={EnableDrive}
+      />
+      {' '}
+      <Route
+        exact
+        path="/verificar-disponibilidad-unidades"
+        component={AvailableDrive}
+      />
+      {' '}
+      {/** **Rutas de BarOrderData, Moises**** */}
+      <Route exact path="/solicitud-requerimiento" component={Home} />
+      {' '}
+      <Route exact path="/estatus-solicitudes" component={RequestStatus} />
+      {' '}
       <Route exact path="/home" component={Home} />
       <Route exact path="/prueba" component={FormPrueba} />
       <Route exact path="/crear-solicitud" component={Solicitud} />
@@ -88,8 +97,16 @@ const Router = () => (
       {' '}
       <Route exact path="/prueba" component={FormPrueba} />
       {/* <Route exact path="/detalle-requerimiento" component={SolicitudOrdenServicio} /> */}
-      <Route exact path="/detalle-requerimiento" component={SolicitudOrdenServicio}/>
-      <Route exact path="/detalle-solicitudes/:id" component={SolicitudOrdenServicio} />
+      <Route
+        exact
+        path="/detalle-requerimiento"
+        component={SolicitudOrdenServicio}
+      />
+      <Route
+        exact
+        path="/detalle-solicitudes/:id"
+        component={SolicitudOrdenServicio}
+      />
       <Route exact path="/agregar-conductores" component={AddDrivers} />
       <Route exact path="/modal-vehicle" component={ModalVehicle} />
       <Route
