@@ -222,14 +222,12 @@ const RequestStatus = () => {
                       }
                     />
                     {solicitud.status === 'true' && (
-                      <div className="ver-mas margin-06rem">
-                        <Link
-                          className="linkToDetail"
-                          to={`/estatus-solicitudes/${solicitud.id}`}
-                        >
-                          <i className="more-detail fas fa-plus-circle" />
-                        </Link>
-                      </div>
+                      <Link
+                        className="linkToDetail"
+                        to={`/estatus-solicitudes/${solicitud.id}`}
+                      >
+                        <i className="more-detail fas fa-plus-circle" />
+                      </Link>
                     )}
                   </div>
                 </div>
