@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import moment from 'moment';
-import Swal from 'sweetalert2';
 import 'moment/locale/es';
 import Header from '../../components/header/Header';
 import TitleView from '../../components/titleView/TitleView';

@@ -47,6 +47,8 @@ body{
   padding: 8px 0px 8px 16px;
   list-style: none;
   height: 45px;
+  font-family: 'univia-pro' !important;
+  font-weight: bold;
 }
 
 .user-text{
@@ -128,7 +130,7 @@ body{
 
 span {
   margin-left: 16px;
-  font-family: 'univia-pro' !important;
+  font-family: 'univia-pro' !important; 
 }
 
 
@@ -214,4 +216,78 @@ a.menu-bars{
   color: white;
 }
 
+svg{
+  width: 57px;
+  top: 1px;
+  position: relative;
+  margin-right: 0px;
+  color: rgb(26, 175, 66);
+}
 
+
+.nav-text-ce {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 98px 0px 8px 16px;
+  list-style: none;
+  height: 45px;
+  font-weight: bold !important;
+}
+
+.user-text-ce{
+  font-size: 15px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 45.5px;
+}
+
+
+.nav-text-ce a {
+  margin-left: 5px;
+  text-decoration: none;
+  color: #666666;
+  font-size: 13px;
+  width: 95%;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+  margin-top: 26px;
+}
+.nav-text-ce-active a {
+  background-color:#1AAF42;
+  color:white;
+}
+
+// .nav-text-active a:active {
+//   background-color: red;
+// }
+.li-nav-text-ce a {
+  text-decoration: none;
+  color: #1AAF42;
+  margin-left: 18px;
+  font-size: 16.3px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+  margin-top: 60px;
+}
+
+.nav-text-ce a:hover {
+  background-color:#1AAF42;
+  color: white;
+  text-decoration: underline;
+}
+
+svg a:hover {
+  background-color:#1AAF42;
+  color: white;
+  text-decoration: underline;
+}
