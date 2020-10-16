@@ -119,7 +119,7 @@ const RequestStatus = () => {
     >
       <BarOrder />
       <div>
-        <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
+        <Header nombre="Moises Carrillo" cargo="Supervisor de Operaciones" />
         <div className="seccion-estados-solicitud">
           <h3>Estatus de Solicitudes</h3>
           <div className="filtros-solicitud">
