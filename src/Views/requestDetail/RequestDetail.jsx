@@ -153,9 +153,9 @@ const RequestDetail = () => {
                   clase="solicitud-asignada width-5rem"
                   estado="Asignado"
                 />
-                <Link to={`/detalle-solicitudes/${solicitud.id}`}>
+                <Link class="linkToDetail" to={`/detalle-solicitudes/${solicitud.id}`}>
                   <div className="ver-mas margin-06rem">
-                    <p>+</p>
+                    <span className="buttonMore">+</span>
                   </div>
                 </Link>
               </div>

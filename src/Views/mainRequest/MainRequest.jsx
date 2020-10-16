@@ -85,14 +85,28 @@ const MainRequest = () => {
     });
   };
 
+  const resetForm = () => {
+    document.querySelectorAll('input').forEach((inpt) => {
+      // eslint-disable-next-line no-param-reassign
+      inpt.value = '';
+    });
+    document.querySelectorAll('textarea').forEach((inpt) => {
+      // eslint-disable-next-line no-param-reassign
+      inpt.value = '';
+    });
+    document.querySelectorAll('select').forEach((inpt) => {
+      // eslint-disable-next-line no-param-reassign
+      inpt.value = '';
+    });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    db.collection('solicitudes').add(datosSolicitud);
+    db.collection('solicitudes').add(datosSolicitud).then(() => { resetForm(); });
   };
 
   return (
     <>
-      <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
+      <Header nombre="Moises Carrillo" cargo="Supervisor de Operaciones" />
       <section className="main-container-solicitud">
         <TitleView texto="Solicitud de Requerimientos - Almacenes" />
         <form onSubmit={handleSubmit}>
