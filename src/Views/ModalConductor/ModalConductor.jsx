@@ -61,15 +61,15 @@ const ModalConductor = () => {
               </h3>
               <div className="container-datos">
                 <div className="estatus">
-                  <span>DNI</span>
+                  <span className="titulo-input">DNI</span>
                   <div className="info-vehicle"><p>{conductor.dni}</p></div>
                 </div>
                 <div className="estatus">
-                  <span>Razón Social</span>
+                  <span className="titulo-input">Razón Social</span>
                   <div className="info-vehicle"><p>{conductor.razonSocial}</p></div>
                 </div>
                 <div className="estatus">
-                  <span>Flota</span>
+                  <span className="titulo-input">Flota</span>
                   <div className="info-vehicle"><p>{conductor.flota}</p></div>
                 </div>
               </div>
