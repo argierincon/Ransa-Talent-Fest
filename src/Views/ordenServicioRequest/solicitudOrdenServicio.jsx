@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import Swal from 'sweetalert2';
 import { useParams } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import '../mainRequest/MainRequest.scss';
@@ -41,7 +42,7 @@ const MainRequest = () => {
         querySnapShot.forEach((doc) => {
           const dataVehiculos = doc.data();
           dataVehiculos.id = doc.id;
-          temp.push(dataVehiculos.tipo);
+          temp.push(dataVehiculos.placaAcoplado);
           temp1.push(dataVehiculos.placa);
         });
         setAcoplado([...new Set(temp)]);
@@ -80,6 +81,12 @@ const MainRequest = () => {
         ...payload,
         status: 'true',
       });
+    Swal.fire({
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/1200px-Yes_Check_Circle.svg.png',
+      imageHeight: 120,
+      confirmButtonColor: '#009A3F',
+      text: 'Asignación exitosa',
+    });
   };
 
   return (
@@ -91,11 +98,17 @@ const MainRequest = () => {
     >
       <BarOp />
       <div>
-        <Header nombre="Moises Carrillo" cargo="supervisor de operaciones" />
+        <Header nombre="Moises Carrillo" cargo="supervisor de operaciones" image={user1} />
         <section className="main-container-solicitud">
-          <TitleView texto="Requermiento" />
+          <TitleView texto="Requerimiento" />
           <p>
-            Solicitud -{detailSolicitud.destino} -
+            Solicitud -
+            {' '}
+            {detailSolicitud.destino}
+            {' '}
+            -
+            {' '}
+            {' '}
             {detailSolicitud.ordenServicio}
           </p>
           <div className="flex datos-autocompleted">
@@ -208,30 +221,41 @@ const MainRequest = () => {
             </p>
             <form onSubmit={submitAsignar}>
               <div className="container-select">
-                <select name="conductor" onChange={selectAsignar}>
-                  <option selected disabled>
-                    Conductor
-                  </option>
-                  {conductor.map((ele) => (
-                    <option value={ele}>{ele}</option>
-                  ))}
-                </select>
-                <select name="placa" onChange={selectAsignar}>
-                  <option selected disabled>
-                    Tracto
-                  </option>
-                  {tracto.map((ele) => (
-                    <option value={ele}>{ele}</option>
-                  ))}
-                </select>
-                <select name="tipo" onChange={selectAsignar}>
-                  <option selected disabled>
-                    Acoplado
-                  </option>
-                  {acoplado.map((ele) => (
-                    <option value={ele}>{ele}</option>
-                  ))}
-                </select>
+                <div className="select-asign">
+                  <p>Conductor</p>
+                  <select name="conductor" onChange={selectAsignar}>
+                    <option selected disabled>
+                      Conductor
+                    </option>
+                    {conductor.map((ele) => (
+                      <option value={ele}>{ele}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="select-asign">
+                  <p>Tracto</p>
+                  <select name="placa" onChange={selectAsignar}>
+                    <option selected disabled>
+                      Tracto
+                    </option>
+                    {tracto.map((ele) => (
+                      <option value={ele}>{ele}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="select-asign">
+                  <p>Acoplado</p>
+                  <select name="tipo" onChange={selectAsignar}>
+                    <option selected disabled>
+                      Acoplado
+                    </option>
+                    {acoplado.map((ele) => (
+                      <option value={ele}>{ele}</option>
+                    ))}
+                  </select>
+                </div>
               </div>
               <BtnPrimary texto="Asignar" />
             </form>

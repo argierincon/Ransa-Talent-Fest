@@ -12,17 +12,22 @@ import BarOp from '../../components/sideBarOp/BarOp';
 const RequestDetail = () => {
   const db = firebase.firestore();
   const [solicitudes, setSolicitudes] = useState([]);
+  const [fecha, setFecha] = useState([]);
 
   useEffect(() => {
+    const fechaTemp = [];
     db.collection('solicitudes')
+      .orderBy('date', 'desc')
       .get()
       .then((querySnapShot) => {
         querySnapShot.forEach((doc) => {
           const dataSolicitudes = doc.data();
           dataSolicitudes.id = doc.id;
           solicitudes.push(dataSolicitudes);
+          fechaTemp.push(dataSolicitudes.date);
         });
         setSolicitudes([...solicitudes]);
+        setFecha([...new Set(fechaTemp)]);
       });
   }, []);
 
@@ -136,8 +141,8 @@ const RequestDetail = () => {
                   Fecha de Solicitud
                 </option>
                 <option value="todas">Todas</option>
-                {solicitudes.map((soli) => (
-                  <option value={soli.date}>{soli.date}</option>
+                {fecha.map((soli) => (
+                  <option value={soli}>{soli}</option>
                 ))}
               </select>
               <select
@@ -176,7 +181,7 @@ const RequestDetail = () => {
                 </option>
                 <option value="todos">Todos</option>
                 <option value="true">Asignado</option>
-                <option value="false">No asignado</option>
+                <option value="false">Pendiente</option>
               </select>
             </div>
           </div>

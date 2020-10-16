@@ -22,7 +22,8 @@ import EnableDriver from '../Views/enableDriver/EnableDriver';
 // import ModalVehicle from '../Views/ModalVehicleHabilitacion/ModalVehicle';
 import ModalConductor from '../Views/ModalConductor/ModalConductor';
 import ModalUnidades from '../Views/ModalVehicle/ModalVehicle';
-
+import ModalHabilitacionConductores from '../Views/ModalHabilitacionConductores/ModalHabilitacionConductores';
+import ModalHabilitacionUnidades from '../Views/ModalHabilitacionUnidades/ModalHabilitacionUnidades';
 const Router = () => (
   <BrowserRouter>
     <Switch>
@@ -34,6 +35,7 @@ const Router = () => (
       <Route exact path="/detalle-solicitudes" component={RequestDetail} />
       <Route exact path="/orden-servicio" component={SolicitudOrdenServicio} />
       <Route exact path="/habilitacion-unidades" component={UnitsEnablement} />
+      <Route exact path="/habilitacion-unidades/:id" component={ModalHabilitacionUnidades} />
       <Route
         exact
         path="/disponibilidad-unidades"
@@ -43,6 +45,11 @@ const Router = () => (
         exact
         path="/habilitacion-conductores"
         component={DriversEnablement}
+      />
+      <Route
+        exact
+        path="/habilitacion-conductores/:id"
+        component={ModalHabilitacionConductores}
       />
       <Route
         exact
@@ -66,7 +73,6 @@ const Router = () => (
         path="/verificar-habilitacion-unidades/:id"
         component={ModalUnidades}
       />
-
 
       <Route
         exact

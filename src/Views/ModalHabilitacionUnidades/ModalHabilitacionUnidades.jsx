@@ -3,7 +3,7 @@ import React,{ useEffect, useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import { useParams, Link} from 'react-router-dom';
-import BarMant from '../../components/sideBarMant/BarMant';
+import BarOp from '../../components/sideBarOp/BarOp';
 import './ModalVehicle.scss';
 
 const ModalVehicle = () => {
@@ -30,11 +30,11 @@ const ModalVehicle = () => {
         gridTemplateColumns: '330px auto',
       }}
     >
-      <BarMant />
+      <BarOp />
       <div className="modal">
         <div className="modal-flex">
           <div className="container-modal comun-card">
-            <Link to="/verificar-habilitacion-unidades">
+            <Link to="/habilitacion-unidades">
               <i className="fas fa-times-circle close" />
             </Link>
             <div className="modal-info">
