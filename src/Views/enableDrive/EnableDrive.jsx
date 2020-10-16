@@ -25,6 +25,83 @@ const EnableDrive = () => {
       });
   }, []);
 
+  const handleChange = (e) => {
+    db.collection('vehiculos')
+      .doc(e.target.dataset.id)
+      .update({
+        estatus: e.target.value,
+      })
+      .then(() => {
+        db.collection('vehiculos')
+          .get()
+          .then((querySnapShot) => {
+            const dispTemp = [];
+            querySnapShot.forEach((doc) => {
+              const dataVehiculos = doc.data();
+              dataVehiculos.id = doc.id;
+              dispTemp.push(dataVehiculos);
+            });
+            setHabilitarVehiculos([...dispTemp]);
+          });
+      });
+  };
+
+  const handleType = (e) => {
+    const vehiculosTemp = [];
+    if (e.target.value === 'tipo') {
+      db.collection('vehiculos')
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    } else {
+      db.collection('vehiculos')
+        .where('tipo', '==', e.target.value)
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    }
+  };
+
+  const handleDisponiblity = (e) => {
+    const vehiculosTemp = [];
+    if (e.target.value === 'status') {
+      db.collection('vehiculos')
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    } else {
+      db.collection('vehiculos')
+        .where('estatus', '==', e.target.value)
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    }
+  };
+
   return (
     <>
       <Header nombre="Andy Chuco" cargo="Mantenimiento" />
@@ -32,20 +109,21 @@ const EnableDrive = () => {
         <h3>Lista de Vehículos para verificar disponibilidad</h3>
         <div className="filtros-hab-unidades">
           <div>
-            <select className="width-height" name="tipo" id="tipo">
-              <option value="tipo">Tipo</option>
-              <option value="tracto">Tracto</option>
-              <option value="plataforma">Plataforma</option>
-              <option value="camaBaja">Cama baja</option>
+            <select onChange={handleType} className="width-height" name="tipo" id="tipo">
+              <option value="tipo" selected>Tipo</option>
+              <option value="TRACTO">Tracto</option>
+              <option value="PLATAFORMA">Plataforma</option>
+              <option value="CAMA BAJA">Cama baja</option>
             </select>
             <select
+              onChange={handleDisponiblity}
               className="width-height"
               name="habilitacion"
               id="habilitacion"
             >
-              <option value="disponibilidad">Disponibilidad</option>
-              <option value="habilitado">Habilitado</option>
-              <option value="noHabilitado">No habilitado</option>
+              <option value="status" selected>Disponibilidad</option>
+              <option value="HABILITADO">Habilitado</option>
+              <option value="NO HABILITADO">No habilitado</option>
             </select>
           </div>
         </div>
@@ -70,12 +148,15 @@ const EnableDrive = () => {
               <p>{vehiculo.revisionTecnica}</p>
               <p>{vehiculo.soat}</p>
               <select
+                value={vehiculo.estatus}
+                onChange={handleChange}
+                data-id={vehiculo.id}
                 className="select-hab-unidades width-height"
                 name="disponibilidad"
                 id="disponibilidad"
               >
-                <option value="disponible">Habilitado</option>
-                <option value="noDisponible">No Habilitado</option>
+                <option value="HABILITADO">Habilitado</option>
+                <option value="NO HABILITADO">No Habilitado</option>
               </select>
               <div className="status-ver-mas margin-left-2rem">
                 <img className="descargar" src={descargar} alt="Descargar" />

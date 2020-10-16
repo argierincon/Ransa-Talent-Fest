@@ -20,12 +20,18 @@ import ModalVehicle from '../Views/ModalVehicleHabilitacion/ModalVehicle';
 const Router = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={Login} />{' '}
-      <Route exact path="/revisarsolicitudes" component={FormPrueba} />{' '}
-      <Route exact path="/habilitarunidades" component={FormPrueba} />{' '}
-      <Route exact path="/disponibilidadunidades" component={FormPrueba} />{' '}
-      <Route exact path="/habilitarconductores" component={FormPrueba} />{' '}
-      <Route exact path="/disponibilidadconductores" component={FormPrueba} />{' '}
+      <Route exact path="/" component={Login} />
+      {' '}
+      <Route exact path="/revisarsolicitudes" component={FormPrueba} />
+      {' '}
+      <Route exact path="/habilitarunidades" component={FormPrueba} />
+      {' '}
+      <Route exact path="/disponibilidadunidades" component={FormPrueba} />
+      {' '}
+      <Route exact path="/habilitarconductores" component={FormPrueba} />
+      {' '}
+      <Route exact path="/disponibilidadconductores" component={FormPrueba} />
+      {' '}
       {/* <Route exact path="/home" component={Home} /> */}
       <Route exact path="/prueba" component={FormPrueba} />
       <Route exact path="/crear-solicitud" component={Solicitud} />

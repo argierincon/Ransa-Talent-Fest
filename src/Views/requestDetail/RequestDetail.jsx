@@ -21,10 +21,66 @@ const RequestDetail = () => {
           dataSolicitudes.id = doc.id;
           solicitudes.push(dataSolicitudes);
         });
-        console.log(solicitudes);
         setSolicitudes([...solicitudes]);
       });
   }, []);
+
+  const handleChange = (e) => {
+    const solicitudeTemp = [];
+    if (e.target.value === 'status') {
+      db.collection('solicitudes')
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
+          });
+          setSolicitudes([...solicitudeTemp]);
+        });
+    } else {
+      db.collection('solicitudes')
+        .where('status', '==', e.target.value)
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
+          });
+          setSolicitudes([...solicitudeTemp]);
+        });
+    }
+  };
+
+  const handleClient = (e) => {
+    const solicitudeTemp = [];
+    if (e.target.value === 'cliente') {
+      db.collection('solicitudes')
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
+          });
+          setSolicitudes([...solicitudeTemp]);
+        });
+    } else {
+      db.collection('solicitudes')
+        .where('cliente', '==', e.target.value)
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
+          });
+          setSolicitudes([...solicitudeTemp]);
+        });
+    }
+  };
+
   return (
     <>
       <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
@@ -42,19 +98,26 @@ const RequestDetail = () => {
             >
               <option value="fechaSolicitud">Fecha de Solicitud</option>
             </select>
-            <select className="width-height" name="empresa" id="empresa">
-              <option value="pacasmayo">Cementos Pacasmayo S.A.A</option>
-              <option value="marcobre">Marcobre S.A.C</option>
-              <option value="antamina">Compañia Minera Antamina S.A</option>
-              <option value="quenuales">E.M Los Quenuales</option>
-              <option value="ares">Compañia Minera Ares S.A.C</option>
-              <option value="yanacocha">Compañia Minera Ares S.A.C</option>
+            <select onChange={handleClient} className="width-height" name="empresa" id="empresa">
+              <option value="cliente" selected>Cliente</option>
+              <option value="Cementos Pacasmayo S.A.A">Cementos Pacasmayo S.A.A</option>
+              <option value="Marcobre S.A.C">Marcobre S.A.C</option>
+              <option value="Compañia Minera Antamina S.A">Compañia Minera Antamina S.A</option>
+              <option value="E.M Los Quenuales">E.M Los Quenuales</option>
+              <option value="Compañia Minera Ares S.A.C">Compañia Minera Ares S.A.C</option>
+              <option value="Compañia Minera Ares S.A.C">Compañia Minera Ares S.A.C</option>
             </select>
-            <select className="width-height" name="estado" id="estado">
-              <option value="pendiente">Pendiente</option>
-              <option value="enProceso">En proceso</option>
-              <option value="asignado">asignado</option>
-              <option value="fallido">Fallido</option>
+            <select
+              onChange={handleChange}
+              className="width-height"
+              name="estado"
+              id="estado"
+            >
+              <option value="status" selected>
+                Estatus
+              </option>
+              <option value="true">ASIGNADO</option>
+              <option value="false">NO ASIGNADO</option>
             </select>
           </div>
         </div>
