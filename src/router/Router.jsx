@@ -27,11 +27,19 @@ const Router = () => (
     <Switch>
       <Route exact path="/" component={Login} />
       {' '}
-      {/** **Rutas de BarOpData, Cristian**** */}
-      <Route exact path="/detalle-solicitudes" component={RequestDetail} />
+      {/****Rutas de BarOrderData, Moises*****/}
+      <Route exact path="/solicitud-requerimiento" component={MainRequest} />
       {' '}
-      <Route exact path="/solicitud-requerimiento" component={Solicitud} />
+
+      <Route exact path="/estatus-solicitudes" component={RequestStatus} />
       {' '}
+
+       {/****Rutas de BarOpData, Cristian*****/}
+       <Route exact path="/orden-servicio" component={RequestDetail} />
+       {' '}
+       <Route exact path="/solicitud-requerimiento" component={MainRequest} />
+       {' '}
+
       <Route exact path="/orden-servicio" component={SolicitudOrdenServicio} />
       {' '}
       <Route exact path="/habilitacion-unidades" component={UnitsEnablement} />
@@ -64,24 +72,23 @@ const Router = () => (
       {' '}
       <Route exact path="/cerrarsesion" component={Login} />
       {' '}
-      {/** **Rutas de BarMantData, Andy Chuco**** */}
-      <Route
-        exact
-        path="/verificar-habilitacion-unidades"
-        component={EnableDrive}
-      />
+
+     {/****Rutas de BarMantData, Andy Chuco*****/}
+     <Route exact path="/verificar-habilitacion-unidades" component={EnableDrive}/>
+     {' '}
+     <Route exact path="/verificar-disponibilidad-unidades" component={AvailableDrive} />
+     {' '}
+
+      {/****Rutas de BarMantDataC, Gisela*****/}
+      <Route exact path="/verificar-habilitacion-conductores" component={EnableDrive}/>
       {' '}
-      <Route
-        exact
-        path="/verificar-disponibilidad-unidades"
-        component={AvailableDrive}
-      />
+      <Route exact path="/verificar-disponibilidad-conductores" component={AvailableDriver} />
       {' '}
-      {/** **Rutas de BarOrderData, Moises**** */}
-      <Route exact path="/solicitud-requerimiento" component={Home} />
-      {' '}
-      <Route exact path="/estatus-solicitudes" component={RequestStatus} />
-      {' '}
+     
+
+
+
+
       <Route exact path="/home" component={Home} />
       <Route exact path="/prueba" component={FormPrueba} />
       <Route exact path="/crear-solicitud" component={Solicitud} />
@@ -109,42 +116,11 @@ const Router = () => (
       />
       <Route exact path="/agregar-conductores" component={AddDrivers} />
       <Route exact path="/modal-vehicle" component={ModalVehicle} />
-      <Route
-        exact
-        path="/disponibilidad-unidades"
-        component={UnitsAvailability}
-      />
-      <Route
-        exact
-        path="/habilitacion-conductores"
-        component={DriversEnablement}
-      />
-      <Route
-        exact
-        path="/disponibilidad-conductores"
-        component={DriversAvailability}
-      />
-      <Route
-        exact
-        path="/verificar-disponibilidad-unidades"
-        component={AvailableDrive}
-      />
-      <Route
-        exact
-        path="/verificar-habilitacion-unidades"
-        component={EnableDrive}
-      />
-      <Route
-        exact
-        path="/verificar-disponibilidad-conductores"
-        component={AvailableDriver}
-      />
-      <Route
-        exact
-        path="/verificar-habilitacion-conductores"
-        component={EnableDriver}
-      />
       <Route exact path="/modal" component={ModalVehicleInformation} />
+
+
+
+
     </Switch>
   </BrowserRouter>
 );
