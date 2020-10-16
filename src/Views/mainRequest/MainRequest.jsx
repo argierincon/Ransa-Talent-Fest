@@ -104,10 +104,9 @@ const MainRequest = () => {
     db.collection('solicitudes').add(datosSolicitud).then(() => { resetForm(); });
   };
 
-
   return (
     <>
-      <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
+      <Header nombre="Moises Carrillo" cargo="Supervisor de Operaciones" />
       <section className="main-container-solicitud">
         <TitleView texto="Solicitud de Requerimientos - Almacenes" />
         <form onSubmit={handleSubmit}>
