@@ -31,6 +31,7 @@ const RequestStatus = () => {
     if (e.target.value === 'todos') {
       db.collection('solicitudes')
         .get()
+        .orderBy('date', 'desc')
         .then((querySnapShot) => {
           querySnapShot.forEach((doc) => {
             const dataSolicitudes = doc.data();
