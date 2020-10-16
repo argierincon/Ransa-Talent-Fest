@@ -74,7 +74,7 @@ const MainRequest = () => {
     e.preventDefault();
     db.collection('solicitudes').doc(id).update({
       ...payload,
-      status: true,
+      status: 'true',
     });
   };
 
