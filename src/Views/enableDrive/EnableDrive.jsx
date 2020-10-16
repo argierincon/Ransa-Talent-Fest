@@ -106,7 +106,7 @@ const EnableDrive = () => {
     <>
       <Header nombre="Andy Chuco" cargo="Mantenimiento" />
       <div className="seccion-estados-solicitud">
-        <h3>Lista de Vehículos para verificar disponibilidad</h3>
+        <h3>Lista de Vehículos para verificar habilitación</h3>
         <div className="filtros-hab-unidades">
           <div>
             <select onChange={handleType} className="width-height" name="tipo" id="tipo">
@@ -121,7 +121,7 @@ const EnableDrive = () => {
               name="habilitacion"
               id="habilitacion"
             >
-              <option value="status" selected>Disponibilidad</option>
+              <option value="status" selected>Habilitacion</option>
               <option value="HABILITADO">Habilitado</option>
               <option value="NO HABILITADO">No habilitado</option>
             </select>
