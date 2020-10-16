@@ -5,6 +5,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import moment from 'moment';
 import 'moment/locale/es';
+import Swal from 'sweetalert2';
 import Header from '../../components/header/Header';
 import TitleView from '../../components/titleView/TitleView';
 import BtnPrimary from '../../components/btnPrimary/BtnPrimary';
