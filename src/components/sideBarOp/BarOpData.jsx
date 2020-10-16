@@ -7,47 +7,44 @@ import truck1 from '../../assets/img/truck1.png';
 import truck2 from '../../assets/img/truck2.png';
 import hc from '../../assets/img/hc.png';
 import dc from '../../assets/img/dc.png';
-import dc1 from '../../assets/img/files1.png';
 
 export const BarOpData = [
   {
     titulo: 'Solicitudes',
-    ruta: '/asignar-solicitudes',
+    ruta: '/orden-servicio',
     icono: <img src={file} />,
     clase: 'nav-text',
   },
   {
     titulo: 'Flota Propia',
-    ruta: '/verflotapropia',
     clase: 'li-nav-text',
   },
   {
     titulo: 'Habilitación de unidades',
-    ruta: '/habilitacion-unidades-int',
+    ruta: '/habilitacion-unidades',
     icono: <img src={truck1} />,
     clase: 'nav-text',
   },
   {
     titulo: 'Disponibilidad de Unidades',
-    ruta: '/disponibilidad-unidades-int',
+    ruta: '/disponibilidad-unidades',
     icono: <img src={truck2} />,
     clase: 'nav-text',
   },
   {
     titulo: 'Habilitación de conductores',
-    ruta: '/habilitacion-conductores-int',
+    ruta: '/habilitacion-conductores',
     icono: <img src={hc}/>,
     clase: 'nav-text',
   },
   {
     titulo: 'Disponibilidad de conductores',
-    ruta: '/disponibilidad-conductores-int',
+    ruta: '/disponibilidad-conductores',
     icono: <img src={dc}  />,
     clase: 'nav-text',
   },
   {
     titulo: 'Flota Tercera',
-    ruta: '/verflotapropia',
     clase: 'li-nav-text',
   },
   {

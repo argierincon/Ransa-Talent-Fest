@@ -83,6 +83,7 @@ const UnitsAvailability = () => {
   return (
     <>
       <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
+      <BarOp/>
       <div className="seccion-estados-solicitud">
         <h3>Lista de Vehículos para verificar disponibilidad</h3>
         <div className="filtros-hab-unidades">

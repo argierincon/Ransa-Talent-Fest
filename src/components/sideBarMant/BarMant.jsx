@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD:src/components/sideBarMant/BarMant.jsx
 import { BarMantData} from './BarMantData';
 import './BarMant.scss';
 import { IconContext } from 'react-icons';
-=======
-import { IconContext } from 'react-icons';
-import { SideBarData } from './SideBarData';
-import './Bar.scss';
->>>>>>> 90b930e389848b615b68e7e1fce99f055da90529:src/components/sideBar/SideBar.jsx
+
 import logo from '../../assets/img/LOGO_RANSA.png';
 import user from '../../assets/img/Moises.png';
 

@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import 'firebase/firestore';
-
+import BarMant from '../../components/sideBarMant/BarMant';
 import Header from '../../components/header/Header';
-
 import descargar from '../../assets/img/descargar.png';
-
 import './EnableDrive.scss';
 
 const EnableDrive = () => {
@@ -28,6 +26,7 @@ const EnableDrive = () => {
   return (
     <>
       <Header nombre="Andy Chuco" cargo="Mantenimiento" />
+      <BarMant></BarMant>
       <div className="seccion-estados-solicitud">
         <h3>Lista de Vehículos para verificar disponibilidad</h3>
         <div className="filtros-hab-unidades">

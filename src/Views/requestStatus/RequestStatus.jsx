@@ -29,6 +29,7 @@ const RequestStatus = () => {
   return (
     <>
       <Header />
+      <BarOrder/>
       <div className="seccion-estados-solicitud">
         <h3>Estatus de Solicitudes</h3>
         <div className="filtros-solicitud">

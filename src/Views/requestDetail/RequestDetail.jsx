@@ -60,6 +60,7 @@ const RequestDetail = () => {
   return (
     <>
       <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
+      <BarOp/>
       <div className="seccion-estados-solicitud">
         <div className="titulo-btn">
           <h3>Solicitudes de Requerimientos</h3>

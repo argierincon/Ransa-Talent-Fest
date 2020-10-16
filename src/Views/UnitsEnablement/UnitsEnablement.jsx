@@ -86,6 +86,7 @@ const UnitsEnablement = () => {
   return (
     <>
       <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
+      <BarOp/>
       <div className="seccion-estados-solicitud">
         <h3>Lista de Vehículos para verificar habilitación</h3>
         <div className="filtros-hab-unidades">

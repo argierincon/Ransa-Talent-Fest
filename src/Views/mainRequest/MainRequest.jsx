@@ -94,6 +94,7 @@ const MainRequest = () => {
   return (
     <>
       <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
+      <BarOrder/>
       <section className="main-container-solicitud">
         <TitleView texto="Solicitud de Requerimientos - Almacenes" />
         <form onSubmit={handleSubmit}>
