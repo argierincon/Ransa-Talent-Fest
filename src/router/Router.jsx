@@ -32,6 +32,7 @@ const Router = () => (
       {/** **Rutas de BarOrderData, Moises**** */}
       <Route exact path="/solicitud-requerimiento" component={Solicitud} />
       <Route exact path="/estatus-solicitudes" component={RequestStatus} />
+      <Route exact path="/estatus-solicitudes/:id" component={ModalDetalleAsignacion} />
       {/** **Rutas de BarOpData, Cristian**** */}
       <Route exact path="/detalle-solicitudes" component={RequestDetail} />
       <Route exact path="/orden-servicio" component={SolicitudOrdenServicio} />
@@ -97,7 +98,6 @@ const Router = () => (
         component={AvailableDriver}
       />
       <Route exact path="/home" component={Home} />
-      <Route exact path="/prueba/:id" component={ModalDetalleAsignacion} />
       <Route exact path="/crear-solicitud" component={Solicitud} />
       <Route exact path="/revisarsolicitudes" component={FormPrueba} />
       <Route exact path="/habilitarunidades" component={FormPrueba} />

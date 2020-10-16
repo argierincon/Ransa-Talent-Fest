@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import 'firebase/firestore';
 
@@ -221,9 +222,12 @@ const RequestStatus = () => {
                       }
                     />
                     {solicitud.status === 'true' && (
-                      <div className="ver-mas margin-06rem">
-                        <p>+</p>
-                      </div>
+                      <Link
+                        className="linkToDetail"
+                        to={`/estatus-solicitudes/${solicitud.id}`}
+                      >
+                        <i className="more-detail fas fa-plus-circle" />
+                      </Link>
                     )}
                   </div>
                 </div>
