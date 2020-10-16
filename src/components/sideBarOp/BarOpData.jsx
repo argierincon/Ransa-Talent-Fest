@@ -1,18 +1,16 @@
 import React from 'react';
 import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
 import file from '../../assets/img/files.png';
 import truck1 from '../../assets/img/truck1.png';
 import truck2 from '../../assets/img/truck2.png';
 import hc from '../../assets/img/hc.png';
 import dc from '../../assets/img/dc.png';
 
-export const BarOpData = [
+export default [
   {
     titulo: 'Solicitudes',
-    ruta: '/orden-servicio',
-    icono: <img src={file} />,
+    ruta: '/detalle-solicitudes',
+    icono: <img src={file} alt="file" />,
     clase: 'nav-text',
   },
   {
@@ -22,25 +20,25 @@ export const BarOpData = [
   {
     titulo: 'Habilitación de unidades',
     ruta: '/habilitacion-unidades',
-    icono: <img src={truck1} />,
+    icono: <img src={truck1} alt="camion" />,
     clase: 'nav-text',
   },
   {
     titulo: 'Disponibilidad de Unidades',
     ruta: '/disponibilidad-unidades',
-    icono: <img src={truck2} />,
+    icono: <img src={truck2} alt="camion" />,
     clase: 'nav-text',
   },
   {
     titulo: 'Habilitación de conductores',
     ruta: '/habilitacion-conductores',
-    icono: <img src={hc}/>,
+    icono: <img src={hc} alt="icon" />,
     clase: 'nav-text',
   },
   {
     titulo: 'Disponibilidad de conductores',
     ruta: '/disponibilidad-conductores',
-    icono: <img src={dc}  />,
+    icono: <img src={dc} alt="icon" />,
     clase: 'nav-text',
   },
   {
@@ -50,31 +48,31 @@ export const BarOpData = [
   {
     titulo: 'Habilitación de unidades',
     ruta: '/habilitacion-unidades-ext',
-    icono: <img src={truck1} />,
+    icono: <img src={truck1} alt="camion" />,
     clase: 'nav-text',
   },
   {
     titulo: 'Disponibilidad de Unidades',
     ruta: '/disponibilidad-unidades-ext',
-    icono: <img src={truck2} />,
+    icono: <img src={truck2} alt="camion" />,
     clase: 'nav-text',
   },
   {
     titulo: 'Habilitación de conductores',
     ruta: '/disponibilidad-conductores-ext',
-    icono: <img src={hc} />,
+    icono: <img src={hc} alt="icon" />,
     clase: 'nav-text',
   },
   {
     titulo: 'Disponibilidad de conductores',
     ruta: '/disponibilidad-conductores-ext',
-    icono: <img src={dc} />,
+    icono: <img src={dc} alt="icon" />,
     clase: 'nav-text',
   },
   {
     titulo: 'Cerrar sesión',
     ruta: '/cerrarsesion',
-    icono: < FaIcons.FaSignOutAlt />,
+    icono: <FaIcons.FaSignOutAlt />,
     clase: 'nav-text',
   },
 ];

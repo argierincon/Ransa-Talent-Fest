@@ -25,10 +25,11 @@ body{
   height: 100vh;
   display: flex;
   justify-content: center;
-  position: fixed;
   top: 0;
   left: -100%;
   transition: 850ms;
+  border-right: 2px solid #F0F0F0;
+  box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.05);
 }
 
 .nav-menu.active {

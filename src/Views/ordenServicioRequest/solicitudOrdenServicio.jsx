@@ -30,7 +30,7 @@ const MainRequest = () => {
   return (
     <>
       <Header nombre="Moises Carrillo" cargo="supervisor de operaciones" />
-      <BarOp/>
+      <BarOp />
       <section className="main-container-solicitud">
         <TitleView texto="Requermiento" />
         <p>
@@ -140,6 +140,7 @@ const MainRequest = () => {
             </div>
             <BtnPrimary texto="Asignar" />
           </form>
+
         </div>
 
       </section>
