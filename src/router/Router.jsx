@@ -72,7 +72,6 @@ const Router = () => (
         component={ModalUnidades}
       />
 
-
       <Route
         exact
         path="/verificar-disponibilidad-unidades"
