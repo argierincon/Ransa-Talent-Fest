@@ -52,6 +52,8 @@ const MainRequest = () => {
   useEffect(() => {
     const temp = [];
     db.collection('conductores')
+      .where('habilitado', '==', 'HABILITADO')
+      .where('disponible', '==', 'true')
       .get()
       .then((querySnapShot) => {
         querySnapShot.forEach((doc) => {
@@ -72,10 +74,12 @@ const MainRequest = () => {
 
   const submitAsignar = (e) => {
     e.preventDefault();
-    db.collection('solicitudes').doc(id).update({
-      ...payload,
-      status: 'true',
-    });
+    db.collection('solicitudes')
+      .doc(id)
+      .update({
+        ...payload,
+        status: 'true',
+      });
   };
 
   return (
