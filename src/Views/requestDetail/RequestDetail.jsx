@@ -28,7 +28,7 @@ const RequestDetail = () => {
 
   const handleChange = (e) => {
     const solicitudeTemp = [];
-    if (e.target.value === 'status') {
+    if (e.target.value === 'todos') {
       db.collection('solicitudes')
         .get()
         .then((querySnapShot) => {
@@ -54,9 +54,37 @@ const RequestDetail = () => {
     }
   };
 
+  const handleFecha = (e) => {
+    const solicitudeTemp = [];
+    if (e.target.value === 'todas') {
+      db.collection('solicitudes')
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
+          });
+          setSolicitudes([...solicitudeTemp]);
+        });
+    } else {
+      db.collection('solicitudes')
+        .where('date', '==', e.target.value)
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
+          });
+          setSolicitudes([...solicitudeTemp]);
+        });
+    }
+  };
+
   const handleClient = (e) => {
     const solicitudeTemp = [];
-    if (e.target.value === 'cliente') {
+    if (e.target.value === 'todos') {
       db.collection('solicitudes')
         .get()
         .then((querySnapShot) => {
@@ -99,11 +127,18 @@ const RequestDetail = () => {
           <div className="filtros-solicitud">
             <div>
               <select
+                onChange={handleFecha}
                 className="width-height"
                 name="fechaSolicitud"
                 id="fechaSolicitud"
               >
-                <option value="fechaSolicitud">Fecha de Solicitud</option>
+                <option disabled selected>
+                  Fecha de Solicitud
+                </option>
+                <option value="todas">Todas</option>
+                {solicitudes.map((soli) => (
+                  <option value={soli.date}>{soli.date}</option>
+                ))}
               </select>
               <select
                 onChange={handleClient}
@@ -111,9 +146,10 @@ const RequestDetail = () => {
                 name="empresa"
                 id="empresa"
               >
-                <option value="cliente" selected>
+                <option disabled selected>
                   Cliente
                 </option>
+                <option value="todos">Todos</option>
                 <option value="Cementos Pacasmayo S.A.A">
                   Cementos Pacasmayo S.A.A
                 </option>
@@ -135,11 +171,12 @@ const RequestDetail = () => {
                 name="estado"
                 id="estado"
               >
-                <option value="status" selected>
+                <option disabled selected>
                   Estatus
                 </option>
-                <option value="true">ASIGNADO</option>
-                <option value="false">NO ASIGNADO</option>
+                <option value="todos">Todos</option>
+                <option value="true">Asignado</option>
+                <option value="false">No asignado</option>
               </select>
             </div>
           </div>
