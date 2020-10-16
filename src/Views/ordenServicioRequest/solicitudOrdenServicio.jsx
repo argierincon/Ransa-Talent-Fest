@@ -95,8 +95,7 @@ const MainRequest = () => {
         <section className="main-container-solicitud">
           <TitleView texto="Requermiento" />
           <p>
-            Solicitud -{detailSolicitud.destino} -
-            {detailSolicitud.ordenServicio}
+            Solicitud - {detailSolicitud.destino} - {detailSolicitud.ordenServicio}
           </p>
           <div className="flex datos-autocompleted">
             <div className="first-colum">
