@@ -92,36 +92,46 @@ const DriversEnablement = () => {
               <p>Estatus</p>
               <p> </p>
             </div>
-            {conductores.map((conductor) => (
-              <div
-                key={conductor.id}
-                className="fila grid-tabla-hab-unidades item-solic-detalle"
-              >
-                <p>{conductor.nombre}</p>
-                <p>{conductor.req1}</p>
-                <p>{conductor.req1FechaCaducidad}</p>
-                <p>{conductor.req2}</p>
-                <p>{conductor.req2FechaCaducidad}</p>
-                <TrafficLightRequest
-                  clase={`solicitud-asignada margin-left-2rem width7rem ${
-                    conductor.habilitado === 'true'
-                      ? 'solicitud-asignada'
-                      : 'solicitud-fallida'
-                  }`}
-                  estado={
-                    conductor.habilitado === 'true'
-                      ? 'HABILITADO'
-                      : 'NO HABILITADO'
-                  }
-                />
-                <div className="status-ver-mas margin-left-2rem">
-                  <img className="descargar" src={descargar} alt="Descargar" />
-                  <div className="ver-mas">
-                    <p>+</p>
+            {conductores.length > 0 ? (
+              conductores.map((conductor) => (
+                <div
+                  key={conductor.id}
+                  className="fila grid-tabla-hab-unidades item-solic-detalle"
+                >
+                  <p>{conductor.nombre}</p>
+                  <p>{conductor.req1}</p>
+                  <p>{conductor.req1FechaCaducidad}</p>
+                  <p>{conductor.req2}</p>
+                  <p>{conductor.req2FechaCaducidad}</p>
+                  <TrafficLightRequest
+                    clase={`solicitud-asignada margin-left-2rem width7rem ${
+                      conductor.habilitado === 'true'
+                        ? 'solicitud-asignada'
+                        : 'solicitud-fallida'
+                    }`}
+                    estado={
+                      conductor.habilitado === 'true'
+                        ? 'HABILITADO'
+                        : 'NO HABILITADO'
+                    }
+                  />
+                  <div className="status-ver-mas margin-left-2rem">
+                    <img
+                      className="descargar"
+                      src={descargar}
+                      alt="Descargar"
+                    />
+                    <div className="ver-mas">
+                      <p>+</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <h4 className="fila item-solic-detalle failed-load-data">
+                No se encontraron registros
+              </h4>
+            )}
           </div>
         </div>
       </div>

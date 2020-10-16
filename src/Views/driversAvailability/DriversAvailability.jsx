@@ -87,27 +87,33 @@ const DriversAvailability = () => {
               <p>Conductores</p>
               <p>Estatus</p>
             </div>
-            {conductores.map((conductor) => (
-              <div
-                key={conductor.id}
-                className="fila grid-tabla-disp-conductores item-solic-detalle"
-              >
-                <p>{conductor.dni}</p>
-                <p>{conductor.nombre}</p>
-                <TrafficLightRequest
-                  clase={`solicitud-asignada margin-auto width7rem ${
-                    conductor.habilitado === 'true'
-                      ? 'solicitud-asignada'
-                      : 'solicitud-fallida'
-                  }`}
-                  estado={
-                    conductor.habilitado === 'true'
-                      ? 'DISPONIBLE'
-                      : 'NO DISPONIBLE'
-                  }
-                />
-              </div>
-            ))}
+            {conductores.length > 0 ? (
+              conductores.map((conductor) => (
+                <div
+                  key={conductor.id}
+                  className="fila grid-tabla-disp-conductores item-solic-detalle"
+                >
+                  <p>{conductor.dni}</p>
+                  <p>{conductor.nombre}</p>
+                  <TrafficLightRequest
+                    clase={`solicitud-asignada margin-auto width7rem ${
+                      conductor.habilitado === 'true'
+                        ? 'solicitud-asignada'
+                        : 'solicitud-fallida'
+                    }`}
+                    estado={
+                      conductor.habilitado === 'true'
+                        ? 'DISPONIBLE'
+                        : 'NO DISPONIBLE'
+                    }
+                  />
+                </div>
+              ))
+            ) : (
+              <h4 className="fila item-solic-detalle failed-load-data">
+                No se encontraron registros
+              </h4>
+            )}
           </div>
         </div>
       </div>

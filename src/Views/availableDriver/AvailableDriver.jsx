@@ -108,26 +108,32 @@ const AvailableDrive = () => {
               <p>Conductores</p>
               <p>Estatus</p>
             </div>
-            {disponibilidadConductores.map((conductor) => (
-              <div
-                key={conductor.id}
-                className="fila grid-tabla-disp-conductores item-solic-detalle "
-              >
-                <p>{conductor.dni}</p>
-                <p>{conductor.nombre}</p>
-                <select
-                  value={conductor.disponible}
-                  onChange={handleChange}
-                  data-id={conductor.id}
-                  className="select-disp-conductores width-height"
-                  name="disponibilidad"
-                  id="disponibilidad"
+            {disponibilidadConductores.length > 0 ? (
+              disponibilidadConductores.map((conductor) => (
+                <div
+                  key={conductor.id}
+                  className="fila grid-tabla-disp-conductores item-solic-detalle "
                 >
-                  <option value="true">Disponible</option>
-                  <option value="false">No disponible</option>
-                </select>
-              </div>
-            ))}
+                  <p>{conductor.dni}</p>
+                  <p>{conductor.nombre}</p>
+                  <select
+                    value={conductor.disponible}
+                    onChange={handleChange}
+                    data-id={conductor.id}
+                    className="select-disp-conductores width-height"
+                    name="disponibilidad"
+                    id="disponibilidad"
+                  >
+                    <option value="true">Disponible</option>
+                    <option value="false">No disponible</option>
+                  </select>
+                </div>
+              ))
+            ) : (
+              <h4 className="fila item-solic-detalle failed-load-data">
+                No se encontraron registros
+              </h4>
+            )}
           </div>
         </div>
       </div>

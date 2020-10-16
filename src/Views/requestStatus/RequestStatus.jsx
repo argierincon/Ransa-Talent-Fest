@@ -74,31 +74,44 @@ const RequestStatus = () => {
               <p>Lugar de descarga</p>
               <p> </p>
             </div>
-            {solicitudes.map((solicitud) => (
-              <div
-                key={solicitud.id}
-                className="fila grid-tabla-solicitud height-padding"
-              >
-                <p>{solicitud.fechaCarga}</p>
-                <p>{solicitud.horaCarga}</p>
-                <p>CLIENTE</p>
-                <p>NRO ORDEN</p>
-                <p>UNIDAD</p>
-                <p>MERCADERIA</p>
-                <p>FECHA DE ENTREGA</p>
-                <p>{solicitud.lugarDescarga}</p>
-
-                <div className="status-ver-mas">
-                  <TrafficLightRequest
-                    clase="solicitud-asignada margin1rem"
-                    estado="Asignado"
-                  />
-                  <div className="ver-mas margin-06rem">
-                    <p>+</p>
+            {solicitudes.length > 0 ? (
+              solicitudes.map((solicitud) => (
+                <div
+                  key={solicitud.id}
+                  className="fila grid-tabla-solicitud height-padding"
+                >
+                  <p>{solicitud.fechaCarga}</p>
+                  <p>{solicitud.horaCarga}</p>
+                  <p>CLIENTE</p>
+                  <p>NRO ORDEN</p>
+                  <p>UNIDAD</p>
+                  <p>MERCADERIA</p>
+                  <p>FECHA DE ENTREGA</p>
+                  <p>{solicitud.lugarDescarga}</p>
+                  <div className="status-ver-mas">
+                    <TrafficLightRequest
+                      clase={`width-5rem ${
+                        solicitud.status === 'true'
+                          ? 'solicitud-asignada'
+                          : 'solicitud-pendiente'
+                      }`}
+                      estado={
+                        solicitud.status === 'true' ? 'ASIGNADO' : 'PENDIENTE'
+                      }
+                    />
+                    {solicitud.status === 'true' && (
+                      <div className="ver-mas margin-06rem">
+                        <p>+</p>
+                      </div>
+                    )}
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <h4 className="fila item-solic-detalle failed-load-data">
+                No se encontraron registros
+              </h4>
+            )}
           </div>
         </div>
       </div>

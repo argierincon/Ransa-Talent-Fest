@@ -148,27 +148,33 @@ const AvailableDrive = () => {
               <p>Disponibilidad</p>
               <p> </p>
             </div>
-            {disponibilidadVehiculos.map((vehiculo) => (
-              <div
-                key={vehiculo.id}
-                className="fila grid-tabla-disp-unidades item-solic-detalle "
-              >
-                <p>{vehiculo.placa}</p>
-                <p>{vehiculo.tipo}</p>
-                <p>{vehiculo.marca}</p>
-                <select
-                  value={vehiculo.disponible}
-                  onChange={handleChange}
-                  data-id={vehiculo.id}
-                  className="select-disp-unidades width-height"
-                  name="disponibilidad"
-                  id="disponibilidad"
+            {disponibilidadVehiculos.length > 0 ? (
+              disponibilidadVehiculos.map((vehiculo) => (
+                <div
+                  key={vehiculo.id}
+                  className="fila grid-tabla-disp-unidades item-solic-detalle "
                 >
-                  <option value="true">Disponible</option>
-                  <option value="false">No disponible</option>
-                </select>
-              </div>
-            ))}
+                  <p>{vehiculo.placa}</p>
+                  <p>{vehiculo.tipo}</p>
+                  <p>{vehiculo.marca}</p>
+                  <select
+                    value={vehiculo.disponible}
+                    onChange={handleChange}
+                    data-id={vehiculo.id}
+                    className="select-disp-unidades width-height"
+                    name="disponibilidad"
+                    id="disponibilidad"
+                  >
+                    <option value="true">Disponible</option>
+                    <option value="false">No disponible</option>
+                  </select>
+                </div>
+              ))
+            ) : (
+              <h4 className="fila item-solic-detalle failed-load-data">
+                No se encontraron registros
+              </h4>
+            )}
           </div>
         </div>
       </div>

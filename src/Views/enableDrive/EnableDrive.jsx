@@ -151,35 +151,45 @@ const EnableDrive = () => {
               <p>Habilitación</p>
               <p> </p>
             </div>
-            {disponibilidadVehiculos.map((vehiculo) => (
-              <div
-                key={vehiculo.id}
-                className="fila grid-tabla-verif-disp-unidades item-solic-detalle "
-              >
-                <p>{vehiculo.placa}</p>
-                <p>{vehiculo.tipo}</p>
-                <p>{vehiculo.razonSocial}</p>
-                <p>{vehiculo.revisionTecnica}</p>
-                <p>{vehiculo.soat}</p>
-                <select
-                  value={vehiculo.estatus}
-                  onChange={handleChange}
-                  data-id={vehiculo.id}
-                  className="select-hab-unidades width-height"
-                  name="disponibilidad"
-                  id="disponibilidad"
+            {disponibilidadVehiculos.length > 0 ? (
+              disponibilidadVehiculos.map((vehiculo) => (
+                <div
+                  key={vehiculo.id}
+                  className="fila grid-tabla-verif-disp-unidades item-solic-detalle "
                 >
-                  <option value="HABILITADO">Habilitado</option>
-                  <option value="NO HABILITADO">No Habilitado</option>
-                </select>
-                <div className="status-ver-mas margin-left-2rem">
-                  <img className="descargar" src={descargar} alt="Descargar" />
-                  <div className="ver-mas">
-                    <p>+</p>
+                  <p>{vehiculo.placa}</p>
+                  <p>{vehiculo.tipo}</p>
+                  <p>{vehiculo.razonSocial}</p>
+                  <p>{vehiculo.revisionTecnica}</p>
+                  <p>{vehiculo.soat}</p>
+                  <select
+                    value={vehiculo.estatus}
+                    onChange={handleChange}
+                    data-id={vehiculo.id}
+                    className="select-hab-unidades width-height"
+                    name="disponibilidad"
+                    id="disponibilidad"
+                  >
+                    <option value="HABILITADO">Habilitado</option>
+                    <option value="NO HABILITADO">No Habilitado</option>
+                  </select>
+                  <div className="status-ver-mas margin-left-2rem">
+                    <img
+                      className="descargar"
+                      src={descargar}
+                      alt="Descargar"
+                    />
+                    <div className="ver-mas">
+                      <p>+</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <h4 className="fila item-solic-detalle failed-load-data">
+                No se encontraron registros
+              </h4>
+            )}
           </div>
         </div>
       </div>

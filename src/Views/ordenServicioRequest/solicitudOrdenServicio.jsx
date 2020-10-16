@@ -15,6 +15,8 @@ const MainRequest = () => {
   const db = firebase.firestore();
   const [detailSolicitud, setDetailSolicitud] = useState({});
 
+  const [disponibilidadVehiculos, setHabilitarVehiculos] = useState([]);
+
   useEffect(() => {
     const getSolicitud = async () => {
       db.collection('solicitudes')
@@ -26,6 +28,69 @@ const MainRequest = () => {
     };
     getSolicitud();
   }, []);
+
+  useEffect(() => {
+    db.collection('vehiculos')
+      .get()
+      .then((querySnapShot) => {
+        querySnapShot.forEach((doc) => {
+          const dataVehiculos = doc.data();
+          dataVehiculos.id = doc.id;
+          disponibilidadVehiculos.push(dataVehiculos);
+        });
+        setHabilitarVehiculos([...disponibilidadVehiculos]);
+      });
+  }, []);
+
+  // const handleType = (e) => {
+  //   const vehiculosTemp = [];
+  //   if (e.target.value === 'tipo') {
+  //     db.collection('vehiculos')
+  //       .get()
+  //       .then((querySnapShot) => {
+  //         querySnapShot.forEach((doc) => {
+  //           const dataVehiculos = doc.data();
+  //           dataVehiculos.id = doc.id;
+  //           vehiculosTemp.push(dataVehiculos);
+  //         });
+  //         setHabilitarVehiculos([...vehiculosTemp]);
+  //       });
+  //   } else {
+  //     db.collection('vehiculos')
+  //       .where('tipo', '==', e.target.value)
+  //       .get()
+  //       .then((querySnapShot) => {
+  //         querySnapShot.forEach((doc) => {
+  //           const dataVehiculos = doc.data();
+  //           dataVehiculos.id = doc.id;
+  //           vehiculosTemp.push(dataVehiculos);
+  //         });
+  //         setHabilitarVehiculos([...vehiculosTemp]);
+  //       });
+  //   }
+  // };
+
+  const handleChange = (e) => {
+    db.collection('vehiculos')
+      .doc(e.target.dataset.id)
+      .update({
+        disponible: e.target.value,
+      })
+      .then(() => {
+        db.collection('vehiculos')
+          .get()
+          .then((querySnapShot) => {
+            const dispTemp = [];
+            querySnapShot.forEach((doc) => {
+              const dataVehiculos = doc.data();
+              dataVehiculos.id = doc.id;
+              dispTemp.push(dataVehiculos);
+            });
+            setHabilitarVehiculos([...dispTemp]);
+            console.log(dispTemp);
+          });
+      });
+  };
 
   return (
     <>
@@ -44,23 +109,43 @@ const MainRequest = () => {
           <div className="first-colum">
             <div className="flex">
               <label htmlFor="name">N° Orden de Servicio</label>
-              <input type="text" readOnly="readonly" value={detailSolicitud.ordenServicio} />
+              <input
+                type="text"
+                readOnly="readonly"
+                value={detailSolicitud.ordenServicio}
+              />
             </div>
             <div className="flex">
               <label htmlFor="name">Cliente</label>
-              <input type="text" readOnly="readonly" value={detailSolicitud.cliente} />
+              <input
+                type="text"
+                readOnly="readonly"
+                value={detailSolicitud.cliente}
+              />
             </div>
             <div className="flex">
               <label htmlFor="name">Solicitante</label>
-              <input type="text" readOnly="readonly" value={detailSolicitud.solicitante} />
+              <input
+                type="text"
+                readOnly="readonly"
+                value={detailSolicitud.solicitante}
+              />
             </div>
             <div className="flex">
               <label htmlFor="name">Tipo de unidad</label>
-              <input type="text" readOnly="readonly" value={detailSolicitud.tipoDeUnidad} />
+              <input
+                type="text"
+                readOnly="readonly"
+                value={detailSolicitud.tipoDeUnidad}
+              />
             </div>
             <div className="flex">
               <label htmlFor="name">Tipo de mercaderia</label>
-              <input type="text" readOnly="readonly" value={detailSolicitud.tipoDeMercaderia} />
+              <input
+                type="text"
+                readOnly="readonly"
+                value={detailSolicitud.tipoDeMercaderia}
+              />
             </div>
             <div className="flex">
               <label htmlFor="name">Detalle mercaderia</label>
@@ -125,7 +210,9 @@ const MainRequest = () => {
         </div>
         <hr />
         <div>
-          <p className="form-manual">Selecciona una opcion para poder asignar el pedido</p>
+          <p className="form-manual">
+            Selecciona una opcion para poder asignar el pedido
+          </p>
           <form>
             <div className="container-select">
               <select name="cliente">
@@ -134,15 +221,18 @@ const MainRequest = () => {
               <select name="cliente">
                 <option>Tracto</option>
               </select>
-              <select name="cliente">
-                <option>Acoplado</option>
+              <select onChange={handleChange} name="tipo">
+                <option selected disabled>
+                  Acoplado
+                </option>
+                <option value="TRACTO">Tracto</option>
+                <option value="PLATAFORMA">Plataforma</option>
+                <option value="CAMA BAJA">Cama baja</option>
               </select>
             </div>
             <BtnPrimary texto="Asignar" />
           </form>
-
         </div>
-
       </section>
     </>
   );

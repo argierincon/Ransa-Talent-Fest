@@ -155,34 +155,46 @@ const RequestDetail = () => {
             <p>Lugar descarga</p>
             <p> </p>
           </div>
-          {solicitudes.map((solicitud) => (
-            <div
-              key={solicitud.id}
-              className="fila grid-tabla-solicitud-detail item-solic-detalle "
-            >
-              <p>{solicitud.date}</p>
-              <p>{solicitud.fechaCarga}</p>
-              <p>{solicitud.horaCarga}</p>
-              <p>{solicitud.cliente}</p>
-              <p>{solicitud.ordenServicio}</p>
-              <p>{solicitud.tipoDeUnidad}</p>
-              <p>{solicitud.tipoDeMercaderia}</p>
-              <p>{solicitud.fechaCarga}</p>
-              <p>{solicitud.lugarDescarga}</p>
-              <div className="status-ver-mas">
-                <TrafficLightRequest
-                  clase="solicitud-asignada width-5rem"
-                  estado="Asignado"
-                />
-                <Link
-                  className="linkToDetail"
-                  to={`/detalle-solicitudes/${solicitud.id}`}
-                >
-                  <i className="more-detail fas fa-plus-circle" />
-                </Link>
+          {solicitudes.length > 0 ? (
+            solicitudes.map((solicitud) => (
+              <div
+                key={solicitud.id}
+                className="fila grid-tabla-solicitud-detail item-solic-detalle "
+              >
+                <p>{solicitud.date}</p>
+                <p>{solicitud.fechaCarga}</p>
+                <p>{solicitud.horaCarga}</p>
+                <p>{solicitud.cliente}</p>
+                <p>{solicitud.ordenServicio}</p>
+                <p>{solicitud.tipoDeUnidad}</p>
+                <p>{solicitud.tipoDeMercaderia}</p>
+                <p>{solicitud.fechaCarga}</p>
+                <p>{solicitud.lugarDescarga}</p>
+                <div className="status-ver-mas">
+                  <TrafficLightRequest
+                    clase={`width-5rem ${
+                      solicitud.status === 'true'
+                        ? 'solicitud-asignada'
+                        : 'solicitud-pendiente'
+                    }`}
+                    estado={
+                      solicitud.status === 'true' ? 'ASIGNADO' : 'PENDIENTE'
+                    }
+                  />
+                  <Link
+                    className="linkToDetail"
+                    to={`/detalle-solicitudes/${solicitud.id}`}
+                  >
+                    <i className="more-detail fas fa-plus-circle" />
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <h4 className="fila item-solic-detalle failed-load-data">
+              No se encontraron registros
+            </h4>
+          )}
         </div>
       </div>
     </div>
