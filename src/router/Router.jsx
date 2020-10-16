@@ -13,8 +13,12 @@ import DriversEnablement from '../Views/driversEnablement/DriversEnablement';
 import AddDrivers from '../components/formPrueba/AddDrivers';
 import DriversAvailability from '../Views/driversAvailability/DriversAvailability';
 import ModalVehicleInformation from '../components/modalVehicleInformation/ModalVehicleInformation';
+// ! Unidades
 import AvailableDrive from '../Views/availableDrive/AvailableDrive';
 import EnableDrive from '../Views/enableDrive/EnableDrive';
+// ! Conductor
+import AvailableDriver from '../Views/availableDriver/AvailableDriver';
+import EnableDriver from '../Views/enableDriver/EnableDriver';
 
 const Router = () => (
   <BrowserRouter>
@@ -71,6 +75,16 @@ const Router = () => (
         exact
         path="/verificar-habilitacion-unidades"
         component={EnableDrive}
+      />
+      <Route
+        exact
+        path="/verificar-disponibilidad-conductores"
+        component={AvailableDriver}
+      />
+      <Route
+        exact
+        path="/verificar-habilitacion-conductores"
+        component={EnableDriver}
       />
       <Route exact path="/modal" component={ModalVehicleInformation} />
     </Switch>
