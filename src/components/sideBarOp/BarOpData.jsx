@@ -1,7 +1,5 @@
 import React from 'react';
 import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
 import file from '../../assets/img/files.png';
 import truck1 from '../../assets/img/truck1.png';
 import truck2 from '../../assets/img/truck2.png';
@@ -11,7 +9,7 @@ import dc from '../../assets/img/dc.png';
 export default [
   {
     titulo: 'Solicitudes',
-    ruta: '/orden-servicio',
+    ruta: '/detalle-solicitudes',
     icono: <img src={file} alt="file" />,
     clase: 'nav-text',
   },

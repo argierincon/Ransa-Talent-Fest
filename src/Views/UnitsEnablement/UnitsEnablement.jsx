@@ -84,85 +84,96 @@ const UnitsEnablement = () => {
   };
 
   return (
-    <>
-      <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
-      <BarOp/>
-      <div className="seccion-estados-solicitud">
-        <h3>Lista de Vehículos para verificar habilitación</h3>
-        <div className="filtros-hab-unidades">
-          <div>
-            <select
-              className="width-height"
-              name="tipo"
-              id="tipo"
-              onChange={handleChangeTipo}
-            >
-              <option value="tipo" selected>
-                Tipo
-              </option>
-              <option value="TRACTO">Tracto</option>
-              <option value="PLATAFORMA">Plataforma</option>
-              <option value="CAMA BAJA">Cama baja</option>
-            </select>
-            <select
-              onChange={handleChange}
-              className="width-height"
-              name="habilitacion"
-              id="habilitacion"
-            >
-              <option value="estado" selected>
-                Estado
-              </option>
-              <option value="HABILITADO">Habilitado</option>
-              <option value="NO HABILITADO">No habilitado</option>
-            </select>
-          </div>
-        </div>
-        <div className="tabla-estatus-solicitud-detail">
-          <div className="titulos-tabla grid-tabla-hab-unidades">
-            <p>Placa</p>
-            <p>Tipo</p>
-            <p>Razón social</p>
-            <p>Revisión Técnica</p>
-            <p>SOAT</p>
-            <p>Habilitación</p>
-            <p> </p>
-          </div>
-          {habilitarVehiculos.length > 0 ? (
-            habilitarVehiculos.map((vehiculo) => (
-              <div
-                key={vehiculo.id}
-                className="fila grid-tabla-hab-unidades item-solic-detalle "
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '330px auto',
+      }}
+    >
+      <BarOp />
+      <div>
+        <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
+        <div className="seccion-estados-solicitud">
+          <h3>Lista de Vehículos para verificar habilitación</h3>
+          <div className="filtros-hab-unidades">
+            <div>
+              <select
+                className="width-height"
+                name="tipo"
+                id="tipo"
+                onChange={handleChangeTipo}
               >
-                <p>{vehiculo.placa}</p>
-                <p>{vehiculo.tipo}</p>
-                <p>{vehiculo.razonSocial}</p>
-                <p>{vehiculo.revisionTecnica}</p>
-                <p>{vehiculo.soat}</p>
-                <TrafficLightRequest
-                  clase={`solicitud-asignada margin-left-2rem width7rem ${
-                    vehiculo.estatus === 'HABILITADO'
-                      ? 'solicitud-asignada'
-                      : 'solicitud-fallida'
-                  }`}
-                  estado={vehiculo.estatus}
-                />
-                <div className="status-ver-mas margin-left-2rem">
-                  <img className="descargar" src={descargar} alt="Descargar" />
-                  <div className="ver-mas">
-                    <p>+</p>
+                <option value="tipo" selected>
+                  Tipo
+                </option>
+                <option value="TRACTO">Tracto</option>
+                <option value="PLATAFORMA">Plataforma</option>
+                <option value="CAMA BAJA">Cama baja</option>
+              </select>
+              <select
+                onChange={handleChange}
+                className="width-height"
+                name="habilitacion"
+                id="habilitacion"
+              >
+                <option value="estado" selected>
+                  Estado
+                </option>
+                <option value="HABILITADO">Habilitado</option>
+                <option value="NO HABILITADO">No habilitado</option>
+              </select>
+            </div>
+          </div>
+          <div className="tabla-estatus-solicitud-detail">
+            <div className="titulos-tabla grid-tabla-hab-unidades">
+              <p>Placa</p>
+              <p>Tipo</p>
+              <p>Razón social</p>
+              <p>Revisión Técnica</p>
+              <p>SOAT</p>
+              <p>Habilitación</p>
+              <p> </p>
+            </div>
+            {habilitarVehiculos.length > 0 ? (
+              habilitarVehiculos.map((vehiculo) => (
+                <div
+                  key={vehiculo.id}
+                  className="fila grid-tabla-hab-unidades item-solic-detalle "
+                >
+                  <p>{vehiculo.placa}</p>
+                  <p>{vehiculo.tipo}</p>
+                  <p>{vehiculo.razonSocial}</p>
+                  <p>{vehiculo.revisionTecnica}</p>
+                  <p>{vehiculo.soat}</p>
+                  <TrafficLightRequest
+                    clase={`solicitud-asignada margin-left-2rem width7rem ${
+                      vehiculo.estatus === 'HABILITADO'
+                        ? 'solicitud-asignada'
+                        : 'solicitud-fallida'
+                    }`}
+                    estado={vehiculo.estatus}
+                  />
+                  <div className="status-ver-mas margin-left-2rem">
+                    <img
+                      className="descargar"
+                      src={descargar}
+                      alt="Descargar"
+                    />
+                    <div className="ver-mas">
+                      <p>+</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
-          ) : (
-            <h4 className="fila item-solic-detalle failed-load-data">
-              No se encontraron registros
-            </h4>
-          )}
+              ))
+            ) : (
+              <h4 className="fila item-solic-detalle failed-load-data">
+                No se encontraron registros
+              </h4>
+            )}
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default UnitsEnablement;

@@ -28,7 +28,7 @@ const Router = () => (
       <Route exact path="/" component={Login} />
       {' '}
       {/** **Rutas de BarOpData, Cristian**** */}
-      <Route exact path="/orden-servicio" component={RequestDetail} />
+      <Route exact path="/detalle-solicitudes" component={RequestDetail} />
       {' '}
       <Route exact path="/solicitud-requerimiento" component={Solicitud} />
       {' '}
