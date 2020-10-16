@@ -27,7 +27,7 @@ const DriversAvailability = () => {
 
   const handleChange = (e) => {
     const conductoresTemp = [];
-    if (e.target.value === 'estatus') {
+    if (e.target.value === 'todos') {
       db.collection('conductores')
         .get()
         .then((querySnapShot) => {
@@ -40,7 +40,7 @@ const DriversAvailability = () => {
         });
     } else {
       db.collection('conductores')
-        .where('habilitado', '==', e.target.value)
+        .where('disponible', '==', e.target.value)
         .get()
         .then((querySnapShot) => {
           querySnapShot.forEach((doc) => {
@@ -52,7 +52,6 @@ const DriversAvailability = () => {
         });
     }
   };
-
   return (
     <div
       style={{
@@ -64,7 +63,7 @@ const DriversAvailability = () => {
       <div>
         <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
         <div className="seccion-estados-solicitud">
-          <h3>Lista de Vehículos para verificar habilitación</h3>
+          <h3>Lista de Vehículos para verificar disponibilidad</h3>
           <div className="filtros-hab-unidades">
             <div>
               <select
@@ -73,9 +72,10 @@ const DriversAvailability = () => {
                 name="habilitacion"
                 id="habilitacion"
               >
-                <option value="estatus" selected>
+                <option disabled selected>
                   Estatus
                 </option>
+                <option value="todos">Todos</option>
                 <option value="true">Disponible</option>
                 <option value="false">No disponible</option>
               </select>
@@ -87,27 +87,33 @@ const DriversAvailability = () => {
               <p>Conductores</p>
               <p>Estatus</p>
             </div>
-            {conductores.map((conductor) => (
-              <div
-                key={conductor.id}
-                className="fila grid-tabla-disp-conductores item-solic-detalle"
-              >
-                <p>{conductor.dni}</p>
-                <p>{conductor.nombre}</p>
-                <TrafficLightRequest
-                  clase={`solicitud-asignada margin-auto width7rem ${
-                    conductor.habilitado === 'true'
-                      ? 'solicitud-asignada'
-                      : 'solicitud-fallida'
-                  }`}
-                  estado={
-                    conductor.habilitado === 'true'
-                      ? 'DISPONIBLE'
-                      : 'NO DISPONIBLE'
-                  }
-                />
-              </div>
-            ))}
+            {conductores.length > 0 ? (
+              conductores.map((conductor) => (
+                <div
+                  key={conductor.id}
+                  className="fila grid-tabla-disp-conductores item-solic-detalle"
+                >
+                  <p>{conductor.dni}</p>
+                  <p>{conductor.nombre}</p>
+                  <TrafficLightRequest
+                    clase={`solicitud-asignada margin-auto width7rem ${
+                      conductor.disponible === 'true'
+                        ? 'solicitud-asignada'
+                        : 'solicitud-fallida'
+                    }`}
+                    estado={
+                      conductor.disponible === 'true'
+                        ? 'DISPONIBLE'
+                        : 'NO DISPONIBLE'
+                    }
+                  />
+                </div>
+              ))
+            ) : (
+              <h4 className="fila item-solic-detalle failed-load-data">
+                No se encontraron registros
+              </h4>
+            )}
           </div>
         </div>
       </div>

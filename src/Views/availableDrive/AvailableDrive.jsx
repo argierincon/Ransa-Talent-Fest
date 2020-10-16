@@ -25,7 +25,7 @@ const AvailableDrive = () => {
 
   const handleType = (e) => {
     const vehiculosTemp = [];
-    if (e.target.value === 'tipo') {
+    if (e.target.value === 'todos') {
       db.collection('vehiculos')
         .get()
         .then((querySnapShot) => {
@@ -53,7 +53,7 @@ const AvailableDrive = () => {
 
   const handleDisponiblity = (e) => {
     const vehiculosTemp = [];
-    if (e.target.value === 'status') {
+    if (e.target.value === 'todos') {
       db.collection('vehiculos')
         .get()
         .then((querySnapShot) => {
@@ -120,9 +120,10 @@ const AvailableDrive = () => {
                 name="tipo"
                 id="tipo"
               >
-                <option value="tipo" selected>
+                <option disabled selected>
                   Tipo
                 </option>
+                <option value="todos">Todos</option>
                 <option value="TRACTO">Tracto</option>
                 <option value="PLATAFORMA">Plataforma</option>
                 <option value="CAMA BAJA">Cama baja</option>
@@ -133,9 +134,10 @@ const AvailableDrive = () => {
                 name="habilitacion"
                 id="habilitacion"
               >
-                <option value="status" selected>
+                <option disabled selected>
                   Disponibilidad
                 </option>
+                <option value="todos">Todos</option>
                 <option value="true">Disponible</option>
                 <option value="false">No disponible</option>
               </select>
@@ -149,27 +151,33 @@ const AvailableDrive = () => {
               <p>Disponibilidad</p>
               <p> </p>
             </div>
-            {disponibilidadVehiculos.map((vehiculo) => (
-              <div
-                key={vehiculo.id}
-                className="fila grid-tabla-disp-unidades item-solic-detalle "
-              >
-                <p>{vehiculo.placa}</p>
-                <p>{vehiculo.tipo}</p>
-                <p>{vehiculo.marca}</p>
-                <select
-                  value={vehiculo.disponible}
-                  onChange={handleChange}
-                  data-id={vehiculo.id}
-                  className="select-disp-unidades width-height"
-                  name="disponibilidad"
-                  id="disponibilidad"
+            {disponibilidadVehiculos.length > 0 ? (
+              disponibilidadVehiculos.map((vehiculo) => (
+                <div
+                  key={vehiculo.id}
+                  className="fila grid-tabla-disp-unidades item-solic-detalle "
                 >
-                  <option value="true">Disponible</option>
-                  <option value="false">No disponible</option>
-                </select>
-              </div>
-            ))}
+                  <p>{vehiculo.placa}</p>
+                  <p>{vehiculo.tipo}</p>
+                  <p>{vehiculo.marca}</p>
+                  <select
+                    value={vehiculo.disponible}
+                    onChange={handleChange}
+                    data-id={vehiculo.id}
+                    className="select-disp-unidades width-height"
+                    name="disponibilidad"
+                    id="disponibilidad"
+                  >
+                    <option value="true">Disponible</option>
+                    <option value="false">No disponible</option>
+                  </select>
+                </div>
+              ))
+            ) : (
+              <h4 className="fila item-solic-detalle failed-load-data">
+                No se encontraron registros
+              </h4>
+            )}
           </div>
         </div>
       </div>

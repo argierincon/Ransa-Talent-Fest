@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import 'firebase/firestore';
 import Header from '../../components/header/Header';
@@ -28,7 +28,7 @@ const DriversEnablement = () => {
 
   const handleChange = (e) => {
     const conductoresTemp = [];
-    if (e.target.value === 'estatus') {
+    if (e.target.value === 'todos') {
       db.collection('conductores')
         .get()
         .then((querySnapShot) => {
@@ -74,11 +74,12 @@ const DriversEnablement = () => {
                 name="habilitacion"
                 id="habilitacion"
               >
-                <option value="estatus" selected>
+                <option disabled selected>
                   Estatus
                 </option>
-                <option value="true">Habilitado</option>
-                <option value="false">No habilitado</option>
+                <option value="todos">Todos</option>
+                <option value="HABILITADO">Habilitado</option>
+                <option value="NO HABILITADO">No habilitado</option>
               </select>
             </div>
           </div>
@@ -92,36 +93,49 @@ const DriversEnablement = () => {
               <p>Estatus</p>
               <p> </p>
             </div>
-            {conductores.map((conductor) => (
-              <div
-                key={conductor.id}
-                className="fila grid-tabla-hab-unidades item-solic-detalle"
-              >
-                <p>{conductor.nombre}</p>
-                <p>{conductor.req1}</p>
-                <p>{conductor.req1FechaCaducidad}</p>
-                <p>{conductor.req2}</p>
-                <p>{conductor.req2FechaCaducidad}</p>
-                <TrafficLightRequest
-                  clase={`solicitud-asignada margin-left-2rem width7rem ${
-                    conductor.habilitado === 'true'
-                      ? 'solicitud-asignada'
-                      : 'solicitud-fallida'
-                  }`}
-                  estado={
-                    conductor.habilitado === 'true'
-                      ? 'HABILITADO'
-                      : 'NO HABILITADO'
-                  }
-                />
-                <div className="status-ver-mas margin-left-2rem">
-                <a target="_blank" href="https://drive.google.com/drive/folders/1VvSxkYnPWZyZEkaeRwTd-djCCh9GB3_R?usp=sharing"><img className="descargar" src={descargar} alt="Descargar" /></a>
-                  <Link className="linkToDetail" to={`/verificar-habilitacion-conductores/${conductor.id}`}>
-                    <i className="more-detail fas fa-plus-circle" />
-                  </Link>
+            {conductores.length > 0 ? (
+              conductores.map((conductor) => (
+                <div
+                  key={conductor.id}
+                  className="fila grid-tabla-hab-unidades item-solic-detalle"
+                >
+                  <p>{conductor.nombre}</p>
+                  <p>{conductor.req1}</p>
+                  <p>{conductor.req1FechaCaducidad}</p>
+                  <p>{conductor.req2}</p>
+                  <p>{conductor.req2FechaCaducidad}</p>
+                  <TrafficLightRequest
+                    clase={`solicitud-asignada margin-left-2rem width7rem ${
+                      conductor.habilitado === 'HABILITADO'
+                        ? 'solicitud-asignada'
+                        : 'solicitud-fallida'
+                    }`}
+                    estado={
+                      conductor.habilitado === 'HABILITADO'
+                        ? 'HABILITADO'
+                        : 'NO HABILITADO'
+                    }
+                  />
+                  <div className="status-ver-mas margin-left-2rem">
+                    <img
+                      className="descargar"
+                      src={descargar}
+                      alt="Descargar"
+                    />
+                    <div className="status-ver-mas margin-left-2rem">
+                      <a target="_blank" href="https://drive.google.com/drive/folders/1VvSxkYnPWZyZEkaeRwTd-djCCh9GB3_R?usp=sharing"><img className="descargar" src={descargar} alt="Descargar" /></a>
+                      <Link className="linkToDetail" to={`/verificar-habilitacion-conductores/${conductor.id}`}>
+                        <i className="more-detail fas fa-plus-circle" />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <h4 className="fila item-solic-detalle failed-load-data">
+                No se encontraron registros
+              </h4>
+            )}
           </div>
         </div>
       </div>

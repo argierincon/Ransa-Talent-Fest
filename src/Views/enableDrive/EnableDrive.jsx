@@ -47,7 +47,7 @@ const EnableDrive = () => {
 
   const handleType = (e) => {
     const vehiculosTemp = [];
-    if (e.target.value === 'tipo') {
+    if (e.target.value === 'todos') {
       db.collection('vehiculos')
         .get()
         .then((querySnapShot) => {
@@ -75,7 +75,7 @@ const EnableDrive = () => {
 
   const handleDisponiblity = (e) => {
     const vehiculosTemp = [];
-    if (e.target.value === 'status') {
+    if (e.target.value === 'todos') {
       db.collection('vehiculos')
         .get()
         .then((querySnapShot) => {
@@ -121,9 +121,10 @@ const EnableDrive = () => {
                 name="tipo"
                 id="tipo"
               >
-                <option value="tipo" selected>
+                <option disabled selected>
                   Tipo
                 </option>
+                <option value="todos">Todos</option>
                 <option value="TRACTO">Tracto</option>
                 <option value="PLATAFORMA">Plataforma</option>
                 <option value="CAMA BAJA">Cama baja</option>
@@ -134,9 +135,10 @@ const EnableDrive = () => {
                 name="habilitacion"
                 id="habilitacion"
               >
-                <option value="status" selected>
+                <option disabled selected>
                   Habilitacion
                 </option>
+                <option value="todos">Todos</option>
                 <option value="HABILITADO">Habilitado</option>
                 <option value="NO HABILITADO">No habilitado</option>
               </select>
@@ -152,35 +154,41 @@ const EnableDrive = () => {
               <p>Habilitación</p>
               <p> </p>
             </div>
-            {disponibilidadVehiculos.map((vehiculo) => (
-              <div
-                key={vehiculo.id}
-                className="fila grid-tabla-verif-disp-unidades item-solic-detalle "
-              >
-                <p>{vehiculo.placa}</p>
-                <p>{vehiculo.tipo}</p>
-                <p>{vehiculo.razonSocial}</p>
-                <p>{vehiculo.revisionTecnica}</p>
-                <p>{vehiculo.soat}</p>
-                <select
-                  value={vehiculo.estatus}
-                  onChange={handleChange}
-                  data-id={vehiculo.id}
-                  className="select-hab-unidades width-height"
-                  name="disponibilidad"
-                  id="disponibilidad"
+            {disponibilidadVehiculos.length > 0 ? (
+              disponibilidadVehiculos.map((vehiculo) => (
+                <div
+                  key={vehiculo.id}
+                  className="fila grid-tabla-verif-disp-unidades item-solic-detalle "
                 >
-                  <option value="HABILITADO">Habilitado</option>
-                  <option value="NO HABILITADO">No Habilitado</option>
-                </select>
-                <div className="status-ver-mas margin-left-2rem">
-                <a target="_blank" href="https://drive.google.com/drive/folders/1VvSxkYnPWZyZEkaeRwTd-djCCh9GB3_R?usp=sharing"><img className="descargar" src={descargar} alt="Descargar" /></a>
-                  <Link className="linkToDetail" to={`/verificar-habilitacion-unidades/${vehiculo.id}`}>
-                    <i className="more-detail fas fa-plus-circle" />
-                  </Link>
+                  <p>{vehiculo.placa}</p>
+                  <p>{vehiculo.tipo}</p>
+                  <p>{vehiculo.razonSocial}</p>
+                  <p>{vehiculo.revisionTecnica}</p>
+                  <p>{vehiculo.soat}</p>
+                  <select
+                    value={vehiculo.estatus}
+                    onChange={handleChange}
+                    data-id={vehiculo.id}
+                    className="select-hab-unidades width-height"
+                    name="disponibilidad"
+                    id="disponibilidad"
+                  >
+                    <option value="HABILITADO">Habilitado</option>
+                    <option value="NO HABILITADO">No Habilitado</option>
+                  </select>
+                  <div className="status-ver-mas margin-left-2rem">
+                    <a target="_blank" href="https://drive.google.com/drive/folders/1VvSxkYnPWZyZEkaeRwTd-djCCh9GB3_R?usp=sharing"><img className="descargar" src={descargar} alt="Descargar" /></a>
+                    <Link className="linkToDetail" to={`/verificar-habilitacion-unidades/${vehiculo.id}`}>
+                      <i className="more-detail fas fa-plus-circle" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <h4 className="fila item-solic-detalle failed-load-data">
+                No se encontraron registros
+              </h4>
+            )}
           </div>
         </div>
       </div>

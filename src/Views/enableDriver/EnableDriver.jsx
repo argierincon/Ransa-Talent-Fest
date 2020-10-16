@@ -28,7 +28,7 @@ const EnableDrive = () => {
 
   const handleDisponiblity = (e) => {
     const conductoresTemp = [];
-    if (e.target.value === 'status') {
+    if (e.target.value === 'todos') {
       db.collection(dbName)
         .get()
         .then((querySnapShot) => {
@@ -95,9 +95,10 @@ const EnableDrive = () => {
                 name="habilitacion"
                 id="habilitacion"
               >
-                <option value="status" selected>
+                <option disabled selected>
                   Estatus
                 </option>
+                <option value="todos">Todos</option>
                 <option value="HABILITADO">Habilitado</option>
                 <option value="NO HABILITADO">No habilitado</option>
               </select>
@@ -113,35 +114,60 @@ const EnableDrive = () => {
               <p>Estatus</p>
               <p> </p>
             </div>
-            {habilitacionConductores.map((conductor) => (
-              <div
-                key={conductor.id}
-                className="fila grid-tabla-hab-unidades item-solic-detalle"
-              >
-                <p>{conductor.nombre}</p>
-                <p>{conductor.req1}</p>
-                <p>{conductor.req1FechaCaducidad}</p>
-                <p>{conductor.req2}</p>
-                <p>{conductor.req2FechaCaducidad}</p>
-                <select
-                  value={conductor.habilitado}
-                  onChange={handleChange}
-                  data-id={conductor.id}
-                  className="select-hab-unidades width-height"
-                  name="disponibilidad"
-                  id="disponibilidad"
+            {habilitacionConductores.length > 0 ? (
+              habilitacionConductores.map((conductor) => (
+                <div
+                  key={conductor.id}
+                  className="fila grid-tabla-hab-unidades item-solic-detalle"
                 >
-                  <option value="HABILITADO">Habilitado</option>
-                  <option value="NO HABILITADO">No Habilitado</option>
-                </select>
-                <div className="status-ver-mas margin-left-2rem">
-                  <a target="_blank" href="https://drive.google.com/drive/folders/1VvSxkYnPWZyZEkaeRwTd-djCCh9GB3_R?usp=sharing"><img className="descargar" src={descargar} alt="Descargar" /></a>
-                  <Link className="linkToDetail" to={`/verificar-habilitacion-conductores/${conductor.id}`}>
-                    <i className="more-detail fas fa-plus-circle" />
-                  </Link>
+                  <p>{conductor.nombre}</p>
+                  <p>{conductor.req1}</p>
+                  <p>{conductor.req1FechaCaducidad}</p>
+                  <p>{conductor.req2}</p>
+                  <p>{conductor.req2FechaCaducidad}</p>
+                  <select
+                    value={conductor.habilitado}
+                    onChange={handleChange}
+                    data-id={conductor.id}
+                    className="select-hab-unidades width-height"
+                    name="disponibilidad"
+                    id="disponibilidad"
+                  >
+                    <option value="HABILITADO">Habilitado</option>
+                    <option value="NO HABILITADO">No Habilitado</option>
+                  </select>
+                  <div className="status-ver-mas margin-left-2rem">
+                    <img
+                      className="descargar"
+                      src={descargar}
+                      alt="Descargar"
+                    />
+                    <div className="status-ver-mas margin-left-2rem">
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/drive/folders/1VvSxkYnPWZyZEkaeRwTd-djCCh9GB3_R?usp=sharing"
+                      >
+                        <img
+                          className="descargar"
+                          src={descargar}
+                          alt="Descargar"
+                        />
+                      </a>
+                      <Link
+                        className="linkToDetail"
+                        to={`/verificar-habilitacion-conductores/${conductor.id}`}
+                      >
+                        <i className="more-detail fas fa-plus-circle" />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <h4 className="fila item-solic-detalle failed-load-data">
+                No se encontraron registros
+              </h4>
+            )}
           </div>
         </div>
       </div>

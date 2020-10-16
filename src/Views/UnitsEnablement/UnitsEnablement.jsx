@@ -29,7 +29,7 @@ const UnitsEnablement = () => {
 
   const handleChange = (e) => {
     const vehiculosTemp = [];
-    if (e.target.value === 'estado') {
+    if (e.target.value === 'todos') {
       db.collection('vehiculos')
         .get()
         .then((querySnapShot) => {
@@ -57,7 +57,7 @@ const UnitsEnablement = () => {
 
   const handleChangeTipo = (e) => {
     const vehiculosTemp = [];
-    if (e.target.value === 'tipo') {
+    if (e.target.value === 'todos') {
       db.collection('vehiculos')
         .get()
         .then((querySnapShot) => {
@@ -103,9 +103,10 @@ const UnitsEnablement = () => {
                 id="tipo"
                 onChange={handleChangeTipo}
               >
-                <option value="tipo" selected>
+                <option disabled selected>
                   Tipo
                 </option>
+                <option value="todos">Todos</option>
                 <option value="TRACTO">Tracto</option>
                 <option value="PLATAFORMA">Plataforma</option>
                 <option value="CAMA BAJA">Cama baja</option>
@@ -116,9 +117,10 @@ const UnitsEnablement = () => {
                 name="habilitacion"
                 id="habilitacion"
               >
-                <option value="estado" selected>
+                <option disabled selected>
                   Estado
                 </option>
+                <option value="todos">Todos</option>
                 <option value="HABILITADO">Habilitado</option>
                 <option value="NO HABILITADO">No habilitado</option>
               </select>

@@ -26,6 +26,90 @@ const RequestStatus = () => {
       });
   }, []);
 
+  const handleChange = (e) => {
+    const solicitudeTemp = [];
+    if (e.target.value === 'todos') {
+      db.collection('solicitudes')
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
+          });
+          setSolicitudes([...solicitudeTemp]);
+        });
+    } else {
+      db.collection('solicitudes')
+        .where('status', '==', e.target.value)
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
+          });
+          setSolicitudes([...solicitudeTemp]);
+        });
+    }
+  };
+
+  const handleFecha = (e) => {
+    const solicitudeTemp = [];
+    if (e.target.value === 'todas') {
+      db.collection('solicitudes')
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
+          });
+          setSolicitudes([...solicitudeTemp]);
+        });
+    } else {
+      db.collection('solicitudes')
+        .where('date', '==', e.target.value)
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
+          });
+          setSolicitudes([...solicitudeTemp]);
+        });
+    }
+  };
+
+  const handleClient = (e) => {
+    const solicitudeTemp = [];
+    if (e.target.value === 'todos') {
+      db.collection('solicitudes')
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
+          });
+          setSolicitudes([...solicitudeTemp]);
+        });
+    } else {
+      db.collection('solicitudes')
+        .where('cliente', '==', e.target.value)
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
+          });
+          setSolicitudes([...solicitudeTemp]);
+        });
+    }
+  };
+
   return (
     <div
       style={{
@@ -41,24 +125,56 @@ const RequestStatus = () => {
           <div className="filtros-solicitud">
             <div>
               <select
+                onChange={handleFecha}
                 className="width-height"
                 name="fechaSolicitud"
                 id="fechaSolicitud"
               >
-                <option value="fechaSolicitud">Fecha de Solicitud</option>
+                <option disabled selected>
+                  Fecha de Solicitud
+                </option>
+                <option value="todas">Todas</option>
+                {solicitudes.map((soli) => (
+                  <option value={soli.date}>{soli.date}</option>
+                ))}
               </select>
-              <select className="width-height" name="empresa" id="empresa">
-                <option value="pacasmayo">Cementos Pacasmayo S.A.A</option>
-                <option value="marcobre">Marcobre S.A.C</option>
-                <option value="antamina">Compañia Minera Antamina S.A</option>
-                <option value="quenuales">E.M Los Quenuales</option>
-                <option value="ares">Compañia Minera Ares S.A.C</option>
-                <option value="yanacocha">Compañia Minera Ares S.A.C</option>
+              <select
+                onChange={handleClient}
+                className="width-height"
+                name="empresa"
+                id="empresa"
+              >
+                <option disabled selected>
+                  Cliente
+                </option>
+                <option value="todos">Todos</option>
+                <option value="Cementos Pacasmayo S.A.A">
+                  Cementos Pacasmayo S.A.A
+                </option>
+                <option value="Marcobre S.A.C">Marcobre S.A.C</option>
+                <option value="Compañia Minera Antamina S.A">
+                  Compañia Minera Antamina S.A
+                </option>
+                <option value="E.M Los Quenuales">E.M Los Quenuales</option>
+                <option value="Compañia Minera Ares S.A.C">
+                  Compañia Minera Ares S.A.C
+                </option>
+                <option value="Compañia Minera Ares S.A.C">
+                  Compañia Minera Ares S.A.C
+                </option>
               </select>
-              <select className="width-height" name="estado" id="estado">
-                <option value="pendiente">Pendiente</option>
-                <option value="asignado">Asignado</option>
-                <option value="cancelado">Cancelado</option>
+              <select
+                onChange={handleChange}
+                className="width-height"
+                name="estado"
+                id="estado"
+              >
+                <option disabled selected>
+                  Estatus
+                </option>
+                <option value="todos">Todos</option>
+                <option value="false">Pendiente</option>
+                <option value="true">Asignado</option>
               </select>
             </div>
           </div>
@@ -74,31 +190,44 @@ const RequestStatus = () => {
               <p>Lugar de descarga</p>
               <p> </p>
             </div>
-            {solicitudes.map((solicitud) => (
-              <div
-                key={solicitud.id}
-                className="fila grid-tabla-solicitud height-padding"
-              >
-                <p>{solicitud.fechaCarga}</p>
-                <p>{solicitud.horaCarga}</p>
-                <p>CLIENTE</p>
-                <p>NRO ORDEN</p>
-                <p>UNIDAD</p>
-                <p>MERCADERIA</p>
-                <p>FECHA DE ENTREGA</p>
-                <p>{solicitud.lugarDescarga}</p>
-
-                <div className="status-ver-mas">
-                  <TrafficLightRequest
-                    clase="solicitud-asignada margin1rem"
-                    estado="Asignado"
-                  />
-                  <div className="ver-mas margin-06rem">
-                    <p>+</p>
+            {solicitudes.length > 0 ? (
+              solicitudes.map((solicitud) => (
+                <div
+                  key={solicitud.id}
+                  className="fila grid-tabla-solicitud height-padding"
+                >
+                  <p>{solicitud.fechaCarga}</p>
+                  <p>{solicitud.horaCarga}</p>
+                  <p>{solicitud.cliente}</p>
+                  <p>{solicitud.ordenServicio}</p>
+                  <p>{solicitud.tipoDeUnidad}</p>
+                  <p>{solicitud.tipoDeMercaderia}</p>
+                  <p>FECHA DE ENTREGA REVISAR</p>
+                  <p>{solicitud.lugarDescarga}</p>
+                  <div className="status-ver-mas">
+                    <TrafficLightRequest
+                      clase={`width-5rem ${
+                        solicitud.status === 'true'
+                          ? 'solicitud-asignada'
+                          : 'solicitud-pendiente'
+                      }`}
+                      estado={
+                        solicitud.status === 'true' ? 'ASIGNADO' : 'PENDIENTE'
+                      }
+                    />
+                    {solicitud.status === 'true' && (
+                      <div className="ver-mas margin-06rem">
+                        <p>+</p>
+                      </div>
+                    )}
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <h4 className="fila item-solic-detalle failed-load-data">
+                No se encontraron registros
+              </h4>
+            )}
           </div>
         </div>
       </div>
