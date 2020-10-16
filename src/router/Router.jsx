@@ -15,8 +15,13 @@ import MainRequest from '../Views/mainRequest/MainRequest';
 import AddDrivers from '../components/formPrueba/AddDrivers';
 import DriversAvailability from '../Views/driversAvailability/DriversAvailability';
 import ModalVehicleInformation from '../components/modalVehicleInformation/ModalVehicleInformation';
+// ! Unidades
 import AvailableDrive from '../Views/availableDrive/AvailableDrive';
 import EnableDrive from '../Views/enableDrive/EnableDrive';
+// ! Conductor
+import AvailableDriver from '../Views/availableDriver/AvailableDriver';
+import EnableDriver from '../Views/enableDriver/EnableDriver';
+import ModalVehicle from '../Views/ModalVehicleHabilitacion/ModalVehicle';
 
 const Router = () => (
   <BrowserRouter>
@@ -86,6 +91,42 @@ const Router = () => (
       <Route exact path="/detalle-requerimiento" component={SolicitudOrdenServicio}/>
       <Route exact path="/detalle-solicitudes/:id" component={SolicitudOrdenServicio} />
       <Route exact path="/agregar-conductores" component={AddDrivers} />
+      <Route exact path="/modal-vehicle" component={ModalVehicle} />
+      <Route
+        exact
+        path="/disponibilidad-unidades"
+        component={UnitsAvailability}
+      />
+      <Route
+        exact
+        path="/habilitacion-conductores"
+        component={DriversEnablement}
+      />
+      <Route
+        exact
+        path="/disponibilidad-conductores"
+        component={DriversAvailability}
+      />
+      <Route
+        exact
+        path="/verificar-disponibilidad-unidades"
+        component={AvailableDrive}
+      />
+      <Route
+        exact
+        path="/verificar-habilitacion-unidades"
+        component={EnableDrive}
+      />
+      <Route
+        exact
+        path="/verificar-disponibilidad-conductores"
+        component={AvailableDriver}
+      />
+      <Route
+        exact
+        path="/verificar-habilitacion-conductores"
+        component={EnableDriver}
+      />
       <Route exact path="/modal" component={ModalVehicleInformation} />
     </Switch>
   </BrowserRouter>

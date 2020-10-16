@@ -22,37 +22,62 @@ const RequestDetail = () => {
           dataSolicitudes.id = doc.id;
           solicitudes.push(dataSolicitudes);
         });
-        console.log(solicitudes);
         setSolicitudes([...solicitudes]);
       });
   }, []);
 
   const handleChange = (e) => {
-    const conductoresTemp = [];
-    if (e.target.value === 'todos') {
-      db.collection('conductores')
+    const solicitudeTemp = [];
+    if (e.target.value === 'status') {
+      db.collection('solicitudes')
         .get()
         .then((querySnapShot) => {
           querySnapShot.forEach((doc) => {
-            const dataConductores = doc.data();
-            dataConductores.id = doc.id;
-            conductoresTemp.push(dataConductores);
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
           });
-          setConductores([...conductoresTemp]);
-          console.log('probando');
+          setSolicitudes([...solicitudeTemp]);
         });
     } else {
-      db.collection('conductores')
-        .where('habilitado', '==', e.target.value)
+      db.collection('solicitudes')
+        .where('status', '==', e.target.value)
         .get()
         .then((querySnapShot) => {
           querySnapShot.forEach((doc) => {
-            const dataConductores = doc.data();
-            dataConductores.id = doc.id;
-            conductoresTemp.push(dataConductores);
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
           });
-          setConductores([...conductoresTemp]);
-          console.log('probando');
+          setSolicitudes([...solicitudeTemp]);
+        });
+    }
+  };
+
+  const handleClient = (e) => {
+    const solicitudeTemp = [];
+    if (e.target.value === 'cliente') {
+      db.collection('solicitudes')
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
+          });
+          setSolicitudes([...solicitudeTemp]);
+        });
+    } else {
+      db.collection('solicitudes')
+        .where('cliente', '==', e.target.value)
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataSolicitudes = doc.data();
+            dataSolicitudes.id = doc.id;
+            solicitudeTemp.push(dataSolicitudes);
+          });
+          setSolicitudes([...solicitudeTemp]);
         });
     }
   };
@@ -75,21 +100,25 @@ const RequestDetail = () => {
             >
               <option value="fechaSolicitud">Fecha de Solicitud</option>
             </select>
-            <select className="width-height" name="empresa" id="empresa">
-              <option value="pacasmayo">Cementos Pacasmayo S.A.A</option>
-              <option value="marcobre">Marcobre S.A.C</option>
-              <option value="antamina">Compañia Minera Antamina S.A</option>
-              <option value="quenuales">E.M Los Quenuales</option>
-              <option value="ares">Compañia Minera Ares S.A.C</option>
-              <option value="yanacocha">Compañia Minera Ares S.A.C</option>
+            <select onChange={handleClient} className="width-height" name="empresa" id="empresa">
+              <option value="cliente" selected>Cliente</option>
+              <option value="Cementos Pacasmayo S.A.A">Cementos Pacasmayo S.A.A</option>
+              <option value="Marcobre S.A.C">Marcobre S.A.C</option>
+              <option value="Compañia Minera Antamina S.A">Compañia Minera Antamina S.A</option>
+              <option value="E.M Los Quenuales">E.M Los Quenuales</option>
+              <option value="Compañia Minera Ares S.A.C">Compañia Minera Ares S.A.C</option>
+              <option value="Compañia Minera Ares S.A.C">Compañia Minera Ares S.A.C</option>
             </select>
-            <select className="width-height" name="estado" id="estado">
-              <option disabled>Estatus</option>
-              <option value="todos" selected>
-                Todos
+            <select
+              onChange={handleChange}
+              className="width-height"
+              name="estado"
+              id="estado"
+            >
+              <option value="status" selected>
+                Estatus
               </option>
-              <option value="true">ASIGBNADO</option>
-              <option value="false">NO ASIGNADO</option>
+              <option value="true">ASIGNADO</option>
               <option value="false">NO ASIGNADO</option>
             </select>
           </div>
@@ -126,9 +155,9 @@ const RequestDetail = () => {
                   clase="solicitud-asignada width-5rem"
                   estado="Asignado"
                 />
-                <Link to={`/detalle-solicitudes/${solicitud.id}`}>
+                <Link class="linkToDetail" to={`/detalle-solicitudes/${solicitud.id}`}>
                   <div className="ver-mas margin-06rem">
-                    <p>+</p>
+                    <span className="buttonMore">+</span>
                   </div>
                 </Link>
               </div>

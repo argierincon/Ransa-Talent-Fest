@@ -22,9 +22,63 @@ const AvailableDrive = () => {
       });
   }, []);
 
+  const handleType = (e) => {
+    const vehiculosTemp = [];
+    if (e.target.value === 'tipo') {
+      db.collection('vehiculos')
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    } else {
+      db.collection('vehiculos')
+        .where('tipo', '==', e.target.value)
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    }
+  };
+
+  const handleDisponiblity = (e) => {
+    const vehiculosTemp = [];
+    if (e.target.value === 'status') {
+      db.collection('vehiculos')
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    } else {
+      db.collection('vehiculos')
+        .where('disponible', '==', e.target.value)
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            const dataVehiculos = doc.data();
+            dataVehiculos.id = doc.id;
+            vehiculosTemp.push(dataVehiculos);
+          });
+          setHabilitarVehiculos([...vehiculosTemp]);
+        });
+    }
+  };
+
   const handleChange = (e) => {
-    console.log(e.target.dataset.id);
-    console.log(e.target.value);
     db.collection('vehiculos')
       .doc(e.target.dataset.id)
       .update({
@@ -53,20 +107,30 @@ const AvailableDrive = () => {
         <h3>Lista de Vehículos para verificar disponibilidad</h3>
         <div className="filtros-hab-unidades">
           <div>
-            <select className="width-height" name="tipo" id="tipo">
-              <option value="tipo">Tipo</option>
-              <option value="tracto">Tracto</option>
-              <option value="plataforma">Plataforma</option>
-              <option value="camaBaja">Cama baja</option>
+            <select
+              onChange={handleType}
+              className="width-height"
+              name="tipo"
+              id="tipo"
+            >
+              <option value="tipo" selected>
+                Tipo
+              </option>
+              <option value="TRACTO">Tracto</option>
+              <option value="PLATAFORMA">Plataforma</option>
+              <option value="CAMA BAJA">Cama baja</option>
             </select>
             <select
+              onChange={handleDisponiblity}
               className="width-height"
               name="habilitacion"
               id="habilitacion"
             >
-              <option value="disponibilidad">Disponibilidad</option>
-              <option value="habilitado">Habilitado</option>
-              <option value="noHabilitado">No habilitado</option>
+              <option value="status" selected>
+                Disponibilidad
+              </option>
+              <option value="true">Disponible</option>
+              <option value="false">No disponible</option>
             </select>
           </div>
         </div>

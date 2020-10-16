@@ -75,3 +75,14 @@
 .titulo-btn > button {
   margin: 0;
 }
+
+.linkToDetail:link,
+.linkToDetail:visited,
+.linkToDetail:active {
+  text-decoration: none;
+}
+
+.buttonMore {
+  font-size: 20px;
+  height: 10px;
+}
