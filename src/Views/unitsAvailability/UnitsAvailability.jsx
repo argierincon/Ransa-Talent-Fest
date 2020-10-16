@@ -123,7 +123,7 @@ const UnitsAvailability = () => {
             <div className="titulos-tabla grid-tabla-disp-unidades">
               <p>Placa</p>
               <p>Tipo</p>
-              <p>Razón social</p>
+              <p>Marca</p>
               <p>Disponibilidad</p>
               <p> </p>
             </div>
@@ -135,7 +135,7 @@ const UnitsAvailability = () => {
                 >
                   <p>{vehiculo.placa}</p>
                   <p>{vehiculo.tipo}</p>
-                  <p>{vehiculo.razonSocial}</p>
+                  <p>{vehiculo.marca}</p>
                   <div className="status-ver-mas margin-left-2rem space-evenly">
                     <TrafficLightRequest
                       clase={`solicitud-asignada width7rem ${

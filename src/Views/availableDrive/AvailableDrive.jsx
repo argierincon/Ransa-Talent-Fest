@@ -144,7 +144,7 @@ const AvailableDrive = () => {
             <div className="titulos-tabla grid-tabla-disp-unidades">
               <p>Placa</p>
               <p>Tipo</p>
-              <p>Razón social</p>
+              <p>Marca</p>
               <p>Disponibilidad</p>
               <p> </p>
             </div>
@@ -155,7 +155,7 @@ const AvailableDrive = () => {
               >
                 <p>{vehiculo.placa}</p>
                 <p>{vehiculo.tipo}</p>
-                <p>{vehiculo.razonSocial}</p>
+                <p>{vehiculo.marca}</p>
                 <select
                   value={vehiculo.disponible}
                   onChange={handleChange}
