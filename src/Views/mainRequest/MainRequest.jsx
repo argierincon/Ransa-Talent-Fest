@@ -118,8 +118,16 @@ const MainRequest = () => {
       cancelButtonText: 'Cancelar',
       confirmButtonText: 'Solicitar',
     }).then((result) => {
-      if (result.value) {
-        // this.props.submitUser(this.state);
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire({
+          imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/1200px-Yes_Check_Circle.svg.png',
+          imageHeight: 120,
+          confirmButtonColor: '#009A3F',
+          confirmButtonText: 'Enviado',
+        });
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info');
       }
     });
     db.collection('solicitudes').add(datosSolicitud).then(() => { resetForm(); });
