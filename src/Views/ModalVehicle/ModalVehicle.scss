@@ -74,6 +74,7 @@
 .second-colum {
   width: 48%;
   padding-left: 30px;
+  text-align: left;
 }
 .flex-container {
   display: flex;
@@ -86,13 +87,14 @@
   margin: 5px auto;
 }
 .info-vehicle {
-  width: 240px;
+  width: 200px;
   height: 40px;
   border-radius: 10px;
   background-color: $bg-inputs;
   margin: 5px 0px;
   display: flex;
   align-items: center;
+  font-size: 14px;
 }
 .info-vehicle p {
   font-size: 14px;
