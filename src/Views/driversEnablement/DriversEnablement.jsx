@@ -117,11 +117,6 @@ const DriversEnablement = () => {
                     }
                   />
                   <div className="status-ver-mas margin-left-2rem">
-                    <img
-                      className="descargar"
-                      src={descargar}
-                      alt="Descargar"
-                    />
                     <div className="status-ver-mas margin-left-2rem">
                       <a target="_blank" href="https://drive.google.com/drive/folders/1VvSxkYnPWZyZEkaeRwTd-djCCh9GB3_R?usp=sharing"><img className="descargar" src={descargar} alt="Descargar" /></a>
                       <Link className="linkToDetail" to={`/verificar-habilitacion-conductores/${conductor.id}`}>
