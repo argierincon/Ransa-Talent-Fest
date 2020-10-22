@@ -65,7 +65,7 @@ const DriversEnablement = () => {
       <div>
         <Header nombre="Cristian Narcizo" cargo="Supervisor de Operaciones" />
         <div className="seccion-estados-solicitud">
-          <h3>Lista de Vehículos para verificar habilitación</h3>
+          <h3>Lista de Conductores para verificar habilitación</h3>
           <div className="filtros-hab-unidades">
             <div>
               <select
