@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import Swal from 'sweetalert2';
 import { useParams } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import '../mainRequest/MainRequest.scss';
