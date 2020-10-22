@@ -2,10 +2,6 @@
 @import '../../assets/styles/variables';
 
 
-.seleccionado {
-  background: red;
-  color: #ffffff;
-}
 
 body{
   margin: 0;
@@ -102,13 +98,22 @@ body{
   border-radius: 4px;
   margin-top: 30px;
 }
-
-.nav-text a:hover {
+@mixin styleList  {
   background-color:#1AAF42;
   color: white;
   text-decoration: underline;
 }
-
+.nav-text a:hover {
+  @include styleList;
+}
+li.active a{
+  @include styleList;
+}
+// .nav-text a {
+//   background-color:#1AAF42;
+//   color: white;
+//   text-decoration: underline;
+// }
 // .nav-text a:active {
 //   background-color:#1AAF42;
 //   color: white;
